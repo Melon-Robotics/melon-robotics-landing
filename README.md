@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Melon Robotics Landing Page
 
-## Getting Started
+Welcome to the official landing page repository for **Melon Robotics**, a next-generation ocean intelligence company pioneering autonomous marine systems for defense, environmental monitoring, resource exploration, and more.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌊 About Melon Robotics
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Melon Robotics is building the future of ocean intelligence by engineering autonomous systems that sense, analyze, and interact with the maritime environment—at scale and in real time. We're on a mission to turn the ocean into a connected, intelligent ecosystem by deploying affordable, modular, and highly capable robotic platforms.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We believe the ocean is the final frontier for scalable autonomy and meaningful machine intelligence. Our work helps governments, researchers, and private operators get data faster, act smarter, and reduce human risk in extreme environments.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛰️ Flagship Products
 
-To learn more about Next.js, take a look at the following resources:
+### 🐟 **Melon Scout**
+**Scout** is our ultra-portable, AI-driven Autonomous Underwater Vehicle (AUV), designed for rapid deployment and intelligent mission execution. Scout is the ocean’s equivalent of a reconnaissance drone: compact, modular, and swarm-capable.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Key Features:
+- Real-time adaptive AI mission control
+- Long-range rajiform-inspired locomotion
+- Interchangeable payload modules (imaging, sonar, chemical sampling)
+- Edge-computing for onboard processing
+- Designed for ease of recovery and redeployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Use Cases:
+- Coastal surveillance and interdiction
+- Environmental monitoring and research
+- Pipeline and infrastructure inspection
+- Disaster response and search operations
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🧠 **Melon Fever**
+**Fever** is our swarm autonomy system—a tightly coordinated network of Melon Scouts operating as an intelligent collective. Fever enables persistent ocean presence and exponentially scalable data collection.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Key Features:
+- Acoustic and RF mesh communication protocols
+- Swarm-based mission planning and coordination
+- Shared situational awareness and data fusion
+- Multi-agent behavior learning and optimization
+- Compatible with satellite and USV uplink for relay
+
+#### Use Cases:
+- Large-area search and mapping
+- Subsea networked surveillance
+- Fleet-scale data harvesting
+- Collaborative exploration and patrol missions
+
+---
+
+## 🚀 Purpose of This Repository
+
+This repo contains the source code, content, and configurations for Melon Robotics’ official landing page.
+
+### What’s Inside:
+- 📄 Marketing copy & product descriptions
+- 🌐 Web layout & styling (likely using React + TailwindCSS)
+- 📸 Visual assets, animations, and product renders
+- ⚙️ Deployment scripts and SEO tools
+
+---
+
+### Melon Robotics
+***Ocean Intelligence, Deployed.***
