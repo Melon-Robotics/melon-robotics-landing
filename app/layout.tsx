@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { UnifiedNav } from "@/components/unified-nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Melon Robotics",
-  description: "Explore the ocean with Melon Robotics",
+  description: "Advanced robotics and safety technology for defense, research, and commercial operations",
 };
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        {children}
+        <UnifiedNav />
+        <main className="min-h-screen">{children}</main>
+        {/* Footer will be added */}
       </body>
     </html>
   );
