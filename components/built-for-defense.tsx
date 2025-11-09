@@ -58,7 +58,7 @@ export function BuiltForDefense() {
   ]
 
   return (
-    <section id="applications" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
+    <section id="applications" ref={sectionRef} className="relative py-24 md:py-32 bg-[#0a0e1a] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />

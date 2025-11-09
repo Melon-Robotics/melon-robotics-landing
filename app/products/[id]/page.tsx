@@ -40,8 +40,8 @@ export default function ProductPage({ params }: PageProps) {
   // Special handling for Scout product - use the full experience
   if (id === 'scout') {
     return (
-      <div className="min-h-screen bg-black text-white overflow-hidden">
-        <main>
+      <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+        <main className="relative">
           <MelonScoutHero />
           <WhatIsMelonScout />
           <FeverSwarmAdvantage />
@@ -57,8 +57,8 @@ export default function ProductPage({ params }: PageProps) {
   // BlackBox bespoke experience
   if (id === 'blackbox') {
     return (
-      <div className="min-h-screen bg-black text-white overflow-hidden">
-        <main>
+      <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+        <main className="relative">
           <BlackBoxHero />
           <BlackBoxDemo />
           <BlackBoxExplainer />
@@ -71,8 +71,8 @@ export default function ProductPage({ params }: PageProps) {
   // PneumaForce bespoke experience
   if (id === 'pneumaforce') {
     return (
-      <div className="min-h-screen bg-black text-white overflow-hidden">
-        <main>
+      <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+        <main className="relative">
           <PneumaForceHero />
           <PneumaForceDemos />
           <PneumaForceExplainer />
@@ -98,49 +98,60 @@ export default function ProductPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen bg-[#0a0e1a] text-white pt-20">
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20">
         {/* Background Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(245,158,11,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-grid-pattern" />
+        <div className="absolute inset-0 bg-ocean-gradient" />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="container-responsive relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center max-w-6xl mx-auto">
             {/* Image */}
-            <div className="relative h-96">
-              <Image
-                src={product.heroImage}
-                alt={product.name}
-                fill
-                className="object-contain"
-              />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[400px] md:h-[500px] order-2 lg:order-1"
+            >
+              <div className="absolute inset-0 border border-amber-500/30 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-6 md:p-8">
+                <div className="relative h-full w-full">
+                  <Image
+                    src={product.heroImage}
+                    alt={product.name}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+            </motion.div>
 
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="order-1 lg:order-2"
             >
-              <div className="inline-block border border-amber-500/30 bg-black/50 px-3 py-1 mb-4 text-sm font-mono text-amber-500">
+              <div className="inline-flex items-center gap-2 border border-amber-500/30 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] px-3 py-1.5 mb-6 text-xs md:text-sm font-mono text-amber-500 tracking-widest">
                 {product.category.toUpperCase()}
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tighter">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 md:mb-6 tracking-tighter leading-tight">
                 {product.name}
               </h1>
-              <p className="text-2xl text-gray-300 mb-2">{product.tagline}</p>
-              <p className="text-gray-400 mb-8">{product.description}</p>
+              <p className="text-xl md:text-2xl text-amber-400 mb-4 md:mb-5 font-normal leading-snug">{product.tagline}</p>
+              <p className="text-base md:text-lg text-gray-200 mb-10 leading-relaxed max-w-xl">{product.description}</p>
 
-              <div className="flex gap-4">
-                <Link href="/contact">
-                  <Button className="bg-amber-500 hover:bg-amber-600 text-black border border-amber-400 px-8 py-6 text-lg">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="flex-1 sm:flex-none">
+                  <Button className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-black border border-amber-400 px-8 md:px-10 py-6 md:py-7 text-base md:text-lg font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
                     {product.cta.primary}
                   </Button>
                 </Link>
                 <Button
                   variant="outline"
-                  className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg"
+                  className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/80 px-8 md:px-10 py-6 md:py-7 text-base md:text-lg transition-all"
                 >
                   {product.cta.secondary}
                 </Button>
@@ -151,34 +162,35 @@ export default function ProductPage({ params }: PageProps) {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 px-4 border-t border-amber-500/20">
-        <div className="container mx-auto max-w-6xl">
+      <section className="section-padding px-4 border-t border-amber-500/20 bg-[#0a0e1a]" aria-labelledby="features-heading">
+        <div className="container-responsive">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-16 md:mb-20"
           >
-            <div className="inline-block border border-amber-500/30 bg-black/50 px-3 py-1 mb-4 text-sm font-mono text-amber-500">
+            <div className="inline-block border border-amber-500/30 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] px-3 py-1.5 mb-6 text-xs md:text-sm font-mono text-amber-500 tracking-widest">
               FEATURES
             </div>
-            <h2 className="text-4xl font-bold">Capabilities</h2>
+            <h2 id="features-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-6 leading-tight">Capabilities</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {product.features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="border border-amber-500/20 bg-black/40 p-6"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="border border-amber-500/20 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-6 md:p-8 transition-all duration-300 hover:border-amber-500/30 hover:shadow-lg hover:shadow-amber-500/5"
               >
-                <div className="mb-4">{iconMap[feature.icon]}</div>
-                <h3 className="text-xl font-semibold text-amber-100 mb-2">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <div className="mb-5">{iconMap[feature.icon]}</div>
+                <h3 className="text-xl md:text-2xl font-semibold text-amber-100 mb-3 leading-tight">{feature.title}</h3>
+                <p className="text-base text-gray-200 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -186,33 +198,34 @@ export default function ProductPage({ params }: PageProps) {
       </section>
 
       {/* Specifications */}
-      <section className="py-24 px-4 border-t border-amber-500/20 bg-black/20">
-        <div className="container mx-auto max-w-6xl">
+      <section className="section-padding px-4 border-t border-amber-500/20 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625]" aria-labelledby="specs-heading">
+        <div className="container-responsive">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-12 md:mb-16"
           >
-            <div className="inline-block border border-amber-500/30 bg-black/50 px-3 py-1 mb-4 text-sm font-mono text-amber-500">
+            <div className="inline-block border border-amber-500/30 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] px-3 py-1.5 mb-6 text-xs md:text-sm font-mono text-amber-500 tracking-widest">
               SPECIFICATIONS
             </div>
-            <h2 className="text-4xl font-bold">Technical Details</h2>
+            <h2 id="specs-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-6 leading-tight">Technical Details</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {product.specifications.map((spec, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="border border-amber-500/20 bg-black/40 p-4"
+                whileHover={{ y: -2 }}
+                className="border border-amber-500/20 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-5 md:p-6 transition-all duration-300 hover:border-amber-500/30 hover:bg-[#0f1625]"
               >
-                <div className="text-xs text-amber-500/80 mb-1 font-mono uppercase">{spec.title}</div>
-                <div className="text-amber-100">{spec.value}</div>
+                <div className="text-xs md:text-sm text-amber-500/80 mb-2 font-mono uppercase tracking-wider">{spec.title}</div>
+                <div className="text-base md:text-lg text-amber-100 font-medium">{spec.value}</div>
               </motion.div>
             ))}
           </div>
@@ -221,8 +234,8 @@ export default function ProductPage({ params }: PageProps) {
 
       {/* Testimonial */}
       {product.testimonial && (
-        <section className="py-24 px-4 border-t border-amber-500/20">
-          <div className="container mx-auto max-w-4xl">
+        <section className="section-padding px-4 border-t border-amber-500/20" aria-label="Testimonial">
+          <div className="container-responsive max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -230,10 +243,10 @@ export default function ProductPage({ params }: PageProps) {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <blockquote className="text-2xl text-gray-300 mb-6">
+              <blockquote className="text-2xl md:text-3xl text-gray-200 mb-8 leading-relaxed font-light">
                 "{product.testimonial.quote}"
               </blockquote>
-              <div className="text-amber-500 font-mono">
+              <div className="text-amber-500 font-mono text-sm md:text-base">
                 — {product.testimonial.author}, {product.testimonial.role}
               </div>
             </motion.div>
@@ -242,35 +255,38 @@ export default function ProductPage({ params }: PageProps) {
       )}
 
       {/* CTA */}
-      <section className="py-24 px-4 border-t border-amber-500/20">
-        <div className="container mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-300 mb-8">
+      <section className="section-padding px-4 border-t border-amber-500/20" aria-labelledby="product-cta-heading">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container-responsive max-w-4xl text-center"
+        >
+          <div className="border border-amber-500/30 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] backdrop-blur-sm p-10 md:p-14 lg:p-16">
+            <h2 id="product-cta-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">
+              Ready to Get Started?
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
               Contact our team to discuss your requirements and explore deployment options.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-amber-500 hover:bg-amber-600 text-black px-8 py-6 text-lg">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-black px-8 md:px-10 py-6 md:py-7 text-base md:text-lg font-semibold border border-amber-400 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
                   Contact Sales
                 </Button>
               </Link>
-              <Link href="/products">
+              <Link href="/products" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
-                  className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg"
+                  className="w-full sm:w-auto border-amber-500/50 text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/80 px-8 md:px-10 py-6 md:py-7 text-base md:text-lg transition-all"
                 >
                   View All Products
                 </Button>
               </Link>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   )

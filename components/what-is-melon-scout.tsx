@@ -30,15 +30,23 @@ export function WhatIsMelonScout() {
   }
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-24 md:py-32 bg-[#0a0e1a] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         <div className="absolute top-1/4 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
 
-        {/* Grid lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(245,158,11,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        {/* Technical Grid Background */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -104,7 +112,7 @@ export function WhatIsMelonScout() {
               <div className="relative aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 rounded-full bg-amber-500/20 blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
 
-                <div className="relative bg-gradient-to-br from-black to-gray-900 border border-amber-500/30 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(245,158,11,0.2)]">
+                <div className="relative bg-gradient-to-br from-[#0a0e1a] to-[#0f1625] border border-amber-500/30 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(245,158,11,0.2)]">
                   <div className="p-1">
                     <div className="bg-black rounded-xl overflow-hidden">
                       <Image

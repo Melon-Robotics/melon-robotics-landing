@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { useRef, useEffect, useMemo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
@@ -385,50 +386,80 @@ export function MelonScoutHero() {
   }, [])
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
-      {/* Terminal-inspired HUD overlay */}
+    <section className="relative h-screen overflow-hidden bg-[#0a0e1a]">
+      {/* Technical Grid Background */}
+      <div className="absolute inset-0 opacity-[0.02] z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* DARPA/NASA Terminal-inspired HUD overlay */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        {/* Top frame */}
-        <div className="absolute top-0 left-0 w-full h-px bg-amber-500/30" />
-        <div className="absolute top-0 left-0 h-16 w-px bg-amber-500/30" />
-        <div className="absolute top-0 right-0 h-16 w-px bg-amber-500/30" />
+        {/* Top frame with technical corners */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+        <div className="absolute top-0 left-0 h-16 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
+        <div className="absolute top-0 right-0 h-16 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
+        
+        {/* Technical corner markers */}
+        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/20" />
+        <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-amber-500/20" />
         
         {/* Bottom frame */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-amber-500/30" />
-        <div className="absolute bottom-0 left-0 h-16 w-px bg-amber-500/30" />
-        <div className="absolute bottom-0 right-0 h-16 w-px bg-amber-500/30" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 h-16 w-px bg-gradient-to-t from-amber-500/30 to-transparent" />
+        <div className="absolute bottom-0 right-0 h-16 w-px bg-gradient-to-t from-amber-500/30 to-transparent" />
         
-        {/* Top-left corner info - responsive for mobile */}
+        {/* Bottom technical corners */}
+        <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-amber-500/20" />
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-amber-500/20" />
+        
+        {/* Top-left corner - System Reference */}
         <div className="absolute top-4 left-4 text-[10px] sm:text-xs font-mono text-amber-500/80">
-          <div className="inline-block border border-amber-500/30 bg-black/50 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded">
-            <span className="hidden xs:inline">MELON_ROBOTICS // </span>SECURE_SESSION
+          <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
+            <span className="hidden xs:inline">MR-SCOUT-AUV | </span>REF: 001-A
+          </div>
+          <div className="mt-1 text-[8px] text-gray-600 font-mono">
+            REV: B.3 | CLASS: UNCLASSIFIED
           </div>
         </div>
         
-        {/* Top-right corner info - hide on smallest screens */}
+        {/* Top-right corner - Mission Status */}
         <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80 hidden xs:block">
-          <div className="inline-block border border-amber-500/30 bg-black/50 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded">
-            SYS_STATUS: <span className="text-green-400">SECURE</span>
+          <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
+            SYS_STATUS: <span className="text-green-400">OPERATIONAL</span>
+          </div>
+          <div className="mt-1 text-[8px] text-gray-600 font-mono text-right">
+            FEVER_SWARM: <span className="text-green-400">ACTIVE</span>
           </div>
         </div>
         
-        {/* Bottom-left indicators - simplified for mobile */}
-        <div className="absolute bottom-4 left-4 flex items-center text-[10px] sm:text-xs font-mono">
-          <div className="flex items-center mr-3">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 mr-1 animate-pulse" />
+        {/* Bottom-left indicators - System Health */}
+        <div className="absolute bottom-4 left-4 flex flex-col gap-2 text-[10px] sm:text-xs font-mono">
+          <div className="flex items-center">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 mr-1.5 animate-pulse" />
             <span className="text-green-400">ONLINE</span>
+            <span className="text-gray-600 ml-2 hidden sm:inline">| LINK: STABLE</span>
           </div>
           <div className="flex items-center hidden xs:flex">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 mr-1 animate-pulse" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 mr-1.5 animate-pulse" />
             <span className="text-amber-500">COMMS</span>
+            <span className="text-gray-600 ml-2">| ACOUSTIC: ACTIVE</span>
           </div>
         </div>
         
-        {/* Bottom-right indicators - simplified for mobile */}
+        {/* Bottom-right indicators - Operational Data */}
         <div className="absolute bottom-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80">
-          <div className="inline-block border border-amber-500/30 bg-black/50 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded">
+          <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
             <span className="hidden xs:inline">DEPTH: 120M | </span>
-            <span>FEVER: <span className="text-green-400">ACTIVE</span></span>
+            <span>PWR: <span className="text-green-400">97%</span></span>
+          </div>
+          <div className="mt-1 text-[8px] text-gray-600 font-mono text-right">
+            SPEED: 12 KTS | RANGE: 45KM
           </div>
         </div>
       </div>
@@ -503,20 +534,24 @@ export function MelonScoutHero() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   className="flex flex-col sm:flex-row gap-3 sm:gap-4"
                 >
-                  <Button 
-                    variant="default" 
-                    size="lg" 
-                    className="bg-amber-500 hover:bg-amber-600 text-black rounded-none border border-amber-400 w-full sm:w-auto"
-                  >
-                    REQUEST DEMO
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 rounded-none w-full sm:w-auto"
-                  >
-                    SPECIFICATIONS
-                  </Button>
+                  <Link href="/contact">
+                    <Button 
+                      variant="default" 
+                      size="lg" 
+                      className="bg-amber-500 hover:bg-amber-600 text-black rounded-none border border-amber-400 w-full sm:w-auto"
+                    >
+                      REQUEST DEMO
+                    </Button>
+                  </Link>
+                  <Link href="/products">
+                    <Button 
+                      variant="outline" 
+                      size="lg" 
+                      className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 rounded-none w-full sm:w-auto"
+                    >
+                      SPECIFICATIONS
+                    </Button>
+                  </Link>
                 </motion.div>
               </>
             )}

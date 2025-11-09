@@ -57,7 +57,7 @@ export function MelonEdge() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 md:py-32 bg-[#0a0e1a] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
@@ -89,7 +89,7 @@ export function MelonEdge() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/40 transition-colors"
+                className="bg-gradient-to-br from-[#0a0e1a] to-[#0f1625] border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/40 transition-colors"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 p-2 bg-amber-500/10 border border-amber-500/20 rounded-lg">

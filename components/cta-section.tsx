@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function CTASection() {
   const sectionRef = useRef(null)
@@ -29,11 +30,19 @@ export function CTASection() {
   }
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-black overflow-hidden">
+    <section id="contact" ref={sectionRef} className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.15)_0,transparent_70%)]" />
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -58,20 +67,24 @@ export function CTASection() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Button
-              className="bg-amber-500 text-black hover:bg-amber-400 border border-amber-300/20 shadow-[0_0_15px_rgba(245,158,11,0.3)] text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6"
-              size="lg"
-            >
-              Request a Demo
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-white hover:bg-gray-100 text-black border border-white/20 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full transition-all duration-300"
+                size="lg"
+              >
+                Request a Demo
+              </Button>
+            </Link>
 
-            <Button
-              variant="outline"
-              className="border-amber-500/50 text-amber-400 hover:bg-amber-500/10 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6"
-              size="lg"
-            >
-              Download Specs
-            </Button>
+            <Link href="/products">
+              <Button
+                variant="outline"
+                className="border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-600 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full transition-all duration-300"
+                size="lg"
+              >
+                View All Products
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-10 sm:mt-12 md:mt-16 pt-10 sm:pt-12 md:pt-16 border-t border-amber-500/20">

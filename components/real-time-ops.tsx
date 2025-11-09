@@ -66,7 +66,7 @@ export function RealTimeOps() {
   }
 
   return (
-    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-black overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0e1a] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         {/* Grid background */}
@@ -1325,7 +1325,7 @@ export function RealTimeOps() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/20 rounded-none p-4 sm:p-6 hover:border-amber-500/40 transition-colors relative group overflow-hidden"
+                className="bg-gradient-to-br from-[#0a0e1a] to-[#0f1625] border border-amber-500/20 rounded-none p-4 sm:p-6 hover:border-amber-500/40 transition-colors relative group overflow-hidden"
               >
                 {/* Decorative corner accent */}
                 <div className="absolute top-0 left-0 w-8 sm:w-12 h-px bg-amber-500" />

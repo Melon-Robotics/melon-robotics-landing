@@ -108,7 +108,7 @@ export function FeverSwarmAdvantage() {
   ]
 
   return (
-    <section id="technology" ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-black overflow-hidden">
+    <section id="technology" ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0e1a] overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         {/* Grid background */}
