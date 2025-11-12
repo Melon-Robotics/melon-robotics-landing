@@ -84,9 +84,9 @@ export function BlackBoxHero() {
         </div>
       </div>
 
-      <div className="container-responsive max-w-7xl relative z-10 pt-20 pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
+      <div className="container-responsive max-w-7xl relative z-10 pt-20 pb-16 md:pb-32 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
@@ -126,39 +126,39 @@ export function BlackBoxHero() {
             </motion.div>
 
             {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-light mb-6 tracking-tight leading-[0.95]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-4 md:mb-6 tracking-tight leading-[0.95]"
             >
               <span className="block text-white/90">BlackBox</span>
-            </motion.h1>
-            <div className="h-px w-24 bg-amber-500/30 mb-6" />
+              </motion.h1>
+            <div className="h-px w-16 md:w-24 bg-amber-500/30 mb-4 md:mb-6" />
 
             {/* Tagline */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: loaded ? 1 : 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-400 mb-8 leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-400 mb-6 md:mb-8 leading-snug"
             >
-              Intelligent Communication<br />Platform for the Ocean
+              Intelligent Communication<br className="hidden sm:block" />Platform for the Ocean
             </motion.p>
 
             {/* Description */}
-            <motion.p
+              <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: loaded ? 1 : 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg md:text-xl text-gray-500 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-gray-500 mb-8 md:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light px-4 sm:px-0"
             >
               Advanced speech-to-text software for maritime and subsea operations. Real-time transcription, intelligent flagging, and offline-first architecture.
-            </motion.p>
+              </motion.p>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
@@ -169,7 +169,7 @@ export function BlackBoxHero() {
                   className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-base font-medium rounded-full transition-all duration-300 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
                 >
                   Download on App Store
-              </Button>
+                </Button>
               </Link>
               <Link href="/products">
                 <Button 
@@ -187,18 +187,18 @@ export function BlackBoxHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex items-center justify-center lg:justify-start gap-6 font-mono text-[9px] text-gray-600 mb-8"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 md:gap-6 font-mono text-[8px] sm:text-[9px] text-gray-600 mb-6 md:mb-8"
             >
               <div className="flex items-center gap-2">
                 <span className="text-gray-700">STORAGE:</span>
                 <span className="text-amber-500/80">100% LOCAL</span>
               </div>
-              <div className="w-px h-3 bg-gray-800" />
+              <div className="w-px h-3 bg-gray-800 hidden sm:block" />
               <div className="flex items-center gap-2">
                 <span className="text-gray-700">LATENCY:</span>
                 <span className="text-amber-500/80">&lt;100ms</span>
               </div>
-              <div className="w-px h-3 bg-gray-800" />
+              <div className="w-px h-3 bg-gray-800 hidden sm:block" />
               <div className="flex items-center gap-2">
                 <span className="text-gray-700">PRIVACY:</span>
                 <span className="text-green-400/80">AIR-GAPPED</span>
@@ -210,22 +210,22 @@ export function BlackBoxHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="mt-16 grid grid-cols-3 gap-8 text-center lg:text-left"
+              className="mt-8 md:mt-16 grid grid-cols-3 gap-3 md:gap-6 lg:gap-8 text-center lg:text-left"
             >
-              <div className="border border-gray-800/50 bg-black/40 p-4">
-                <div className="text-3xl font-light text-white mb-2 font-mono">100%</div>
-                <div className="text-xs text-gray-500 font-mono">LOCAL STORAGE</div>
+              <div className="border border-gray-800/50 bg-black/40 p-3 md:p-4">
+                <div className="text-xl sm:text-2xl md:text-3xl font-light text-white mb-1 md:mb-2 font-mono">100%</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 font-mono">LOCAL STORAGE</div>
               </div>
-              <div className="border border-gray-800/50 bg-black/40 p-4">
-                <div className="text-3xl font-light text-white mb-2 font-mono">REAL-TIME</div>
-                <div className="text-xs text-gray-500 font-mono">TRANSCRIBE</div>
+              <div className="border border-gray-800/50 bg-black/40 p-3 md:p-4">
+                <div className="text-xl sm:text-2xl md:text-3xl font-light text-white mb-1 md:mb-2 font-mono">REAL-TIME</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 font-mono">TRANSCRIBE</div>
               </div>
-              <div className="border border-gray-800/50 bg-black/40 p-4">
-                <div className="text-3xl font-light text-white mb-2 font-mono">OFFLINE</div>
-                <div className="text-xs text-gray-500 font-mono">FIRST ARCH</div>
+              <div className="border border-gray-800/50 bg-black/40 p-3 md:p-4">
+                <div className="text-xl sm:text-2xl md:text-3xl font-light text-white mb-1 md:mb-2 font-mono">OFFLINE</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 font-mono">FIRST ARCH</div>
               </div>
             </motion.div>
-          </motion.div>
+              </motion.div>
 
           {/* Product Visual */}
           <motion.div
@@ -250,7 +250,7 @@ export function BlackBoxHero() {
                       <div className="w-1 h-1 bg-white rounded-full" />
                       <div className="w-1 h-1 bg-white rounded-full" />
                     </div>
-                  </div>
+      </div>
 
                   {/* App Interface */}
                   <div className="aspect-[9/19.5] bg-gradient-to-b from-[#0a0a0a] to-black pt-12 relative">
@@ -259,7 +259,7 @@ export function BlackBoxHero() {
                       <div className="flex items-center justify-between mb-2">
                         <div className="font-mono text-[8px] text-amber-500/60">REF: APP-001</div>
                         <div className="font-mono text-[8px] text-gray-600">AUDIO: ACTIVE</div>
-                      </div>
+            </div>
                     </div>
                     
                     {/* Waveform visualization */}
@@ -285,9 +285,9 @@ export function BlackBoxHero() {
                             }}
                           />
                         ))}
-                      </div>
+          </div>
 
-                      {/* Transcription feed */}
+          {/* Transcription feed */}
                       <div className="space-y-3">
                         <div className="flex items-center justify-between mb-3">
                           <div className="text-xs text-gray-500 font-medium uppercase tracking-wider font-mono">TRANSCRIPTION</div>

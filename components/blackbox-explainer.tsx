@@ -18,35 +18,35 @@ export function BlackBoxExplainer() {
         }} />
       </div>
 
-      <div className="container-responsive max-w-6xl relative z-10">
-        {/* What it is */}
+      <div className="container-responsive max-w-6xl relative z-10 px-4">
+          {/* What it is */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-24"
+          className="mb-16 md:mb-24"
         >
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <div className="flex items-center justify-center gap-2 md:gap-4 mb-6 md:mb-8">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SYSTEM OVERVIEW</div>
+              <div className="font-mono text-[10px] sm:text-xs text-amber-500/60 tracking-[0.2em] sm:tracking-[0.3em] uppercase">SYSTEM OVERVIEW</div>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
             </div>
-            <div className="mb-6">
-              <div className="font-mono text-[9px] text-gray-600 mb-2">REF: MR-BBX-OVW | REV: A.2</div>
+            <div className="mb-4 md:mb-6">
+              <div className="font-mono text-[8px] sm:text-[9px] text-gray-600 mb-2">REF: MR-BBX-OVW | REV: A.2</div>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-8 tracking-tight text-white/90">
-              Offline-first speech intelligence<br />for mission communications
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-6 md:mb-8 tracking-tight text-white/90">
+              Offline-first speech intelligence<br className="hidden sm:block" />for mission communications
             </h2>
-            <div className="h-px w-24 bg-amber-500/30 mx-auto mb-8" />
-            <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light">
+            <div className="h-px w-16 md:w-24 bg-amber-500/30 mx-auto mb-6 md:mb-8" />
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light">
               BlackBox is a local, privacy-preserving app that transcribes radio and voice communications in real-time, lets operators flag critical messages, and overlays a situational minimap—without requiring the cloud.
             </p>
           </div>
 
           {/* Key Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-20">
             {[
               { label: "Privacy", value: "100%", sub: "On-Device", ref: "STAT-001" },
               { label: "Latency", value: "< 100ms", sub: "Real-Time", ref: "STAT-002" },
@@ -59,27 +59,27 @@ export function BlackBoxExplainer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="text-center border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-6 relative group"
+                className="text-center border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-4 md:p-6 relative group"
               >
                 <div className="absolute top-3 right-3">
                   <div className="font-mono text-[8px] text-gray-700">{stat.ref}</div>
-                </div>
-                <div className="text-4xl md:text-5xl font-light text-white mb-2 font-mono">{stat.value}</div>
+                  </div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2 font-mono">{stat.value}</div>
                 <div className="text-sm text-gray-500 mb-1 font-mono">{stat.label.toUpperCase()}</div>
                 <div className="text-xs text-gray-600 font-mono">{stat.sub}</div>
               </motion.div>
-            ))}
-          </div>
+                ))}
+              </div>
         </motion.div>
 
         {/* Problem & Solution */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-10 border border-gray-800/50 relative group"
+            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-800/50 relative group"
           >
             <div className="absolute top-0 right-0">
               <div className="font-mono text-[8px] text-gray-700">REF: 01</div>
@@ -87,8 +87,8 @@ export function BlackBoxExplainer() {
             <div className="mb-4">
               <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">PROBLEM STATEMENT</div>
               <div className="h-px w-8 bg-amber-500/30 mb-4" />
-            </div>
-            <h3 className="text-3xl font-light text-white/90 mb-6 tracking-tight">The Problem</h3>
+          </div>
+            <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 md:mb-6 tracking-tight">The Problem</h3>
             <ul className="space-y-4 text-gray-400">
               {[
                 "Critical transmissions get missed in noisy or high-tempo environments",
@@ -101,7 +101,7 @@ export function BlackBoxExplainer() {
                   <span className="leading-relaxed font-light">{item}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
           </motion.div>
 
           <motion.div
@@ -109,7 +109,7 @@ export function BlackBoxExplainer() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-10 border border-gray-800/50 relative group"
+            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-800/50 relative group"
           >
             <div className="absolute top-0 right-0">
               <div className="font-mono text-[8px] text-gray-700">REF: 02</div>
@@ -118,7 +118,7 @@ export function BlackBoxExplainer() {
               <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">SOLUTION ARCHITECTURE</div>
               <div className="h-px w-8 bg-amber-500/30 mb-4" />
             </div>
-            <h3 className="text-3xl font-light text-white/90 mb-6 tracking-tight">The Solution</h3>
+            <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 md:mb-6 tracking-tight">The Solution</h3>
             <ul className="space-y-4 text-gray-400">
               {[
                 "On-device ASR optimized for aviation and maritime jargon",
@@ -131,7 +131,7 @@ export function BlackBoxExplainer() {
                   <span className="leading-relaxed font-light">{item}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
           </motion.div>
         </div>
 
@@ -174,7 +174,7 @@ export function BlackBoxExplainer() {
                 >
                   <div className="absolute top-3 right-3">
                     <div className="font-mono text-[8px] text-gray-700">REF: {String(idx + 1).padStart(2, '0')}</div>
-                  </div>
+                </div>
                   <h4 className="text-xl font-light text-white/90 mb-4 tracking-tight pr-8">{useCase.title}</h4>
                   <div className="h-px w-8 bg-amber-500/30 mb-4" />
                   <p className="text-gray-500 leading-relaxed font-light">{useCase.description}</p>
@@ -256,7 +256,7 @@ export function BlackBoxExplainer() {
                 >
                   <div className="absolute top-3 right-3">
                     <div className="font-mono text-[8px] text-gray-700">Q: {String(idx + 1).padStart(2, '0')}</div>
-                  </div>
+                </div>
                   <h4 className="text-xl font-light text-white/90 mb-4 tracking-tight pr-8">{faq.q}</h4>
                   <div className="h-px w-8 bg-amber-500/30 mb-4" />
                   <p className="text-gray-500 leading-relaxed font-light">{faq.a}</p>

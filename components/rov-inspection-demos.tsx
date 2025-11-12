@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { SubscribeButton } from "@/components/payments/subscribe-button"
 
 export function ROVInspectionDemos() {
   return (
@@ -482,7 +483,7 @@ export function ROVInspectionDemos() {
           </p>
 
           {/* Subscription Tiers Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
             {[
               {
                 name: "Bronze",
@@ -584,11 +585,11 @@ export function ROVInspectionDemos() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`group relative border ${
+                className={`group relative border flex flex-col h-full ${
                   tier.recommended
                     ? 'border-amber-500/40 bg-amber-500/5'
                     : 'border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625]'
-                } p-8 transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]`}
+                } p-6 md:p-8 transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]`}
               >
                 {/* Technical Drawing Corners */}
                 <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -609,79 +610,85 @@ export function ROVInspectionDemos() {
                 </div>
 
                 {/* Title & Price */}
-                <div className="mb-8">
-                  <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-tight">{tier.name}</h3>
+                <div className="mb-6">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-3 tracking-tight">{tier.name}</h3>
                   <div className="h-px w-12 bg-amber-500/30 mb-4" />
-                  <div className="text-3xl md:text-4xl font-light text-amber-500/90 mb-2 font-mono">{tier.price}</div>
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-light text-amber-500/90 mb-2 font-mono">{tier.price}</div>
                   {tier.name !== 'Enterprise / Municipal' && (
                     <div className="font-mono text-[9px] text-gray-600">ANNUAL SUBSCRIPTION</div>
                   )}
                 </div>
 
-                {/* Included Services */}
-                <div className="mb-6">
-                  <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
-                    INCLUDED SERVICES
+                {/* Content Section - Flex Grow */}
+                <div className="flex-grow space-y-6">
+                  {/* Included Services */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      INCLUDED SERVICES
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.includedServices.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/60" />
+                          </div>
+                          <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {tier.includedServices.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="mt-2">
-                          <div className="w-1 h-1 bg-amber-500/60" />
-                        </div>
-                        <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Deliverables */}
-                <div className="mb-6">
-                  <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
-                    DELIVERABLES
+                  {/* Deliverables */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      DELIVERABLES
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.deliverablesPerYear.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/40" />
+                          </div>
+                          <span className="text-xs text-gray-500 leading-relaxed font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {tier.deliverablesPerYear.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="mt-2">
-                          <div className="w-1 h-1 bg-amber-500/40" />
-                        </div>
-                        <span className="text-xs text-gray-500 leading-relaxed font-light">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Equipment */}
-                <div className="mb-8">
-                  <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
-                    EQUIPMENT PACKAGE
+                  {/* Equipment */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      EQUIPMENT PACKAGE
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.equipment.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/30" />
+                          </div>
+                          <span className="text-xs text-gray-600 leading-relaxed font-mono">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {tier.equipment.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="mt-2">
-                          <div className="w-1 h-1 bg-amber-500/30" />
-                        </div>
-                        <span className="text-xs text-gray-600 leading-relaxed font-mono">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 {/* CTA Button */}
-                <Link href="/contact">
-                  <Button
+                <div className="mt-8">
+                  <SubscribeButton
+                    serviceId="rov-inspection"
+                    tierName={tier.name}
+                    tierPrice={tier.price}
                     className={`w-full ${
                       tier.recommended
                         ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
                         : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
-                    } py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
+                    } py-6 md:py-7 text-xs md:text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
                     variant="outline"
-                  >
-                    {tier.name === 'Enterprise / Municipal' ? 'Contact Sales' : 'Subscribe'}
-                  </Button>
-                </Link>
+                    isRecommended={tier.recommended}
+                    isEnterprise={tier.name === 'Enterprise / Municipal'}
+                  />
+                </div>
               </motion.div>
             ))}
           </div>

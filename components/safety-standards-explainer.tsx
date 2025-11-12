@@ -18,19 +18,19 @@ export function SafetyStandardsExplainer() {
       </div>
       
       <div className="container-responsive max-w-7xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
           {/* What & Why */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16">
-            <motion.div
+        <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+          viewport={{ once: true }} 
               transition={{ duration: 0.6 }}
               className="border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-8 relative group"
             >
@@ -40,7 +40,7 @@ export function SafetyStandardsExplainer() {
               <div className="mb-4">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">WHAT IT IS</div>
                 <div className="h-px w-8 bg-amber-500/30 mb-4" />
-              </div>
+            </div>
               <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-tight">Safety Standards & Documentation</h3>
               <p className="text-base text-gray-400 leading-relaxed font-light">
                 Comprehensive safety standards, protocols, and technical documentation for human-ocean interface operations. Industry-leading Standard Operating Procedures (SOPs) for commercial diving, ROV operations, and subsea construction. Research-backed best practices developed through decades of operational experience. Training curricula and certification programs ensure consistent skill development. Expert compliance consulting provides guidance on regulatory requirements across multiple jurisdictions, including OSHA, ITAR, and international maritime standards.
@@ -56,7 +56,7 @@ export function SafetyStandardsExplainer() {
             >
               <div className="absolute top-0 right-0">
                 <div className="font-mono text-[8px] text-gray-700">REF: 02</div>
-              </div>
+                </div>
               <div className="mb-4">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">WHY IT MATTERS</div>
                 <div className="h-px w-8 bg-amber-500/30 mb-4" />
@@ -78,7 +78,7 @@ export function SafetyStandardsExplainer() {
                 <li className="flex items-start gap-3">
                   <div className="mt-2">
                     <div className="w-1 h-1 bg-amber-500/60" />
-                  </div>
+            </div>
                   <span className="text-sm leading-relaxed font-light">Meet regulatory requirements with audit-ready documentation, gap analysis, and expert guidance on compliance across multiple jurisdictions.</span>
                 </li>
               </ul>
@@ -126,19 +126,188 @@ export function SafetyStandardsExplainer() {
             </div>
           </div>
 
+          {/* Safety Standards Service Modules */}
+          <div className="mb-16">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SERVICE MODULES</div>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+          </div>
+            <h3 className="text-3xl md:text-4xl font-light mb-6 tracking-tight text-white/90">Safety Services</h3>
+            <div className="h-px w-24 bg-amber-500/30 mb-8" />
+            <p className="text-base text-gray-500 font-light mb-12 max-w-2xl leading-relaxed">
+              Comprehensive safety standards, documentation, and training services. Each module includes specific deliverables and support infrastructure.
+            </p>
+            
+            <div className="space-y-6">
+              {[
+                {
+                  name: "SOP Development",
+                  description: "Custom Standard Operating Procedures tailored to your operations, equipment, and regulatory requirements. Role-specific, scenario-based checklists covering all operational phases.",
+                  deliverables: [
+                    "Custom SOP library (20+ procedures)",
+                    "Version-controlled documentation",
+                    "Role-specific checklists",
+                    "Scenario-based protocols",
+                    "Regular updates & revisions"
+                  ],
+                  equipment: [
+                    "Documentation platform",
+                    "Version control system",
+                    "Review & approval workflow",
+                    "Distribution system",
+                    "Training integration"
+                  ],
+                  ref: "SVC-001"
+                },
+                {
+                  name: "Training Programs",
+                  description: "Progressive training modules with assessments and certification paths. Curriculum development ensures consistent skill development from basic safety awareness through advanced technical operations.",
+                  deliverables: [
+                    "Training curriculum modules",
+                    "Interactive training materials",
+                    "Video content library",
+                    "Assessment & certification",
+                    "Progress tracking system"
+                  ],
+                  equipment: [
+                    "Learning management system",
+                    "Content delivery platform",
+                    "Assessment tools",
+                    "Certification tracking",
+                    "Reporting dashboard"
+                  ],
+                  ref: "SVC-002"
+                },
+                {
+                  name: "Compliance Audits",
+                  description: "Comprehensive gap analysis and compliance assessments for regulatory requirements. Audit-ready documentation and remediation recommendations support external inspections.",
+                  deliverables: [
+                    "Compliance gap analysis",
+                    "Audit-ready documentation",
+                    "Remediation recommendations",
+                    "Regulatory compliance reports",
+                    "Ongoing monitoring"
+                  ],
+                  equipment: [
+                    "Compliance tracking system",
+                    "Documentation repository",
+                    "Audit management tools",
+                    "Reporting platform",
+                    "Regulatory database"
+                  ],
+                  ref: "SVC-003"
+                },
+                {
+                  name: "Incident Investigation",
+                  description: "Expert support for incident investigation, root cause analysis, and corrective action development. Ensures thorough documentation and prevents recurrence.",
+                  deliverables: [
+                    "Incident investigation reports",
+                    "Root cause analysis",
+                    "Corrective action plans",
+                    "Lessons learned documentation",
+                    "SOP updates (if needed)"
+                  ],
+                  equipment: [
+                    "Investigation tools & templates",
+                    "Analysis frameworks",
+                    "Documentation systems",
+                    "Reporting platform",
+                    "Knowledge base"
+                  ],
+                  ref: "SVC-004"
+                },
+              ].map((service, idx) => (
+              <motion.div
+                  key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className="group relative"
+                >
+                  <div className="border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-8 transition-all duration-500 hover:border-amber-500/30 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+                    {/* Technical Drawing Corners */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {/* Service Reference */}
+                    <div className="mb-6 flex items-center justify-between">
+                      <div className="font-mono text-[9px] text-gray-600">
+                        MODULE: {service.ref} | REV: A.1
+                      </div>
+                  <div className="font-mono text-[8px] text-gray-700">
+                        REF: {String(idx + 1).padStart(2, '0')}
+                  </div>
+                </div>
+                
+                    {/* Service Name */}
+                    <h4 className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-tight">
+                      {service.name}
+                    </h4>
+                    <div className="h-px w-12 bg-amber-500/30 mb-6" />
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-gray-400 mb-8 leading-relaxed font-light">
+                      {service.description}
+                    </p>
+
+                    {/* Deliverables & Equipment Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {/* Deliverables */}
+                      <div>
+                        <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                          DELIVERABLES
+                        </div>
+                        <ul className="space-y-2">
+                          {service.deliverables.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <div className="mt-2">
+                                <div className="w-1 h-1 bg-amber-500/60" />
+                              </div>
+                              <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Equipment */}
+                      <div>
+                        <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                          PLATFORM & TOOLS
+                        </div>
+                        <ul className="space-y-2">
+                          {service.equipment.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <div className="mt-2">
+                                <div className="w-1 h-1 bg-amber-500/40" />
+                              </div>
+                              <span className="text-xs md:text-sm text-gray-500 leading-relaxed font-mono">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              </motion.div>
+            ))}
+            </div>
+          </div>
+
           {/* Retainer Packages - DARPA Technical Packages */}
           <div className="mb-12">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">RETAINER PACKAGES</div>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-            </div>
-            <h3 className="text-3xl md:text-4xl font-light mb-8 tracking-tight text-white/90">Service Retainers</h3>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+            <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">RETAINER PACKAGES</div>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+          </div>
+            <h3 className="text-3xl md:text-4xl font-light mb-6 tracking-tight text-white/90">Service Retainers</h3>
+            <div className="h-px w-24 bg-amber-500/30 mb-8" />
             <p className="text-base text-gray-500 font-light mb-12 max-w-2xl leading-relaxed">
               Ongoing safety program support with regular updates, audits, and training. Choose the level of engagement that matches your operational scale and compliance requirements.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
               {[
                 {
                   name: "Foundation",
@@ -187,18 +356,18 @@ export function SafetyStandardsExplainer() {
                   ],
                   recommended: false
                 },
-              ].map((p,i)=> (
-                <motion.div
-                  key={i}
+            ].map((p,i)=> (
+              <motion.div
+                key={i}
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className={`group relative border ${
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className={`group relative border flex flex-col h-full ${
                     p.recommended
                       ? 'border-amber-500/40 bg-amber-500/5'
                       : 'border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625]'
-                  } p-8 transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]`}
+                  } p-6 md:p-8 transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]`}
                 >
                   {/* Technical Drawing Corners */}
                   <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -212,60 +381,65 @@ export function SafetyStandardsExplainer() {
                   )}
 
                   {/* Tier Reference */}
-                  <div className="mb-6">
-                    <div className="font-mono text-[9px] text-gray-600 mb-2">
+                <div className="mb-6">
+                  <div className="font-mono text-[9px] text-gray-600 mb-2">
                       TIER: {p.name.toUpperCase()} | REF: MR-SAFETY-{String(i + 1).padStart(3, '0')}
                     </div>
                   </div>
 
                   {/* Title & Price */}
                   <div className="mb-6">
-                    <h4 className="text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-tight">{p.name}</h4>
+                    <h4 className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-3 tracking-tight">{p.name}</h4>
                     <div className="h-px w-12 bg-amber-500/30 mb-4" />
-                    <div className="text-3xl md:text-4xl font-light text-amber-500/90 mb-2 font-mono">{p.price}</div>
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-light text-amber-500/90 mb-2 font-mono">{p.price}</div>
                     {p.name !== 'Program' && (
                       <div className="font-mono text-[9px] text-gray-600">MONTHLY RETAINER</div>
-                    )}
-                  </div>
-
+                  )}
+                </div>
+                
                   {/* Description */}
                   <p className="text-sm text-gray-400 mb-6 leading-relaxed font-light">{p.description}</p>
 
-                  {/* Included Features */}
-                  <div className="mb-8">
-                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
-                      INCLUDED SERVICES
-                    </div>
+                  {/* Content Section - Flex Grow */}
+                  <div className="flex-grow">
+                    {/* Included Features */}
+                    <div>
+                      <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                        INCLUDED SERVICES
+                      </div>
                     <ul className="space-y-2">
-                      {p.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="mt-2">
+                        {p.includes.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className="mt-2 flex-shrink-0">
                             <div className="w-1 h-1 bg-amber-500/60" />
                           </div>
-                          <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                            <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-
+                  </div>
+                
                   {/* CTA Button */}
-                  <Link href="/contact">
+                  <div className="mt-8">
+                <Link href="/contact">
                     <Button
                       className={`w-full ${
                         p.recommended
                           ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
                           : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
-                      } py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
+                      } py-6 md:py-7 text-xs md:text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
                       variant="outline"
                     >
                       Contact Sales
-                    </Button>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+                  </Button>
+                </Link>
+                  </div>
+              </motion.div>
+            ))}
           </div>
-
+          </div>
+          
           {/* FAQ */}
           <div>
             <div className="inline-block px-2 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[10px] sm:text-xs tracking-widest uppercase mb-3 font-mono">FAQ</div>
@@ -275,7 +449,7 @@ export function SafetyStandardsExplainer() {
                 {q:"Do you provide training content?", a:"Yes—complete modules with assessments and refreshers."},
                 {q:"Will you support audits?", a:"We prepare documentation and support external audits."},
                 {q:"Can we run a pilot?", a:"Yes—start with Foundation and scale to Program as needed."},
-              ].map((f,i)=> (
+            ].map((f,i)=> (
                 <div key={i} className="border border-amber-500/20 bg-black/40 p-6">
                   <h4 className="text-amber-100 font-semibold mb-2">{f.q}</h4>
                   <p className="text-gray-300 text-sm">{f.a}</p>

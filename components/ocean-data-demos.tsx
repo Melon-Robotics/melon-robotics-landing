@@ -57,7 +57,7 @@ export function OceanDataDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">REGIONAL OVERVIEW</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: MAP-001</div>
-              </div>
+          </div>
 
               {/* Map Display */}
               <div className="relative h-80 bg-black/60 overflow-hidden border border-gray-800/50">
@@ -120,7 +120,7 @@ export function OceanDataDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">KEY METRICS</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: MET-001</div>
-              </div>
+                  </div>
 
               {/* Metrics Grid */}
               <div className="grid grid-cols-2 gap-3">
@@ -174,7 +174,7 @@ export function OceanDataDemos() {
             <div className="mb-4 flex items-center justify-between">
               <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">API INTEGRATION</div>
               <div className="font-mono text-[8px] text-gray-700">REF: API-001</div>
-            </div>
+          </div>
 
             {/* API Response */}
             <div className="bg-black/60 border border-gray-800/50 p-4">

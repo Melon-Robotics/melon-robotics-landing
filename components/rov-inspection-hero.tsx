@@ -152,8 +152,8 @@ export function ROVInspectionHero() {
             <div className="flex items-center gap-2">
               <span className="text-gray-700">RESPONSE:</span>
               <span className="text-amber-500/80">&lt;24h</span>
-            </div>
-          </motion.div>
+        </div>
+      </motion.div>
         </motion.div>
       </div>
 

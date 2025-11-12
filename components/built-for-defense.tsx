@@ -86,7 +86,7 @@ export function BuiltForDefense() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div variants={itemVariants} className="order-2 lg:order-1">
               <div className="space-y-6">
                 {applications.map((app, index) => (

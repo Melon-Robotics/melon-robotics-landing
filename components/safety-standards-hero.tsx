@@ -168,7 +168,7 @@ export function SafetyStandardsHero() {
             <div className="flex items-center gap-2">
               <span className="text-gray-700">COVERAGE:</span>
               <span className="text-amber-500/80">GLOBAL</span>
-            </div>
+        </div>
           </motion.div>
         </motion.div>
       </div>

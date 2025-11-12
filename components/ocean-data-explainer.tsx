@@ -78,7 +78,7 @@ export function OceanDataExplainer() {
                 <li className="flex items-start gap-3">
                   <div className="mt-2">
                     <div className="w-1 h-1 bg-amber-500/60" />
-                  </div>
+            </div>
                   <span className="text-sm leading-relaxed font-light">Enable data-driven decision making with programmatic API access, custom analytics, and integration with existing operational systems.</span>
                 </li>
               </ul>
@@ -126,6 +126,174 @@ export function OceanDataExplainer() {
             </div>
           </div>
 
+          {/* Ocean Data Service Modules */}
+          <div className="mb-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SERVICE MODULES</div>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-light mb-6 tracking-tight text-white/90">Data Services</h3>
+            <div className="h-px w-24 bg-amber-500/30 mb-8" />
+            <p className="text-base text-gray-500 font-light mb-12 max-w-2xl leading-relaxed">
+              Comprehensive oceanographic data services covering real-time monitoring, historical archives, and predictive forecasting. Each module includes specific deliverables and equipment configurations.
+            </p>
+            
+            <div className="space-y-6">
+              {[
+                {
+                  name: "Real-Time Monitoring",
+                  description: "Live data feeds from sensor networks with 5-15 minute update intervals. Continuous monitoring of waves, currents, temperature, salinity, and water quality parameters.",
+                  deliverables: [
+                    "Live data dashboard access",
+                    "Real-time API feeds",
+                    "Automated alerts & notifications",
+                    "Mobile app access",
+                    "Data export tools"
+                  ],
+                  equipment: [
+                    "Sensor buoy network",
+                    "Data telemetry systems",
+                    "Cloud processing infrastructure",
+                    "API gateway",
+                    "Dashboard platform"
+                  ],
+                  ref: "SVC-001"
+                },
+                {
+                  name: "Historical Archives",
+                  description: "Comprehensive historical data archives spanning 10+ years for trend analysis, research, and long-term planning. Multi-parameter datasets with quality-controlled records.",
+                  deliverables: [
+                    "Historical data access (10+ years)",
+                    "Quality-controlled datasets",
+                    "Trend analysis reports",
+                    "Custom data exports",
+                    "Research-grade documentation"
+                  ],
+                  equipment: [
+                    "Data archive infrastructure",
+                    "Quality control systems",
+                    "Data processing pipelines",
+                    "Export & delivery tools",
+                    "Documentation systems"
+                  ],
+                  ref: "SVC-002"
+                },
+                {
+                  name: "AI Forecasting",
+                  description: "Advanced machine learning models predict ocean conditions 7 days ahead with high accuracy. Supports operational planning, weather window optimization, and risk assessment.",
+                  deliverables: [
+                    "7-day forecast models",
+                    "Forecast accuracy reports",
+                    "Confidence intervals",
+                    "Forecast API access",
+                    "Custom forecast regions"
+                  ],
+                  equipment: [
+                    "AI/ML processing infrastructure",
+                    "Forecast model servers",
+                    "Historical training data",
+                    "Model validation systems",
+                    "Forecast delivery APIs"
+                  ],
+                  ref: "SVC-003"
+                },
+                {
+                  name: "API Integration",
+                  description: "RESTful API endpoints provide programmatic access to real-time and historical data. JSON responses with comprehensive metadata, quality indicators, and standardized units.",
+                  deliverables: [
+                    "RESTful API documentation",
+                    "API access credentials",
+                    "Sample code & SDKs",
+                    "Integration support",
+                    "Rate limit management"
+                  ],
+                  equipment: [
+                    "API gateway infrastructure",
+                    "Authentication systems",
+                    "Rate limiting & monitoring",
+                    "Documentation platform",
+                    "Developer support tools"
+                  ],
+                  ref: "SVC-004"
+                },
+              ].map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className="group relative"
+                >
+                  <div className="border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-8 transition-all duration-500 hover:border-amber-500/30 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+                    {/* Technical Drawing Corners */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {/* Service Reference */}
+                    <div className="mb-6 flex items-center justify-between">
+                      <div className="font-mono text-[9px] text-gray-600">
+                        MODULE: {service.ref} | REV: A.1
+                      </div>
+                      <div className="font-mono text-[8px] text-gray-700">
+                        REF: {String(idx + 1).padStart(2, '0')}
+                      </div>
+                    </div>
+
+                    {/* Service Name */}
+                    <h4 className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-tight">
+                      {service.name}
+                    </h4>
+                    <div className="h-px w-12 bg-amber-500/30 mb-6" />
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-gray-400 mb-8 leading-relaxed font-light">
+                      {service.description}
+                    </p>
+
+                    {/* Deliverables & Equipment Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {/* Deliverables */}
+                      <div>
+                        <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                          DELIVERABLES
+                        </div>
+                        <ul className="space-y-2">
+                          {service.deliverables.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <div className="mt-2">
+                                <div className="w-1 h-1 bg-amber-500/60" />
+                              </div>
+                              <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Equipment */}
+                      <div>
+                        <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                          INFRASTRUCTURE
+                        </div>
+                        <ul className="space-y-2">
+                          {service.equipment.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <div className="mt-2">
+                                <div className="w-1 h-1 bg-amber-500/40" />
+                              </div>
+                              <span className="text-xs md:text-sm text-gray-500 leading-relaxed font-mono">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
           {/* Subscription Plans - DARPA Technical Packages */}
           <div className="mb-12">
             <div className="flex items-center gap-4 mb-8">
@@ -133,7 +301,8 @@ export function OceanDataExplainer() {
               <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SUBSCRIPTION TIERS</div>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-light mb-8 tracking-tight text-white/90">Data Access Plans</h3>
+            <h3 className="text-3xl md:text-4xl font-light mb-6 tracking-tight text-white/90">Data Access Plans</h3>
+            <div className="h-px w-24 bg-amber-500/30 mb-8" />
             <p className="text-base text-gray-500 font-light mb-12 max-w-2xl leading-relaxed">
               Choose the data access level that matches your operational requirements. All plans include real-time feeds, historical archives, and web dashboard access.
             </p>
@@ -248,7 +417,7 @@ export function OceanDataExplainer() {
                           <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
                         </li>
                       ))}
-                    </ul>
+                  </ul>
                   </div>
 
                   {/* Limits */}
@@ -256,7 +425,7 @@ export function OceanDataExplainer() {
                     <div className="font-mono text-[9px] text-gray-600">
                       {p.limits}
                     </div>
-                  </div>
+                </div>
 
                   {/* CTA Button */}
                   <Link href="/contact">

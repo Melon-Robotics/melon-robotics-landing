@@ -57,7 +57,7 @@ export function SafetyStandardsDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">SOP VIEWER</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: SOP-001</div>
-              </div>
+          </div>
 
               {/* SOP List */}
               <div className="space-y-2">
@@ -82,7 +82,7 @@ export function SafetyStandardsDemos() {
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-amber-500/60 rounded-full" />
                       <span className="text-[9px] text-amber-500/80 font-mono">{s.status}</span>
-                    </div>
+                  </div>
                   </motion.div>
                 ))}
               </div>
@@ -113,7 +113,7 @@ export function SafetyStandardsDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">TRAINING MODULES</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: TRN-001</div>
-              </div>
+            </div>
 
               {/* Training Progress */}
               <div className="space-y-3">
@@ -173,7 +173,7 @@ export function SafetyStandardsDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">COMPLIANCE STATUS</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: CMP-001</div>
-              </div>
+                  </div>
 
               {/* Compliance Metrics */}
               <div className="grid grid-cols-2 gap-3">
@@ -206,7 +206,7 @@ export function SafetyStandardsDemos() {
               </div>
             </div>
           </motion.div>
-        </div>
+          </div>
       </div>
     </section>
   )

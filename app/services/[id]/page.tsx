@@ -6,17 +6,19 @@ import { getService } from "@/lib/data/services"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { use } from "react"
+import { SubscribeButton } from "@/components/payments/subscribe-button"
 
 // Bespoke heroes & demos per service
 import { ROVInspectionHero } from "@/components/rov-inspection-hero"
 import { ROVInspectionDemos } from "@/components/rov-inspection-demos"
 import { PhotogrammetryHero } from "@/components/photogrammetry-hero"
 import { PhotogrammetryDemos } from "@/components/photogrammetry-demos"
-import { OceanDataHero } from "@/components/ocean-data-hero"
-import { OceanDataDemos } from "@/components/ocean-data-demos"
-import { OceanDataExplainer } from "@/components/ocean-data-explainer"
+import { PhotogrammetryExplainer } from "@/components/photogrammetry-explainer"
+import { OceanDataCommandCenter } from "@/components/ocean-data-command-center"
+import { OceanDataAPIDocs } from "@/components/ocean-data-api-docs"
+import { OceanDataPricing } from "@/components/ocean-data-pricing"
 import { SafetyStandardsHero } from "@/components/safety-standards-hero"
-import { SafetyStandardsDemos } from "@/components/safety-standards-demos"
+import { SafetyStandardsCommandCenter } from "@/components/safety-standards-command-center"
 import { SafetyStandardsExplainer } from "@/components/safety-standards-explainer"
 
 interface PageProps {
@@ -49,6 +51,7 @@ export default function ServicePage({ params }: PageProps) {
         <main>
           <PhotogrammetryHero />
           <PhotogrammetryDemos />
+          <PhotogrammetryExplainer />
         </main>
       </div>
     )
@@ -58,9 +61,9 @@ export default function ServicePage({ params }: PageProps) {
     return (
       <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
         <main>
-          <OceanDataHero />
-          <OceanDataDemos />
-          <OceanDataExplainer />
+          <OceanDataCommandCenter />
+          <OceanDataAPIDocs />
+          <OceanDataPricing />
         </main>
       </div>
     )
@@ -71,7 +74,7 @@ export default function ServicePage({ params }: PageProps) {
       <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
         <main>
           <SafetyStandardsHero />
-          <SafetyStandardsDemos />
+          <SafetyStandardsCommandCenter />
           <SafetyStandardsExplainer />
         </main>
       </div>
@@ -637,18 +640,19 @@ export default function ServicePage({ params }: PageProps) {
                   </div>
 
                   {/* CTA Button */}
-                  <Link href="/contact">
-                    <Button
-                      className={`w-full ${
-                        tier.name === 'Gold'
-                          ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
-                          : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
-                      } py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
-                      variant="outline"
-                    >
-                      {tier.name === 'Enterprise / Municipal' ? 'Contact Sales' : 'Subscribe'}
-                    </Button>
-                  </Link>
+                  <SubscribeButton
+                    serviceId={service.id}
+                    tierName={tier.name}
+                    tierPrice={tier.price}
+                    className={`w-full ${
+                      tier.name === 'Gold'
+                        ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
+                        : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
+                    } py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
+                    variant="outline"
+                    isRecommended={tier.name === 'Gold'}
+                    isEnterprise={tier.name === 'Enterprise / Municipal'}
+                  />
                 </motion.div>
               ))}
             </div>

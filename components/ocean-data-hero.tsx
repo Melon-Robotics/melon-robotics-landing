@@ -122,8 +122,8 @@ export function OceanDataHero() {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 tracking-tight leading-[0.95]"
           >
-            <span className="block text-white/90">Operational Ocean</span>
-            <span className="block text-amber-500/90 font-normal">Intelligence</span>
+            <span className="block text-white/90">Ocean Data</span>
+            <span className="block text-amber-500/90 font-normal">API</span>
           </motion.h1>
           <div className="h-px w-24 bg-amber-500/30 mx-auto mb-6" />
 
@@ -134,7 +134,7 @@ export function OceanDataHero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-xl md:text-2xl text-amber-500/80 mb-6 font-light leading-snug"
           >
-            Real-time and historical oceanographic data with APIs, dashboards, and predictive models
+            Enterprise-grade API for real-time and historical oceanographic intelligence
           </motion.p>
 
           {/* Description */}
@@ -144,7 +144,7 @@ export function OceanDataHero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-base md:text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto font-light mb-8"
           >
-            Comprehensive maritime environmental intelligence services covering currents, waves, temperature, salinity, and water quality. Live data feeds from sensor networks, historical archives, AI-powered forecasting, and RESTful APIs for seamless integration with your operational systems.
+            RESTful API providing programmatic access to live sensor data, 10+ years of historical archives, AI-powered 7-day forecasts, and webhook notifications. Built for scale with comprehensive documentation, official SDKs, and enterprise support.
           </motion.p>
 
           {/* Technical Specs */}

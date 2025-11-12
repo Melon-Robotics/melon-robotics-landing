@@ -66,7 +66,7 @@ export function WhatIsMelonScout() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div variants={itemVariants} className="order-2 md:order-1">
               <div className="space-y-8">
                 {[

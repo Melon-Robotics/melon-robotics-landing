@@ -59,7 +59,7 @@ export function PhotogrammetryDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">IMAGE CAPTURE</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: CAP-001</div>
-              </div>
+          </div>
 
               {/* Image Grid */}
               <div className="grid grid-cols-4 gap-1 mb-6">
@@ -117,7 +117,7 @@ export function PhotogrammetryDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">RECONSTRUCTION</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: REC-001</div>
-              </div>
+            </div>
 
               {/* Processing Steps */}
               <div className="space-y-2">
@@ -179,7 +179,7 @@ export function PhotogrammetryDemos() {
               <div className="mb-4 flex items-center justify-between">
                 <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider">MEASUREMENT</div>
                 <div className="font-mono text-[8px] text-gray-700">REF: MSR-001</div>
-              </div>
+            </div>
 
               {/* Measurement Display */}
               <div className="h-56 relative overflow-hidden border border-gray-800/50 bg-black/40 mb-6">
@@ -271,6 +271,476 @@ export function PhotogrammetryDemos() {
                 <div className="h-px w-8 bg-amber-500/30 mb-4" />
                 <p className="text-sm text-gray-400 leading-relaxed font-light mb-4">{cap.description}</p>
                 <div className="font-mono text-[9px] text-amber-500/70">{cap.spec}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Photogrammetry Service Modules */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 md:mb-28"
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+            <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SERVICE MODULES</div>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 text-white/90">
+            3D Photogrammetry<br />Services
+          </h2>
+          <p className="text-base md:text-lg text-gray-500 font-light max-w-xl leading-relaxed mb-12">
+            High-precision 3D reconstruction services transforming underwater imagery into millimeter-accurate models for engineering analysis, documentation, and change detection.
+          </p>
+
+          {/* Services Grid */}
+          <div className="space-y-6">
+            {[
+              {
+                name: "Structure Documentation",
+                description: "Complete 3D documentation of underwater structures including bridges, piers, docks, and infrastructure. Delivers photorealistic textured models with precise measurements for engineering analysis and maintenance planning.",
+                deliverables: [
+                  "High-resolution 3D mesh model",
+                  "Photorealistic texture maps",
+                  "Measurement report with key dimensions",
+                  "CAD-compatible export formats (OBJ, PLY, STL)",
+                  "Orthomosaic imagery"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "Structured lighting array",
+                  "Laser scaler for scale reference",
+                  "GPS/INS positioning system",
+                  "Photogrammetry processing software"
+                ],
+                ref: "SVC-001"
+              },
+              {
+                name: "Deformation Monitoring",
+                description: "Temporal comparison of structures to detect movement, settlement, or degradation over time. Quantitative analysis of changes between survey periods with detailed reporting.",
+                deliverables: [
+                  "Baseline 3D model",
+                  "Comparison model from follow-up survey",
+                  "Deformation analysis report",
+                  "Change detection visualization",
+                  "Quantitative displacement measurements"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "Control point markers",
+                  "Precision positioning system",
+                  "Temporal analysis software",
+                  "Change detection algorithms"
+                ],
+                ref: "SVC-002"
+              },
+              {
+                name: "Volume Calculations",
+                description: "Precise volume measurements for dredging, material removal, or sediment accumulation. Ideal for environmental monitoring, construction planning, and regulatory compliance.",
+                deliverables: [
+                  "3D terrain model",
+                  "Volume calculation report",
+                  "Before/after comparison (if applicable)",
+                  "Cut/fill analysis",
+                  "Exportable surface data"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "Bathymetric sensors",
+                  "Laser scaler",
+                  "Volume analysis software",
+                  "GPS positioning"
+                ],
+                ref: "SVC-003"
+              },
+              {
+                name: "Wreck Documentation",
+                description: "Comprehensive 3D documentation of shipwrecks, archaeological sites, or submerged artifacts. Preserves detailed records for research, conservation, and legal documentation.",
+                deliverables: [
+                  "Complete 3D wreck model",
+                  "High-resolution texture maps",
+                  "Archaeological documentation report",
+                  "Measurement and annotation data",
+                  "Interactive 3D viewer"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "High-intensity lighting",
+                  "Laser scaler",
+                  "Precision positioning",
+                  "Archaeological documentation tools"
+                ],
+                ref: "SVC-004"
+              },
+              {
+                name: "Pipeline & Cable Mapping",
+                description: "3D reconstruction of submerged pipelines and cables for condition assessment, route documentation, and maintenance planning. Identifies exposure, movement, or damage.",
+                deliverables: [
+                  "3D pipeline/cable model",
+                  "Route deviation analysis",
+                  "Condition assessment report",
+                  "Geo-referenced model",
+                  "CAD integration files"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "DVL navigation",
+                  "GPS transponder",
+                  "Laser scaler",
+                  "Pipeline mapping software"
+                ],
+                ref: "SVC-005"
+              },
+              {
+                name: "Hull & Propeller Analysis",
+                description: "Detailed 3D models of vessel hulls and propellers for damage assessment, performance analysis, and maintenance documentation. Enables precise measurement of dents, scratches, and wear.",
+                deliverables: [
+                  "3D hull/propeller model",
+                  "Damage assessment report",
+                  "Precise measurements of defects",
+                  "Before/after comparison (if applicable)",
+                  "Maintenance recommendations"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "Structured lighting",
+                  "Laser scaler",
+                  "Hull-specific positioning",
+                  "Damage analysis software"
+                ],
+                ref: "SVC-006"
+              },
+            ].map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.05 }}
+                className="group relative"
+              >
+                <div className="border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-8 transition-all duration-500 hover:border-amber-500/30 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+                  {/* Technical Drawing Corners */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Service Reference */}
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="font-mono text-[9px] text-gray-600">
+                      MODULE: {service.ref} | REV: A.1
+                    </div>
+                    <div className="font-mono text-[8px] text-gray-700">
+                      REF: {String(idx + 1).padStart(2, '0')}
+                    </div>
+                  </div>
+
+                  {/* Service Name */}
+                  <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-tight">
+                    {service.name}
+                  </h3>
+                  <div className="h-px w-12 bg-amber-500/30 mb-6" />
+
+                  {/* Description */}
+                  <p className="text-sm md:text-base text-gray-400 mb-8 leading-relaxed font-light">
+                    {service.description}
+                  </p>
+
+                  {/* Deliverables & Equipment Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Deliverables */}
+                    <div>
+                      <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                        DELIVERABLES
+                      </div>
+                      <ul className="space-y-2">
+                        {service.deliverables.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <div className="mt-2">
+                              <div className="w-1 h-1 bg-amber-500/60" />
+                            </div>
+                            <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Equipment */}
+                    <div>
+                      <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                        EQUIPMENT
+                      </div>
+                      <ul className="space-y-2">
+                        {service.equipment.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <div className="mt-2">
+                              <div className="w-1 h-1 bg-amber-500/40" />
+                            </div>
+                            <span className="text-xs md:text-sm text-gray-500 leading-relaxed font-mono">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Photogrammetry Pricing Tiers */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 md:mb-28"
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+            <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">PRICING TIERS</div>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 text-white/90">
+            Project-Based<br />Pricing
+          </h2>
+          <p className="text-base md:text-lg text-gray-500 font-light max-w-xl leading-relaxed mb-12">
+            Flexible pricing options for one-time projects or ongoing documentation programs. All projects include processing, quality assurance, and technical support.
+          </p>
+
+          {/* Pricing Tiers Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+            {[
+              {
+                name: "Standard",
+                price: "$3,500",
+                description: "Single structure documentation with standard deliverables.",
+                includedServices: [
+                  "Structure documentation (up to 50m²)",
+                  "3D mesh model (2-5M points)",
+                  "Photorealistic textures",
+                  "Measurement report",
+                  "Standard export formats"
+                ],
+                deliverablesPerYear: [
+                  "1 complete 3D model",
+                  "Measurement report",
+                  "CAD exports (OBJ, PLY, STL)",
+                  "Orthomosaic imagery"
+                ],
+                equipment: [
+                  "Multi-camera ROV",
+                  "Standard lighting",
+                  "Laser scaler",
+                  "GPS positioning"
+                ],
+                ref: "PRC-001",
+                recommended: false
+              },
+              {
+                name: "Professional",
+                price: "$7,500",
+                description: "Enhanced documentation with high-resolution models and advanced analysis.",
+                includedServices: [
+                  "Structure documentation (up to 200m²)",
+                  "High-res 3D model (5-10M points)",
+                  "Advanced texture mapping",
+                  "Detailed measurement analysis",
+                  "Deformation monitoring (2 surveys)",
+                  "Change detection report"
+                ],
+                deliverablesPerYear: [
+                  "2 complete 3D models",
+                  "Deformation analysis",
+                  "Advanced CAD exports",
+                  "Change detection visualization",
+                  "Technical documentation"
+                ],
+                equipment: [
+                  "Multi-camera ROV",
+                  "Advanced lighting array",
+                  "Precision laser scaler",
+                  "High-accuracy GPS/INS"
+                ],
+                ref: "PRC-002",
+                recommended: true
+              },
+              {
+                name: "Enterprise",
+                price: "$15,000",
+                description: "Comprehensive documentation with unlimited area coverage and premium deliverables.",
+                includedServices: [
+                  "Unlimited area coverage",
+                  "Ultra-high-res model (10M+ points)",
+                  "Premium texture mapping",
+                  "Volume calculations",
+                  "Multi-temporal analysis",
+                  "Custom export formats",
+                  "Interactive 3D viewer",
+                  "Technical consultation"
+                ],
+                deliverablesPerYear: [
+                  "Multiple 3D models",
+                  "Volume analysis reports",
+                  "Temporal comparison studies",
+                  "Custom format exports",
+                  "Interactive web viewer",
+                  "Ongoing technical support"
+                ],
+                equipment: [
+                  "Multi-camera ROV system",
+                  "Professional lighting",
+                  "Precision measurement tools",
+                  "Full sensor suite",
+                  "Processing workstation"
+                ],
+                ref: "PRC-003",
+                recommended: false
+              },
+              {
+                name: "Program",
+                price: "Custom",
+                description: "Ongoing documentation programs with scheduled surveys and dedicated support.",
+                includedServices: [
+                  "Custom survey schedule",
+                  "Unlimited area coverage",
+                  "Regular model updates",
+                  "Change detection monitoring",
+                  "Dedicated project manager",
+                  "Priority processing",
+                  "Custom deliverables"
+                ],
+                deliverablesPerYear: [
+                  "Quarterly/annual 3D models",
+                  "Change detection reports",
+                  "Trend analysis",
+                  "Custom format exports",
+                  "Dedicated support"
+                ],
+                equipment: [
+                  "Dedicated ROV system",
+                  "Full equipment suite",
+                  "Processing infrastructure",
+                  "Custom tooling (if needed)"
+                ],
+                ref: "PRC-004",
+                recommended: false
+              },
+            ].map((tier, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className={`group relative border flex flex-col h-full ${
+                  tier.recommended
+                    ? 'border-amber-500/40 bg-amber-500/5'
+                    : 'border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625]'
+                } p-6 md:p-8 transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]`}
+              >
+                {/* Technical Drawing Corners */}
+                <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Recommended Badge */}
+                {tier.recommended && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber-500 text-black text-[10px] font-mono tracking-wider uppercase">
+                    RECOMMENDED
+                  </div>
+                )}
+
+                {/* Tier Reference */}
+                <div className="mb-6">
+                  <div className="font-mono text-[9px] text-gray-600 mb-2">
+                    TIER: {tier.name.toUpperCase()} | REF: {tier.ref}
+                  </div>
+                </div>
+
+                {/* Title & Price */}
+                <div className="mb-6">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 mb-3 tracking-tight">{tier.name}</h3>
+                  <div className="h-px w-12 bg-amber-500/30 mb-4" />
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-light text-amber-500/90 mb-2 font-mono">{tier.price}</div>
+                  {tier.name !== 'Program' && (
+                    <div className="font-mono text-[9px] text-gray-600">PER PROJECT</div>
+                  )}
+                </div>
+
+                {/* Description */}
+                <p className="text-sm text-gray-400 mb-6 leading-relaxed font-light">{tier.description}</p>
+
+                {/* Content Section - Flex Grow */}
+                <div className="flex-grow space-y-6">
+                  {/* Included Services */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      INCLUDED SERVICES
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.includedServices.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/60" />
+                          </div>
+                          <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Deliverables */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      DELIVERABLES
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.deliverablesPerYear.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/40" />
+                          </div>
+                          <span className="text-xs text-gray-500 leading-relaxed font-light">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Equipment */}
+                  <div>
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      EQUIPMENT PACKAGE
+                    </div>
+                    <ul className="space-y-2">
+                      {tier.equipment.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="mt-2 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/30" />
+                          </div>
+                          <span className="text-xs text-gray-600 leading-relaxed font-mono">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-8">
+                  <Link href="/contact">
+                    <Button
+                      className={`w-full ${
+                        tier.recommended
+                          ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
+                          : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
+                      } py-6 md:py-7 text-xs md:text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
+                      variant="outline"
+                    >
+                      {tier.name === 'Program' ? 'Contact Sales' : 'Request Quote'}
+                    </Button>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>

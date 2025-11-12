@@ -18,35 +18,35 @@ export function PneumaForceExplainer() {
         }} />
       </div>
 
-      <div className="container-responsive max-w-6xl relative z-10">
-        {/* What it is */}
+      <div className="container-responsive max-w-6xl relative z-10 px-4">
+          {/* What it is */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-24"
+          className="mb-16 md:mb-24"
         >
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <div className="flex items-center justify-center gap-2 md:gap-4 mb-6 md:mb-8">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">SYSTEM OVERVIEW</div>
+              <div className="font-mono text-[10px] sm:text-xs text-amber-500/60 tracking-[0.2em] sm:tracking-[0.3em] uppercase">SYSTEM OVERVIEW</div>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
             </div>
-            <div className="mb-6">
-              <div className="font-mono text-[9px] text-gray-600 mb-2">REF: MR-PNF-OVW | REV: A.1</div>
+            <div className="mb-4 md:mb-6">
+              <div className="font-mono text-[8px] sm:text-[9px] text-gray-600 mb-2">REF: MR-PNF-OVW | REV: A.1</div>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-8 tracking-tight text-white/90">
-              Pneumatic exoskeleton for<br />subsea strength and control
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-6 md:mb-8 tracking-tight text-white/90">
+              Pneumatic exoskeleton for<br className="hidden sm:block" />subsea strength and control
             </h2>
-            <div className="h-px w-24 bg-amber-500/30 mx-auto mb-8" />
-            <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light">
+            <div className="h-px w-16 md:w-24 bg-amber-500/30 mx-auto mb-6 md:mb-8" />
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light">
               PneumaForce is an upper-body exoskeleton that augments a diver's strength, endurance, and buoyancy control. AirMatrix provides precise buoyancy trimming, PneumaPower delivers up to +100 lb assist, and SyncMotion anticipates intent for natural movement.
             </p>
-          </div>
+                  </div>
 
           {/* Key Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-20">
             {[
               { label: "Assist", value: "+100 lb", sub: "Power" },
               { label: "Depth", value: "1000 ft", sub: "Max Operating" },
@@ -63,22 +63,22 @@ export function PneumaForceExplainer() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-light text-white mb-2">{stat.value}</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-2">{stat.value}</div>
                 <div className="text-sm text-gray-500 mb-1">{stat.label}</div>
                 <div className="text-xs text-gray-600">{stat.sub}</div>
               </motion.div>
-            ))}
-          </div>
+                ))}
+              </div>
         </motion.div>
 
         {/* Problem & Solution */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-10 border border-gray-800/50 relative group"
+            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-800/50 relative group"
           >
             <div className="absolute top-0 right-0">
               <div className="font-mono text-[8px] text-gray-700">REF: 01</div>
@@ -86,8 +86,8 @@ export function PneumaForceExplainer() {
             <div className="mb-4">
               <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">PROBLEM STATEMENT</div>
               <div className="h-px w-8 bg-amber-500/30 mb-4" />
-            </div>
-            <h3 className="text-3xl font-light text-white/90 mb-6 tracking-tight">The Problem</h3>
+          </div>
+            <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 md:mb-6 tracking-tight">The Problem</h3>
             <ul className="space-y-4 text-gray-400">
               {[
                 "Physical strain and injury risk in heavy, repetitive subsea tasks",
@@ -100,7 +100,7 @@ export function PneumaForceExplainer() {
                   <span className="leading-relaxed font-light">{item}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
           </motion.div>
 
           <motion.div
@@ -108,7 +108,7 @@ export function PneumaForceExplainer() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-10 border border-gray-800/50 relative group"
+            className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-800/50 relative group"
           >
             <div className="absolute top-0 right-0">
               <div className="font-mono text-[8px] text-gray-700">REF: 02</div>
@@ -117,7 +117,7 @@ export function PneumaForceExplainer() {
               <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">SOLUTION ARCHITECTURE</div>
               <div className="h-px w-8 bg-amber-500/30 mb-4" />
             </div>
-            <h3 className="text-3xl font-light text-white/90 mb-6 tracking-tight">The Solution</h3>
+            <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4 md:mb-6 tracking-tight">The Solution</h3>
             <ul className="space-y-4 text-gray-400">
               {[
                 "AirMatrix dynamically trims buoyancy for neutral/positive/negative control",
@@ -130,7 +130,7 @@ export function PneumaForceExplainer() {
                   <span className="leading-relaxed font-light">{item}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
           </motion.div>
         </div>
 
@@ -156,7 +156,7 @@ export function PneumaForceExplainer() {
             </h2>
             <div className="h-px w-24 bg-amber-500/30 mx-auto mb-6" />
             <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light">
-              Two revolutionary systems working in harmony to eliminate diver fatigue and enhance precision.
+              Three revolutionary systems working in harmony to eliminate diver fatigue and enhance precision.
             </p>
           </div>
 
@@ -231,12 +231,92 @@ export function PneumaForceExplainer() {
                       <div className="text-2xl font-light text-white mb-1 font-mono">{spec.value}</div>
                       <div className="text-xs text-gray-500 mb-1 font-mono">{spec.label.toUpperCase()}</div>
                       <div className="text-[10px] text-gray-600 font-mono">{spec.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+            </motion.div>
+          </div>
+
+          {/* PneumaPower Assist System */}
+          <div className="mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] rounded-3xl p-10 md:p-12 border border-gray-800/50 relative group"
+            >
+              <div className="absolute top-4 right-4">
+                <div className="font-mono text-[8px] text-gray-700">REF: PNEUMA-001</div>
+              </div>
+              
+              <div className="mb-6">
+                <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-2">PNEUMAPOWER ASSIST SYSTEM</div>
+                <div className="h-px w-12 bg-amber-500/30 mb-4" />
+              </div>
+              
+              <h3 className="text-3xl md:text-4xl font-light text-white/90 mb-6 tracking-tight">
+                Lift 100 pounds like 10.<br />Strength without strain.
+              </h3>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
+                <div>
+                  <h4 className="text-xl font-light text-white/90 mb-4 tracking-tight">How It Works</h4>
+                  <div className="space-y-4 text-gray-400 leading-relaxed font-light">
+                    <p>
+                      PneumaPower uses a network of adaptive pneumatic actuators integrated into the exoskeleton's shoulder, arm, and torso sections. These actuators are powered by your SCUBA air supply and respond to muscle activation signals detected by the SyncMotion sensor network.
+                    </p>
+                    <p>
+                      When you initiate a lift or apply force, the system detects your intent through micro-movements and muscle tension patterns. Pneumatic actuators then engage proportionally, amplifying your strength by up to 100 pounds of additional assist force. The system provides smooth, controlled augmentation that feels natural—you maintain full control while the exoskeleton handles the heavy lifting.
+                    </p>
+                    <p>
+                      The assist level is dynamically adjustable based on task requirements. For delicate work, you can reduce assistance to near-zero for fine motor control. For heavy lifting or sustained force tasks, maximum assist engages automatically when needed. The system continuously adapts to your movements, ensuring the right amount of help at the right time.
+                    </p>
+                  </div>
+            </div>
+                
+                <div>
+                  <h4 className="text-xl font-light text-white/90 mb-4 tracking-tight">Key Benefits</h4>
+                  <ul className="space-y-3 text-gray-400 leading-relaxed font-light">
+                    {[
+                      "Up to 100 lb of force augmentation for heavy lifts and sustained tasks",
+                      "Reduces physical strain and injury risk from repetitive heavy work",
+                      "Extends productive dive time by minimizing fatigue accumulation",
+                      "Enables tasks previously requiring multiple divers or surface support",
+                      "Proportional control maintains natural movement and fine motor skills",
+                      "Automatic engagement adapts to task demands without manual switching"
+                    ].map((benefit, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="mt-2 w-1.5 h-1.5 bg-amber-500/60 rounded-full flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+              </ul>
+            </div>
+          </div>
+
+              {/* Technical Specifications */}
+              <div className="mt-8 pt-8 border-t border-gray-800/50">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {[
+                    { label: "Max Assist", value: "+100 lb", sub: "Force augmentation" },
+                    { label: "Actuators", value: "8 zones", sub: "Distributed power" },
+                    { label: "Response Time", value: "< 50ms", sub: "Activation speed" },
+                    { label: "Power Source", value: "SCUBA", sub: "Air-driven system" },
+                  ].map((spec, idx) => (
+                    <div key={idx} className="border border-gray-800/50 bg-black/40 p-4">
+                      <div className="text-2xl font-light text-white mb-1 font-mono">{spec.value}</div>
+                      <div className="text-xs text-gray-500 mb-1 font-mono">{spec.label.toUpperCase()}</div>
+                      <div className="text-[10px] text-gray-600 font-mono">{spec.sub}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </motion.div>
           </div>
+        </motion.div>
+
 
           {/* SyncMotion Leveling System */}
           <div>
@@ -318,7 +398,6 @@ export function PneumaForceExplainer() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
 
         {/* Use Cases */}
         <motion.div

@@ -122,13 +122,13 @@ export function UnifiedNav() {
                     </AnimatePresence>
                   </>
                 ) : (
-                  <Link
-                    href={item.href}
+              <Link
+                href={item.href}
                     className="text-sm font-medium text-amber-500/80 hover:text-amber-500 transition-colors duration-300 relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded px-2 py-1"
-                  >
-                    {item.name}
-                    <span className="absolute left-0 bottom-0 h-px w-0 group-hover:w-full bg-amber-500 transition-all duration-300" />
-                  </Link>
+              >
+                {item.name}
+                <span className="absolute left-0 bottom-0 h-px w-0 group-hover:w-full bg-amber-500 transition-all duration-300" />
+              </Link>
                 )}
               </div>
             ))}
@@ -205,13 +205,13 @@ export function UnifiedNav() {
                       </div>
                     </div>
                   ) : (
-                    <Link
-                      href={item.href}
-                      onClick={handleMenuClick}
+                  <Link
+                    href={item.href}
+                    onClick={handleMenuClick}
                       className="block py-3 px-4 rounded-lg text-base font-medium text-amber-500/80 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
-                    >
-                      {item.name}
-                    </Link>
+                  >
+                    {item.name}
+                  </Link>
                   )}
                 </motion.div>
               ))}
