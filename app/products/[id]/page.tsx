@@ -15,6 +15,7 @@ import { FeverSwarmAdvantage } from "@/components/fever-swarm-advantage"
 import { BuiltForDefense } from "@/components/built-for-defense"
 import { RealTimeOps } from "@/components/real-time-ops"
 import { MelonEdge } from "@/components/melon-edge"
+import { ScoutCTASection } from "@/components/scout-cta-section"
 import { CTASection } from "@/components/cta-section"
 
 // BlackBox & PneumaForce bespoke components
@@ -48,7 +49,7 @@ export default function ProductPage({ params }: PageProps) {
           <BuiltForDefense />
           <RealTimeOps />
           <MelonEdge />
-          <CTASection />
+          <ScoutCTASection />
         </main>
       </div>
     )

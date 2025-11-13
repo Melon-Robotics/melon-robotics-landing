@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { UnifiedNav } from "@/components/unified-nav";
 import { Footer } from "@/components/footer";
+import { Providers } from "@/components/providers/session-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,11 +60,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <UnifiedNav />
-        <main id="main-content" className="min-h-screen pt-16 md:pt-20" role="main">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <UnifiedNav />
+          <main id="main-content" className="min-h-screen pt-16 md:pt-20" role="main">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

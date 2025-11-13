@@ -41,22 +41,22 @@ export const PRODUCT_PAYMENTS: Record<string, ProductPaymentConfig> = {
     productId: 'pneumaforce',
     name: 'PneumaForce Exoskeleton',
     type: 'one-time',
-    price: 0, // Custom pricing - contact sales
+    price: 9500000, // $95,000 - Market-appropriate for commercial diving exoskeleton
     description: 'Revolutionary Upper-Body Exoskeleton for Commercial Diving',
     metadata: {
       category: 'hardware',
-      requiresQuote: 'true',
     },
   },
   scout: {
     productId: 'scout',
     name: 'Melon Scout AUV',
     type: 'one-time',
-    price: 0, // Custom pricing - contact sales
+    price: 0, // Tiered pricing - use Scout pricing tiers instead
     description: 'Autonomous Underwater Vehicle with Swarm Intelligence',
     metadata: {
       category: 'robotics',
-      requiresQuote: 'true',
+      hasTiers: 'true',
+      hasVolumeDiscounts: 'true',
     },
   },
 }
@@ -198,4 +198,5 @@ export function createPaymentItems(
     metadata: item.metadata,
   }))
 }
+
 

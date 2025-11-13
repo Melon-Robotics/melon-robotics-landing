@@ -4,11 +4,9 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
 
-interface CheckoutButtonProps {
-  type: 'product' | 'service' | 'subscription'
-  id: string
-  tier?: string
-  customerEmail?: string
+interface ScoutCheckoutButtonProps {
+  tier: string
+  quantity: number
   className?: string
   children: React.ReactNode
   variant?: 'default' | 'outline' | 'ghost'
@@ -16,17 +14,15 @@ interface CheckoutButtonProps {
   onError?: (error: string) => void
 }
 
-export function CheckoutButton({
-  type,
-  id,
+export function ScoutCheckoutButton({
   tier,
-  customerEmail,
+  quantity,
   className,
   children,
   variant = 'default',
   onSuccess,
   onError,
-}: CheckoutButtonProps) {
+}: ScoutCheckoutButtonProps) {
   const [loading, setLoading] = useState(false)
 
   const handleCheckout = async () => {
@@ -38,10 +34,10 @@ export function CheckoutButton({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          type,
-          id,
+          type: 'product',
+          id: 'scout',
           tier,
-          customerEmail,
+          quantity,
         }),
       })
 
@@ -49,7 +45,6 @@ export function CheckoutButton({
 
       if (!response.ok) {
         if (data.requiresQuote) {
-          // Redirect to contact page for custom pricing
           window.location.href = '/contact'
           return
         }
@@ -57,7 +52,6 @@ export function CheckoutButton({
       }
 
       if (data.url) {
-        // Redirect to Stripe Checkout
         window.location.href = data.url
         onSuccess?.()
       } else {
@@ -91,5 +85,4 @@ export function CheckoutButton({
     </Button>
   )
 }
-
 

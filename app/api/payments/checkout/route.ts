@@ -6,6 +6,8 @@ import {
   getROVSubscriptionTier,
   createPaymentItems 
 } from '@/lib/payments/products'
+import { getScoutTier, calculateScoutPrice } from '@/lib/data/scout-pricing'
+import { getAccessory } from '@/lib/data/scout-accessories'
 
 /**
  * POST /api/payments/checkout
@@ -23,7 +25,7 @@ import {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { type, id, tier, customerEmail, successUrl, cancelUrl } = body
+    const { type, id, tier, quantity, customerEmail, successUrl, cancelUrl } = body
 
     if (!type || !id) {
       return NextResponse.json(
@@ -48,38 +50,95 @@ export async function POST(request: NextRequest) {
     let mode: 'payment' | 'subscription' = 'payment'
 
     if (type === 'product') {
-      const config = getProductPaymentConfig(id)
-      if (!config) {
-        return NextResponse.json(
-          { error: `Product not found: ${id}` },
-          { status: 404 }
-        )
-      }
+      // Handle Scout tiered pricing
+      if (id === 'scout' && tier) {
+        const scoutTier = getScoutTier(tier)
+        if (!scoutTier) {
+          return NextResponse.json(
+            { error: `Scout tier not found: ${tier}` },
+            { status: 404 }
+          )
+        }
 
-      if (config.price === 0 || config.metadata?.requiresQuote === 'true') {
-        // Redirect to contact for custom pricing
-        return NextResponse.json(
-          { 
-            error: 'Custom pricing required',
-            redirectTo: '/contact',
-            requiresQuote: true 
+        const qty = quantity || 1
+        const totalPrice = calculateScoutPrice(tier, qty)
+        const pricePerUnit = totalPrice / qty
+
+        items = [{
+          id: scoutTier.id,
+          name: `Melon Scout ${scoutTier.name} Tier`,
+          amount: Math.round(pricePerUnit),
+          quantity: qty,
+          description: scoutTier.description,
+          metadata: {
+            type: 'product',
+            productId: 'scout',
+            tier: tier,
+            quantity: qty.toString(),
+            basePrice: scoutTier.basePrice.toString(),
           },
-          { status: 200 }
-        )
+        }]
+        mode = 'payment'
       }
+      // Handle Scout accessories
+      else if (id.startsWith('sensor-') || id.startsWith('comm-') || id.startsWith('power-') || id.startsWith('payload-') || id.startsWith('peripheral-')) {
+        const accessory = getAccessory(id)
+        if (!accessory) {
+          return NextResponse.json(
+            { error: `Accessory not found: ${id}` },
+            { status: 404 }
+          )
+        }
 
-      items = [{
-        id: config.productId,
-        name: config.name,
-        amount: config.price,
-        quantity: 1,
-        description: config.description,
-        metadata: {
-          ...config.metadata,
-          type: 'product',
-        },
-      }]
-      mode = config.type === 'subscription' ? 'subscription' : 'payment'
+        items = [{
+          id: accessory.id,
+          name: accessory.name,
+          amount: accessory.price,
+          quantity: quantity || 1,
+          description: accessory.description,
+          metadata: {
+            type: 'product',
+            productId: 'scout-accessory',
+            category: accessory.category,
+          },
+        }]
+        mode = 'payment'
+      }
+      // Handle other products
+      else {
+        const config = getProductPaymentConfig(id)
+        if (!config) {
+          return NextResponse.json(
+            { error: `Product not found: ${id}` },
+            { status: 404 }
+          )
+        }
+
+        if (config.price === 0 || config.metadata?.requiresQuote === 'true') {
+          // Redirect to contact for custom pricing
+          return NextResponse.json(
+            { 
+              error: 'Custom pricing required',
+              redirectTo: '/contact',
+              requiresQuote: true 
+            },
+            { status: 200 }
+          )
+        }
+
+        items = [{
+          id: config.productId,
+          name: config.name,
+          amount: config.price,
+          quantity: quantity || 1,
+          description: config.description,
+          metadata: {
+            ...config.metadata,
+            type: 'product',
+          },
+        }]
+        mode = config.type === 'subscription' ? 'subscription' : 'payment'
+      }
     } else if (type === 'service') {
       const config = getServicePaymentConfig(id)
       if (!config) {

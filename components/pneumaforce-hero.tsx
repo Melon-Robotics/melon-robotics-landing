@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { CheckoutButton } from "@/components/payments/checkout-button"
 
 export function PneumaForceHero() {
   const [loaded, setLoaded] = useState(false)
@@ -162,21 +163,20 @@ export function PneumaForceHero() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
+              <CheckoutButton
+                type="product"
+                id="pneumaforce"
+                className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-base font-medium rounded-full transition-all duration-300 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
+              >
+                Purchase - $95,000
+          </CheckoutButton>
               <Link href="/contact">
-                <Button 
-                  size="lg"
-                  className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-base font-medium rounded-full transition-all duration-300 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
-                >
-                  Request Demo
-          </Button>
-              </Link>
-              <Link href="/products">
                 <Button 
                   variant="outline"
                   size="lg"
                   className="border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white px-8 py-6 text-base font-medium rounded-full transition-all duration-300"
                 >
-                  View Specifications
+                  Request Demo
           </Button>
               </Link>
         </motion.div>
