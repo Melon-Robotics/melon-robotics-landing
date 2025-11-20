@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { CheckoutButton } from "@/components/payments/checkout-button"
+import { AddToCartButton } from "@/components/payments/add-to-cart-button"
 
 export function PneumaForceHero() {
   const [loaded, setLoaded] = useState(false)
@@ -163,13 +163,15 @@ export function PneumaForceHero() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <CheckoutButton
+              <AddToCartButton
                 type="product"
                 id="pneumaforce"
+                name="PneumaForce Exoskeleton"
+                price={1800000}
                 className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-base font-medium rounded-full transition-all duration-300 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
               >
-                Purchase - $95,000
-          </CheckoutButton>
+                Add to Cart - $18,000
+          </AddToCartButton>
               <Link href="/contact">
                 <Button 
                   variant="outline"

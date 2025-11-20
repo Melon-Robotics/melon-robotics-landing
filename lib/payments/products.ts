@@ -41,7 +41,7 @@ export const PRODUCT_PAYMENTS: Record<string, ProductPaymentConfig> = {
     productId: 'pneumaforce',
     name: 'PneumaForce Exoskeleton',
     type: 'one-time',
-    price: 9500000, // $95,000 - Market-appropriate for commercial diving exoskeleton
+    price: 1800000, // $18,000
     description: 'Revolutionary Upper-Body Exoskeleton for Commercial Diving',
     metadata: {
       category: 'hardware',

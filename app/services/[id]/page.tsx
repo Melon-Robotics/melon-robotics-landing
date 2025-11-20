@@ -539,7 +539,7 @@ export default function ServicePage({ params }: PageProps) {
                 Subscription<br />Packages
               </h2>
               <p className="text-base md:text-lg text-gray-500 font-light max-w-xl leading-relaxed">
-                Annual inspection programs designed for predictable maintenance schedules and cost optimization.
+                Annual service programs designed for predictable maintenance schedules and cost optimization. <span className="text-amber-500/90 font-medium">Subscribe to secure priority scheduling and preferred pricing.</span>
               </p>
             </motion.div>
 

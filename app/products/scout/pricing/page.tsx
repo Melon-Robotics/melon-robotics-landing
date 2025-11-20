@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ScoutCheckoutButton } from '@/components/payments/scout-checkout-button'
-import { SCOUT_TIERS, VOLUME_DISCOUNTS, calculateScoutPrice, getVolumeDiscount } from '@/lib/data/scout-pricing'
+import { AddToCartButton } from '@/components/payments/add-to-cart-button'
+import { SCOUT_TIERS, VOLUME_DISCOUNTS, calculateScoutPrice, getVolumeDiscount, getScoutTier } from '@/lib/data/scout-pricing'
 import { CheckCircle2, Package, TrendingDown, Users } from 'lucide-react'
 import Link from 'next/link'
 
@@ -243,13 +243,22 @@ export default function ScoutPricingPage() {
               </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <ScoutCheckoutButton
-                  tier={selectedTier}
+                <AddToCartButton
+                  type="product"
+                  id={`scout-${selectedTier}`}
+                  name={`Melon Scout ${tier.name} Tier`}
+                  price={Math.round(pricePerUnit)}
                   quantity={quantity}
+                  tier={selectedTier}
+                  metadata={{
+                    productId: 'scout',
+                    tier: selectedTier,
+                    basePrice: tier.basePrice.toString(),
+                  }}
                   className="flex-1 bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6 text-sm font-mono tracking-wider uppercase"
                 >
                   Add to Cart
-                </ScoutCheckoutButton>
+                </AddToCartButton>
                 <Link href="/products/scout/accessories" className="flex-1">
                   <Button
                     variant="outline"

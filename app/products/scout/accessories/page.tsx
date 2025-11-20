@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { CheckoutButton } from '@/components/payments/checkout-button'
+import { AddToCartButton } from '@/components/payments/add-to-cart-button'
 import {
   getAllAccessories,
   getAccessoriesByCategory,
@@ -182,13 +182,19 @@ export default function ScoutAccessoriesPage() {
                     </div>
 
                     {/* Add to Cart */}
-                    <CheckoutButton
+                    <AddToCartButton
                       type="product"
                       id={accessory.id}
+                      name={accessory.name}
+                      price={accessory.price}
+                      metadata={{
+                        productId: 'scout-accessory',
+                        category: accessory.category,
+                      }}
                       className="w-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6 text-xs font-mono tracking-wider uppercase"
                     >
                       Add to Cart
-                    </CheckoutButton>
+                    </AddToCartButton>
                   </motion.div>
                 )
               })}
@@ -228,4 +234,10 @@ export default function ScoutAccessoriesPage() {
     </div>
   )
 }
+
+
+
+
+
+
 

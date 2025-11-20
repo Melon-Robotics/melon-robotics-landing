@@ -71,6 +71,7 @@ export function Cart() {
 
       if (response.ok) {
         await fetchCart()
+        window.dispatchEvent(new Event('cartUpdated'))
       }
     } catch (error) {
       console.error('Error updating cart:', error)
@@ -88,6 +89,7 @@ export function Cart() {
 
       if (response.ok) {
         await fetchCart()
+        window.dispatchEvent(new Event('cartUpdated'))
       }
     } catch (error) {
       console.error('Error removing item:', error)
@@ -104,6 +106,7 @@ export function Cart() {
 
       if (response.ok) {
         await fetchCart()
+        window.dispatchEvent(new Event('cartUpdated'))
       }
     } catch (error) {
       console.error('Error clearing cart:', error)
@@ -230,7 +233,7 @@ export function Cart() {
         <CheckoutButton
           type="product"
           id="cart"
-          className="w-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6"
+          className="w-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6 text-lg font-medium"
         >
           Proceed to Checkout
         </CheckoutButton>

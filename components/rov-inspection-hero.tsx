@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
 
 export function ROVInspectionHero() {
   return (
@@ -137,7 +138,7 @@ export function ROVInspectionHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex items-center justify-center gap-6 font-mono text-[9px] text-gray-600"
+            className="flex items-center justify-center gap-6 font-mono text-[9px] text-gray-600 mb-8"
           >
             <div className="flex items-center gap-2">
               <span className="text-gray-700">DEPTH RATING:</span>
@@ -152,8 +153,39 @@ export function ROVInspectionHero() {
             <div className="flex items-center gap-2">
               <span className="text-gray-700">RESPONSE:</span>
               <span className="text-amber-500/80">&lt;24h</span>
-        </div>
-      </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Pricing CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col items-center gap-4"
+          >
+            <a
+              href="#subscription-packages"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('subscription-packages')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+            >
+              <Button className="bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 px-8 py-6 text-sm font-mono tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] backdrop-blur-sm group">
+                <span className="flex items-center gap-2">
+                  View Subscription Options
+                  <svg className="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </span>
+              </Button>
+            </a>
+            <p className="text-xs text-gray-500 font-mono">
+              Annual packages from $2,400/yr
+            </p>
+          </motion.div>
         </motion.div>
       </div>
 

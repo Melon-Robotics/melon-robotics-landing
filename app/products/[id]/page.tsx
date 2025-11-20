@@ -142,7 +142,10 @@ export default function ProductPage({ params }: PageProps) {
                 {product.name}
               </h1>
               <p className="text-xl md:text-2xl text-amber-400 mb-4 md:mb-5 font-normal leading-snug">{product.tagline}</p>
-              <p className="text-base md:text-lg text-gray-200 mb-10 leading-relaxed max-w-xl">{product.description}</p>
+              <p className="text-base md:text-lg text-gray-200 mb-6 leading-relaxed max-w-xl">{product.description}</p>
+              <p className="text-sm md:text-base text-amber-500/70 mb-10 leading-relaxed max-w-xl font-medium">
+                Available through authorized vendors or direct sales inquiry.
+              </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="flex-1 sm:flex-none">

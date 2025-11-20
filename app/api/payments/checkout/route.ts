@@ -8,6 +8,8 @@ import {
 } from '@/lib/payments/products'
 import { getScoutTier, calculateScoutPrice } from '@/lib/data/scout-pricing'
 import { getAccessory } from '@/lib/data/scout-accessories'
+import { requireAuth } from '@/lib/auth-helpers'
+import { createClient } from '@/lib/supabase/server'
 
 /**
  * POST /api/payments/checkout
@@ -50,8 +52,45 @@ export async function POST(request: NextRequest) {
     let mode: 'payment' | 'subscription' = 'payment'
 
     if (type === 'product') {
+      // Handle cart checkout
+      if (id === 'cart') {
+        const supabase = await createClient()
+        const user = await requireAuth()
+        
+        // Get user's cart
+        const { data: cart, error: cartError } = await supabase
+          .from('carts')
+          .select(`
+            *,
+            cart_items (*)
+          `)
+          .eq('user_id', user.id)
+          .single()
+
+        if (cartError || !cart || !cart.cart_items || cart.cart_items.length === 0) {
+          return NextResponse.json(
+            { error: 'Cart is empty' },
+            { status: 400 }
+          )
+        }
+
+        // Convert cart items to payment items
+        items = cart.cart_items.map((item: any) => ({
+          id: item.item_id,
+          name: item.item_name,
+          amount: item.price,
+          quantity: item.quantity,
+          description: `${item.item_type}: ${item.item_name}`,
+          metadata: {
+            type: item.item_type.toLowerCase(),
+            cartItemId: item.id,
+            ...(item.metadata || {}),
+          },
+        }))
+        mode = 'payment'
+      }
       // Handle Scout tiered pricing
-      if (id === 'scout' && tier) {
+      else if (id === 'scout' && tier) {
         const scoutTier = getScoutTier(tier)
         if (!scoutTier) {
           return NextResponse.json(

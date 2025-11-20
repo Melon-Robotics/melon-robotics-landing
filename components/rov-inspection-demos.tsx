@@ -258,130 +258,308 @@ export function ROVInspectionDemos() {
             {[
               {
                 name: "Hull Inspection",
-                description: "Detailed visual survey of vessel hulls for corrosion, fouling, cracks, or damage.",
+                description: "Comprehensive visual survey of vessel hulls for corrosion, fouling, cracks, or structural damage. Ideal for pre-purchase surveys, insurance assessments, and routine maintenance planning. Our systematic approach ensures complete coverage of all hull surfaces with precise documentation.",
+                depthRange: "0-150m",
+                typicalDuration: "2-6 hours (varies by vessel size)",
+                useCases: [
+                  "Pre-purchase vessel surveys",
+                  "Insurance damage assessment",
+                  "Routine maintenance inspections",
+                  "Regulatory compliance verification",
+                  "Post-repair validation"
+                ],
+                technicalSpecs: [
+                  "4K UHD video at 30fps",
+                  "Laser scaling for accurate measurements",
+                  "GPS-referenced positioning",
+                  "Automated defect detection AI",
+                  "Frame-by-frame annotation capability"
+                ],
                 deliverables: [
-                  "HD 4K video footage",
-                  "Annotated photo set",
-                  "Summary inspection report",
-                  "Depth & GPS overlay (if available)"
+                  "HD 4K video footage (full mission)",
+                  "Annotated photo set (key findings)",
+                  "Comprehensive inspection report with severity ratings",
+                  "Depth & GPS overlay data",
+                  "3D hull condition map (if equipped)",
+                  "Maintenance priority recommendations",
+                  "Before/after comparison (for recurring clients)"
                 ],
                 equipment: [
                   "LBV-150 ROV with HD camera",
-                  "Laser scaler",
-                  "Floodlights",
-                  "GPS overlay module",
-                  "Topside control station"
+                  "Laser scaler (precision measurement)",
+                  "High-intensity LED floodlights (10,000+ lumens)",
+                  "GPS overlay module with DVL integration",
+                  "Topside control station with dual monitors",
+                  "Real-time video recording system"
                 ],
                 ref: "SVC-001"
               },
               {
                 name: "Dock & Piling Survey",
-                description: "Inspections of marina structures, docks, and pilings for marine growth, structural wear, or scouring.",
+                description: "Detailed inspections of marina structures, docks, and pilings for marine growth, structural wear, scouring, or foundation issues. Critical for port authorities, marina operators, and engineering firms requiring structural integrity assessments.",
+                depthRange: "0-50m (typical), up to 150m",
+                typicalDuration: "3-8 hours (depends on structure size)",
+                useCases: [
+                  "Marina facility condition assessment",
+                  "Port infrastructure maintenance",
+                  "Pre-renovation structural evaluation",
+                  "Insurance documentation",
+                  "Environmental impact studies",
+                  "DOT bridge inspection support"
+                ],
+                technicalSpecs: [
+                  "360° piling coverage capability",
+                  "Marine growth thickness measurement",
+                  "Scour depth analysis",
+                  "Structural crack detection (0.1mm resolution)",
+                  "Concrete spalling assessment"
+                ],
                 deliverables: [
-                  "Photo/video documentation",
-                  "Structural condition rating",
-                  "Recommendations for maintenance"
+                  "Photo/video documentation (geo-tagged)",
+                  "Structural condition rating (1-5 scale)",
+                  "Detailed recommendations for maintenance",
+                  "Marine growth coverage analysis",
+                  "Scour depth measurements",
+                  "3D structural model (optional)",
+                  "Priority repair schedule"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "Lighting array",
-                  "Altimeter",
-                  "Imaging sonar (optional)",
-                  "Measuring stick tool"
+                  "LBV-150 ROV with pan-tilt camera",
+                  "High-output lighting array (adjustable intensity)",
+                  "Precision altimeter (depth measurement)",
+                  "Imaging sonar (for low-visibility conditions)",
+                  "Measuring stick tool (calibrated reference)",
+                  "Grabber arm (for sample collection)"
                 ],
                 ref: "SVC-002"
               },
               {
                 name: "Pipeline & Cable Inspection",
-                description: "Linear survey of submerged utility lines to detect exposure, movement, or damage.",
+                description: "Linear survey of submerged utility lines, pipelines, and communication cables to detect exposure, movement, damage, or anchor drag marks. Essential for utility companies, oil & gas operators, and telecommunications providers.",
+                depthRange: "0-150m",
+                typicalDuration: "4-12 hours per km (varies by complexity)",
+                useCases: [
+                  "Pipeline integrity monitoring",
+                  "Subsea cable route verification",
+                  "Post-storm damage assessment",
+                  "Pre-construction route survey",
+                  "Anchoring impact evaluation",
+                  "Regulatory compliance documentation"
+                ],
+                technicalSpecs: [
+                  "GPS-referenced path tracking",
+                  "DVL-based velocity measurement",
+                  "Side-scan sonar imaging",
+                  "Real-time deviation alerting",
+                  "Automated anomaly detection"
+                ],
                 deliverables: [
-                  "Geo-referenced video",
-                  "Path deviation log",
-                  "Anomaly report with still frames"
+                  "Geo-referenced video (full route)",
+                  "Path deviation log with coordinates",
+                  "Anomaly report with still frames",
+                  "Burial depth measurements",
+                  "Exposure length calculations",
+                  "Risk assessment matrix",
+                  "Recommended intervention points"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "DVL (Doppler Velocity Log)",
-                  "GPS transponder",
-                  "HD camera",
-                  "Side-scan sonar (optional)"
+                  "LBV-150 ROV with forward-looking camera",
+                  "DVL (Doppler Velocity Log) for precise navigation",
+                  "GPS transponder (surface positioning)",
+                  "HD camera with zoom capability",
+                  "Side-scan sonar (optional, for buried detection)",
+                  "Magnetometer (for metallic pipeline detection)"
                 ],
                 ref: "SVC-003"
               },
               {
                 name: "Environmental Monitoring",
-                description: "Data collection for water clarity, temperature, sedimentation, and marine growth.",
+                description: "Comprehensive data collection for water quality, temperature profiles, sedimentation patterns, and marine growth. Supports environmental compliance, research projects, and baseline studies for construction projects.",
+                depthRange: "0-150m",
+                typicalDuration: "2-4 hours per site",
+                useCases: [
+                  "Environmental impact assessments",
+                  "Water quality baseline studies",
+                  "Sediment transport analysis",
+                  "Marine growth monitoring",
+                  "Pre/post-construction monitoring",
+                  "Research data collection"
+                ],
+                technicalSpecs: [
+                  "Multi-parameter sensor suite",
+                  "Real-time data logging",
+                  "Temperature profiling (0.01°C resolution)",
+                  "Turbidity measurement (NTU)",
+                  "pH monitoring (0.01 pH units)"
+                ],
                 deliverables: [
-                  "Sensor data (temp, turbidity)",
-                  "HD site imagery",
-                  "Environmental summary report"
+                  "Sensor data logs (temp, turbidity, pH, DO)",
+                  "HD site imagery with annotations",
+                  "Environmental summary report",
+                  "Data visualization charts",
+                  "Comparison with regulatory standards",
+                  "Recommendations for remediation (if needed)"
                 ],
                 equipment: [
                   "LBV-150 ROV with sensor payload",
-                  "Temp, turbidity, pH sensors",
-                  "Environmental sampling attachment"
+                  "Temperature sensor (high-precision)",
+                  "Turbidity sensor (NTU measurement)",
+                  "pH sensor (submersible)",
+                  "Dissolved oxygen sensor (optional)",
+                  "Environmental sampling attachment",
+                  "Data logger with real-time telemetry"
                 ],
                 ref: "SVC-004"
               },
               {
                 name: "Emergency Recovery / Search",
-                description: "Rapid deployment for lost objects, sunken assets, or accident scenes.",
+                description: "Rapid deployment capability for lost objects, sunken assets, or accident scene documentation. Available 24/7 for emergency response with <24 hour deployment window. Critical for salvage operations, accident investigation, and asset recovery.",
+                depthRange: "0-150m",
+                typicalDuration: "Variable (typically 2-8 hours)",
+                useCases: [
+                  "Lost equipment recovery",
+                  "Accident scene documentation",
+                  "Sunken vessel location",
+                  "Evidence collection",
+                  "Salvage operation support",
+                  "Search and recovery missions"
+                ],
+                technicalSpecs: [
+                  "Rapid deployment capability (<24h)",
+                  "High-visibility search patterns",
+                  "Object identification AI",
+                  "Real-time client feed",
+                  "Precise recovery positioning"
+                ],
                 deliverables: [
-                  "Real-time feed for client",
-                  "Recovery report",
-                  "Object imagery or video"
+                  "Real-time feed for client (live streaming)",
+                  "Recovery report with coordinates",
+                  "Object imagery or video (high-resolution)",
+                  "Site condition assessment",
+                  "Recovery feasibility analysis",
+                  "Recommended recovery approach"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "Grabber arm attachment",
-                  "HD camera",
-                  "High-intensity lights"
+                  "LBV-150 ROV (rapid deployment kit)",
+                  "Grabber arm attachment (7-DOF manipulator)",
+                  "HD camera with zoom",
+                  "High-intensity lights (search mode)",
+                  "Sonar (for low-visibility search)",
+                  "Recovery basket (optional)"
                 ],
                 ref: "SVC-005"
               },
               {
                 name: "Pre-Dive Safety Survey",
-                description: "Quick situational assessment before human dive operations.",
+                description: "Quick situational assessment before human dive operations to identify hazards, verify conditions, and ensure diver safety. Reduces dive risk and improves operational efficiency for commercial diving operations.",
+                depthRange: "0-150m",
+                typicalDuration: "30 minutes - 2 hours",
+                useCases: [
+                  "Commercial diving safety",
+                  "Hazard identification",
+                  "Visibility assessment",
+                  "Current condition verification",
+                  "Entry/exit point evaluation",
+                  "Emergency egress route planning"
+                ],
+                technicalSpecs: [
+                  "Rapid deployment (<1 hour)",
+                  "Real-time video feed",
+                  "Current velocity measurement",
+                  "Visibility assessment",
+                  "Hazard mapping"
+                ],
                 deliverables: [
-                  "Live visual confirmation",
-                  "Safety condition checklist"
+                  "Live visual confirmation (real-time)",
+                  "Safety condition checklist",
+                  "Hazard identification report",
+                  "Recommended dive parameters",
+                  "Emergency procedures review"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "Topside video link",
-                  "Floodlights"
+                  "LBV-150 ROV (lightweight configuration)",
+                  "Topside video link (real-time streaming)",
+                  "High-intensity floodlights",
+                  "Current meter (optional)",
+                  "Portable topside station"
                 ],
                 ref: "SVC-006"
               },
               {
                 name: "Structure & Bridge Footing Inspection",
-                description: "High-precision imaging of submerged bridge structures for DOT or engineering firms.",
+                description: "High-precision imaging of submerged bridge structures, foundations, and support elements for DOT compliance, engineering assessments, and structural integrity evaluation. Meets or exceeds DOT inspection standards.",
+                depthRange: "0-150m",
+                typicalDuration: "4-10 hours per structure",
+                useCases: [
+                  "DOT bridge inspection compliance",
+                  "Engineering firm structural assessment",
+                  "Pre-renovation evaluation",
+                  "Post-earthquake damage assessment",
+                  "Foundation stability analysis",
+                  "Scour monitoring"
+                ],
+                technicalSpecs: [
+                  "Sub-millimeter measurement accuracy",
+                  "3D photogrammetry capability",
+                  "Laser scanning for precise dimensions",
+                  "Structural condition grading (NBI standards)",
+                  "Automated defect cataloging"
+                ],
                 deliverables: [
-                  "HD imagery and 3D model (if equipped)",
-                  "Structural condition grading report"
+                  "HD imagery (comprehensive coverage)",
+                  "3D photogrammetry model (if equipped)",
+                  "Structural condition grading report (NBI format)",
+                  "Defect inventory with measurements",
+                  "Scour depth analysis",
+                  "Foundation stability assessment",
+                  "Priority repair recommendations"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "Laser scaler",
-                  "3D photogrammetry kit",
-                  "Altimeter",
-                  "Sonar (optional)"
+                  "LBV-150 ROV with precision camera",
+                  "Laser scaler (measurement accuracy)",
+                  "3D photogrammetry kit (multi-camera array)",
+                  "Precision altimeter",
+                  "Sonar (for foundation mapping)",
+                  "Calibrated measurement tools"
                 ],
                 ref: "SVC-007"
               },
               {
                 name: "AI Predictive Maintenance Analysis",
-                description: "Data-driven corrosion detection and predictive model for recurring clients.",
+                description: "Advanced data-driven corrosion detection and predictive maintenance modeling for recurring clients. Combines historical inspection data with AI analysis to forecast maintenance needs and optimize inspection schedules.",
+                depthRange: "0-150m",
+                typicalDuration: "2-4 hours (inspection) + analysis",
+                useCases: [
+                  "Predictive maintenance planning",
+                  "Corrosion rate analysis",
+                  "Maintenance cost optimization",
+                  "Inspection schedule optimization",
+                  "Asset lifecycle management",
+                  "Risk-based maintenance strategies"
+                ],
+                technicalSpecs: [
+                  "AI-powered defect detection",
+                  "Historical data comparison",
+                  "Corrosion rate calculation",
+                  "Predictive modeling algorithms",
+                  "Cloud-based analytics platform"
+                ],
                 deliverables: [
-                  "AI-driven condition score",
+                  "AI-driven condition score (0-100)",
                   "Predictive maintenance report",
-                  "Change-over-time graph"
+                  "Change-over-time graph (trend analysis)",
+                  "Corrosion rate projections",
+                  "Recommended inspection intervals",
+                  "Cost-benefit analysis",
+                  "Risk assessment matrix"
                 ],
                 equipment: [
-                  "LBV-150 ROV",
-                  "HD camera",
-                  "Edge-compute AI node",
-                  "Melon cloud analytics platform"
+                  "LBV-150 ROV with HD camera",
+                  "Edge-compute AI node (onboard processing)",
+                  "Melon cloud analytics platform",
+                  "Historical data integration",
+                  "Machine learning models",
+                  "Real-time data synchronization"
                 ],
                 ref: "SVC-008"
               },
@@ -416,12 +594,55 @@ export function ROVInspectionDemos() {
                   <div className="h-px w-12 bg-amber-500/30 mb-6" />
 
                   {/* Description */}
-                  <p className="text-sm md:text-base text-gray-400 mb-8 leading-relaxed font-light">
+                  <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed font-light">
                     {service.description}
                   </p>
 
+                  {/* Technical Specs Bar */}
+                  <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-800/50">
+                    <div>
+                      <div className="font-mono text-[8px] text-gray-600 mb-1">DEPTH RANGE</div>
+                      <div className="text-xs text-amber-500/80 font-mono">{service.depthRange}</div>
+                    </div>
+                    <div>
+                      <div className="font-mono text-[8px] text-gray-600 mb-1">TYPICAL DURATION</div>
+                      <div className="text-xs text-amber-500/80 font-mono">{service.typicalDuration}</div>
+                    </div>
+                  </div>
+
+                  {/* Use Cases */}
+                  <div className="mb-6">
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      USE CASES
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {service.useCases.map((useCase, i) => (
+                        <span key={i} className="text-[10px] px-2 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-500/80 font-mono">
+                          {useCase}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Technical Specs */}
+                  <div className="mb-6">
+                    <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
+                      TECHNICAL SPECIFICATIONS
+                    </div>
+                    <ul className="space-y-1.5">
+                      {service.technicalSpecs.map((spec, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <div className="mt-1.5 flex-shrink-0">
+                            <div className="w-1 h-1 bg-amber-500/50" />
+                          </div>
+                          <span className="text-[10px] text-gray-500 leading-relaxed font-mono">{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   {/* Deliverables & Equipment Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Deliverables */}
                     <div>
                       <div className="font-mono text-[9px] text-amber-500/70 uppercase tracking-wider mb-3">
@@ -430,7 +651,7 @@ export function ROVInspectionDemos() {
                       <ul className="space-y-2">
                         {service.deliverables.map((item, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <div className="mt-2">
+                            <div className="mt-2 flex-shrink-0">
                               <div className="w-1 h-1 bg-amber-500/60" />
                             </div>
                             <span className="text-xs md:text-sm text-gray-400 leading-relaxed font-light">{item}</span>
@@ -447,7 +668,7 @@ export function ROVInspectionDemos() {
                       <ul className="space-y-2">
                         {service.equipment.map((item, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <div className="mt-2">
+                            <div className="mt-2 flex-shrink-0">
                               <div className="w-1 h-1 bg-amber-500/40" />
                             </div>
                             <span className="text-xs md:text-sm text-gray-500 leading-relaxed font-mono">{item}</span>
@@ -460,15 +681,49 @@ export function ROVInspectionDemos() {
               </motion.div>
             ))}
           </div>
+
+          {/* Pricing CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-16 md:mt-20 text-center"
+          >
+            <a
+              href="#subscription-packages"
+              className="inline-block"
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('subscription-packages')
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+            >
+              <Button className="bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 px-12 py-8 text-sm md:text-base font-mono tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] backdrop-blur-sm group">
+                <span className="flex items-center gap-3">
+                  View Subscription Options
+                  <svg className="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </span>
+              </Button>
+            </a>
+            <p className="mt-4 text-xs text-gray-500 font-mono">
+              Annual packages available • Priority scheduling • Preferred pricing
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Melon Shield Subscription Tiers */}
         <motion.div
+          id="subscription-packages"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20 md:mb-28"
+          className="mb-20 md:mb-28 scroll-mt-20"
         >
           <div className="flex items-center gap-4 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />

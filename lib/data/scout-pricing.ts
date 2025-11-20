@@ -30,7 +30,7 @@ export const SCOUT_TIERS: Record<string, ScoutTier> = {
   basic: {
     id: 'scout-basic',
     name: 'Basic',
-    basePrice: 7500000, // $75,000
+    basePrice: 3200000, // $32,000 - Base price before options
     description: 'Entry-level Scout with core AUV capabilities. Perfect for research, training, and basic surveillance missions.',
     features: [
       'Core AI navigation system',
@@ -50,7 +50,7 @@ export const SCOUT_TIERS: Record<string, ScoutTier> = {
   standard: {
     id: 'scout-standard',
     name: 'Standard',
-    basePrice: 12500000, // $125,000
+    basePrice: 4800000, // $48,000
     description: 'Enhanced Scout with advanced sensors and improved AI. Ideal for commercial operations and detailed inspections.',
     features: [
       'Advanced AI mission planning',
@@ -72,7 +72,7 @@ export const SCOUT_TIERS: Record<string, ScoutTier> = {
   advanced: {
     id: 'scout-advanced',
     name: 'Advanced',
-    basePrice: 20000000, // $200,000
+    basePrice: 7500000, // $75,000
     description: 'Fully-equipped Scout with comprehensive sensor suite and enterprise AI. Designed for complex missions and defense applications.',
     features: [
       'Enterprise-grade AI with swarm coordination',
@@ -95,7 +95,7 @@ export const SCOUT_TIERS: Record<string, ScoutTier> = {
   enterprise: {
     id: 'scout-enterprise',
     name: 'Enterprise',
-    basePrice: 35000000, // $350,000
+    basePrice: 12000000, // $120,000
     description: 'Military-grade Scout with all capabilities, hardened systems, and maximum performance. For critical defense and government operations.',
     features: [
       'Military-grade AI with advanced swarm intelligence',
@@ -190,4 +190,10 @@ export function getScoutTier(tierId: string): ScoutTier | undefined {
 export function getAllScoutTiers(): ScoutTier[] {
   return Object.values(SCOUT_TIERS)
 }
+
+
+
+
+
+
 

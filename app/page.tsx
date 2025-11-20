@@ -243,7 +243,140 @@ export default function Home() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-t from-amber-500/30 to-transparent" />
       </section>
 
-      {/* Products Preview - Enhanced Visual Impact */}
+      {/* Services Overview - Enhanced Visual Impact - PRIMARY FOCUS */}
+      <section className="relative py-24 md:py-36 lg:py-48 px-4 border-t border-amber-500/20 bg-gradient-to-b from-[#0a0e1a] to-black overflow-hidden" aria-labelledby="services-heading">
+        {/* Enhanced Technical Grid */}
+        <div className="absolute inset-0 opacity-[0.025]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(245,158,11,0.15) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(245,158,11,0.15) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        {/* Subtle Radial Gradient */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full opacity-30" style={{
+          background: 'radial-gradient(ellipse at center, rgba(245,158,11,0.1) 0%, transparent 70%)'
+        }} />
+
+        {/* DARPA Corner Markers - More Visible */}
+        <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-amber-500/25 hidden lg:block" />
+        <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-amber-500/25 hidden lg:block" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-amber-500/25 hidden lg:block" />
+        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-amber-500/25 hidden lg:block" />
+
+        <div className="container-responsive max-w-7xl relative z-10">
+          {/* Section Header - Clean & Refined */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 md:mb-16 lg:mb-24"
+          >
+            {/* Reference Number - Desktop Only */}
+            <div className="mb-4 md:mb-6 hidden lg:block">
+              <div className="font-mono text-[9px] text-gray-600/60 tracking-wider">
+                REF: MR-SVC-001 | REV: A.3
+              </div>
+            </div>
+
+            <h2 id="services-heading" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 md:mb-8 text-white">
+              Professional<br />Subsea Solutions
+            </h2>
+            <div className="h-px w-20 md:w-24 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mb-6 md:mb-8" />
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-3xl leading-relaxed">
+              Advanced capabilities for inspection, data collection, and safety standards in underwater operations. <span className="text-amber-500/90 font-medium">Subscribe to annual service packages or request custom solutions.</span>
+            </p>
+          </motion.div>
+
+          {/* Services Grid - Clean & Refined */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+            {services.map((service, index) => {
+              const iconMap: { [key: string]: React.ReactNode } = {
+                inspection: <Waves className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
+                data: <Database className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
+                safety: <Shield className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
+                infrastructure: <Zap className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
+              }
+
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <Link href={`/services/${service.id}`} className="block h-full">
+                    <div className="relative h-full border-2 border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_60px_rgba(245,158,11,0.25)] group-hover:scale-[1.02] flex flex-col">
+                      {/* Enhanced Corner Markers */}
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
+                      
+                      {/* Glow Effect on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/0 to-amber-500/0 group-hover:via-amber-500/5 group-hover:to-amber-500/10 transition-all duration-500 pointer-events-none" />
+
+                      {/* Enhanced Icon */}
+                      <div className="mb-8 md:mb-10">
+                        <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-gray-700/40 bg-black/40 flex items-center justify-center group-hover:border-amber-500/50 group-hover:bg-amber-500/5 transition-all duration-500 shadow-lg">
+                          {iconMap[service.category] || <Navigation className="w-10 h-10 md:w-12 md:h-12 text-amber-500/80 group-hover:text-amber-500 transition-colors" />}
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 text-white tracking-tight">
+                        {service.name}
+                      </h3>
+                      <div className="h-px w-16 md:w-20 bg-gradient-to-r from-amber-500/40 to-transparent mb-5 md:mb-6" />
+
+                      {/* Description */}
+                      <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed font-light flex-grow">
+                        {service.tagline}
+                      </p>
+
+                      {/* Enhanced CTA */}
+                      <div className="flex items-center justify-between pt-6 md:pt-8 border-t-2 border-gray-800/50 group-hover:border-amber-500/30 transition-colors">
+                        <div className="text-base md:text-lg text-gray-400 group-hover:text-gray-300 font-medium transition-colors">
+                          {service.subscriptionTiers ? 'View subscriptions' : 'Learn more'}
+                        </div>
+                        <div className="text-amber-500/70 group-hover:text-amber-500 transition-all text-xl md:text-2xl group-hover:translate-x-2">
+                          →
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* View All */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mt-12 md:mt-16 lg:mt-20"
+          >
+            <Link href="/services">
+              <Button
+                className="bg-amber-500/15 hover:bg-amber-500/25 text-amber-500 border-2 border-amber-500/40 hover:border-amber-500/60 px-10 md:px-12 py-6 md:py-7 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:scale-105 backdrop-blur-sm"
+                aria-label="Explore all services"
+              >
+                Explore All Services
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Products Preview - Supporting Technology */}
       <section className="relative py-24 md:py-36 lg:py-48 px-4 border-t border-amber-500/20 bg-[#0a0e1a] overflow-hidden" aria-labelledby="products-heading">
         {/* Enhanced Technical Grid */}
         <div className="absolute inset-0 opacity-[0.025]">
@@ -288,7 +421,7 @@ export default function Home() {
             </h2>
             <div className="h-px w-20 md:w-24 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mb-6 md:mb-8" />
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-3xl leading-relaxed">
-              Hardware, software, and robotics engineered for extreme conditions and mission-critical operations.
+              Hardware, software, and robotics engineered for extreme conditions. <span className="text-amber-500/90 font-medium">Available through authorized vendors or direct inquiry.</span>
             </p>
           </motion.div>
 
@@ -389,139 +522,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview - Enhanced Visual Impact */}
-      <section className="relative py-24 md:py-36 lg:py-48 px-4 border-t border-amber-500/20 bg-gradient-to-b from-[#0a0e1a] to-black overflow-hidden" aria-labelledby="services-heading">
-        {/* Enhanced Technical Grid */}
-        <div className="absolute inset-0 opacity-[0.025]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(245,158,11,0.15) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(245,158,11,0.15) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
-
-        {/* Subtle Radial Gradient */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full opacity-30" style={{
-          background: 'radial-gradient(ellipse at center, rgba(245,158,11,0.1) 0%, transparent 70%)'
-        }} />
-
-        {/* DARPA Corner Markers - More Visible */}
-        <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-amber-500/25 hidden lg:block" />
-        <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-amber-500/25 hidden lg:block" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-amber-500/25 hidden lg:block" />
-        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-amber-500/25 hidden lg:block" />
-
-        <div className="container-responsive max-w-7xl relative z-10">
-          {/* Section Header - Clean & Refined */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="mb-12 md:mb-16 lg:mb-24"
-          >
-            {/* Reference Number - Desktop Only */}
-            <div className="mb-4 md:mb-6 hidden lg:block">
-              <div className="font-mono text-[9px] text-gray-600/60 tracking-wider">
-                REF: MR-SVC-001 | REV: A.3
-              </div>
-            </div>
-
-            <h2 id="services-heading" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 md:mb-8 text-white">
-              Professional<br />Subsea Solutions
-            </h2>
-            <div className="h-px w-20 md:w-24 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mb-6 md:mb-8" />
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-3xl leading-relaxed">
-              Advanced capabilities for inspection, data collection, and safety standards in underwater operations.
-            </p>
-          </motion.div>
-
-          {/* Services Grid - Clean & Refined */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-            {services.map((service, index) => {
-              const iconMap: { [key: string]: React.ReactNode } = {
-                inspection: <Waves className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
-                data: <Database className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
-                safety: <Shield className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
-                infrastructure: <Zap className="w-8 h-8 md:w-10 md:h-10 text-amber-500/70" />,
-              }
-
-              return (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="group"
-                >
-                  <Link href={`/services/${service.id}`} className="block h-full">
-                    <div className="relative h-full border-2 border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_60px_rgba(245,158,11,0.25)] group-hover:scale-[1.02] flex flex-col">
-                      {/* Enhanced Corner Markers */}
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block" />
-                      
-                      {/* Glow Effect on Hover */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/0 to-amber-500/0 group-hover:via-amber-500/5 group-hover:to-amber-500/10 transition-all duration-500 pointer-events-none" />
-
-                      {/* Enhanced Icon */}
-                      <div className="mb-8 md:mb-10">
-                        <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-gray-700/40 bg-black/40 flex items-center justify-center group-hover:border-amber-500/50 group-hover:bg-amber-500/5 transition-all duration-500 shadow-lg">
-                          {iconMap[service.category] || <Navigation className="w-10 h-10 md:w-12 md:h-12 text-amber-500/80 group-hover:text-amber-500 transition-colors" />}
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 text-white tracking-tight">
-                        {service.name}
-                      </h3>
-                      <div className="h-px w-16 md:w-20 bg-gradient-to-r from-amber-500/40 to-transparent mb-5 md:mb-6" />
-
-                      {/* Description */}
-                      <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed font-light flex-grow">
-                        {service.tagline}
-                      </p>
-
-                      {/* Enhanced CTA */}
-                      <div className="flex items-center justify-between pt-6 md:pt-8 border-t-2 border-gray-800/50 group-hover:border-amber-500/30 transition-colors">
-                        <div className="text-base md:text-lg text-gray-400 group-hover:text-gray-300 font-medium transition-colors">
-                          Learn more
-                        </div>
-                        <div className="text-amber-500/70 group-hover:text-amber-500 transition-all text-xl md:text-2xl group-hover:translate-x-2">
-                          →
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              )
-            })}
-          </div>
-
-          {/* View All */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mt-12 md:mt-16 lg:mt-20"
-          >
-            <Link href="/services">
-              <Button
-                variant="outline"
-                className="border border-gray-700/40 text-gray-400 hover:text-white hover:border-gray-500 px-8 md:px-10 py-5 md:py-6 text-sm md:text-base font-light tracking-wide transition-all duration-300"
-                aria-label="Explore all services"
-              >
-                Explore All Services
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section - Clean & Refined */}
       <section className="relative py-20 md:py-32 lg:py-40 px-4 border-t border-amber-500/10 bg-[#0a0e1a]" aria-labelledby="cta-heading">

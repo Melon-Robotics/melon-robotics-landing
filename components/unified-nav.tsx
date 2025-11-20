@@ -2,10 +2,14 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, User, ShoppingCart, Package, LogOut, Settings } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { products } from "@/lib/data/products"
 import { services } from "@/lib/data/services"
+import { useUser } from "@/hooks/use-user"
+import { useCartCount } from "@/hooks/use-cart-count"
+import { createClient } from "@/lib/supabase/client"
+import { useRouter } from "next/navigation"
 
 const mainNavLinks = [
   { name: "Products", href: "/products", hasDropdown: true },
@@ -18,8 +22,13 @@ export function UnifiedNav() {
   const [scrolled, setScrolled] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
   const productsRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
+  const userMenuRef = useRef<HTMLDivElement>(null)
+  const { user, profile, loading: userLoading } = useUser()
+  const cartCount = useCartCount()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +45,9 @@ export function UnifiedNav() {
       }
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
         setServicesOpen(false)
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setUserMenuOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -139,6 +151,105 @@ export function UnifiedNav() {
             >
               Contact
             </Link>
+
+            {/* User Menu */}
+            {!userLoading && (
+              <div className="relative" ref={userMenuRef}>
+                {user ? (
+                  <>
+                    <button
+                      onClick={() => setUserMenuOpen(!userMenuOpen)}
+                      className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-amber-500/80 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
+                      aria-expanded={userMenuOpen}
+                      aria-haspopup="true"
+                    >
+                      <User className="w-4 h-4" />
+                      <span className="hidden lg:inline">
+                        {profile?.name || user.email?.split('@')[0] || 'Account'}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {userMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full right-0 mt-2 w-56 bg-black/95 backdrop-blur-xl border border-amber-500/30 shadow-xl"
+                          role="menu"
+                        >
+                          <div className="p-2">
+                            <div className="px-4 py-3 border-b border-amber-500/20 mb-2">
+                              <div className="text-sm font-medium text-white/90">
+                                {profile?.name || 'User'}
+                              </div>
+                              <div className="text-xs text-gray-400 truncate">
+                                {user.email}
+                              </div>
+                            </div>
+                            <Link
+                              href="/profile"
+                              className="flex items-center gap-3 px-4 py-3 text-sm text-gray-300 hover:text-amber-500 hover:bg-amber-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                              role="menuitem"
+                              onClick={() => setUserMenuOpen(false)}
+                            >
+                              <Settings className="w-4 h-4" />
+                              Profile Settings
+                            </Link>
+                            <Link
+                              href="/orders"
+                              className="flex items-center gap-3 px-4 py-3 text-sm text-gray-300 hover:text-amber-500 hover:bg-amber-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                              role="menuitem"
+                              onClick={() => setUserMenuOpen(false)}
+                            >
+                              <Package className="w-4 h-4" />
+                              Order History
+                            </Link>
+                            <Link
+                              href="/cart"
+                              className="flex items-center gap-3 px-4 py-3 text-sm text-gray-300 hover:text-amber-500 hover:bg-amber-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset relative"
+                              role="menuitem"
+                              onClick={() => setUserMenuOpen(false)}
+                            >
+                              <ShoppingCart className="w-4 h-4" />
+                              Shopping Cart
+                              {cartCount > 0 && (
+                                <span className="ml-auto bg-amber-500 text-black text-xs font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center">
+                                  {cartCount}
+                                </span>
+                              )}
+                            </Link>
+                            <div className="border-t border-amber-500/20 mt-2 pt-2">
+                              <button
+                                onClick={async () => {
+                                  const supabase = createClient()
+                                  await supabase.auth.signOut()
+                                  setUserMenuOpen(false)
+                                  router.push('/')
+                                }}
+                                className="flex items-center gap-3 w-full px-4 py-3 text-sm text-gray-300 hover:text-red-400 hover:bg-red-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                                role="menuitem"
+                              >
+                                <LogOut className="w-4 h-4" />
+                                Sign Out
+                              </button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <Link
+                    href="/auth/login"
+                    className="inline-flex items-center justify-center px-5 py-2.5 text-amber-500/80 hover:text-amber-500 text-sm font-medium transition-colors border border-amber-500/30 hover:border-amber-500/50 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  >
+                    Sign In
+                  </Link>
+                )}
+              </div>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -219,8 +330,69 @@ export function UnifiedNav() {
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="pt-4 mt-4 border-t border-amber-500/20"
+                className="pt-4 mt-4 border-t border-amber-500/20 space-y-2"
               >
+                {user ? (
+                  <>
+                    <div className="px-4 py-2 border-b border-amber-500/20 mb-2">
+                      <div className="text-sm font-medium text-white/90">
+                        {profile?.name || 'User'}
+                      </div>
+                      <div className="text-xs text-gray-400 truncate">
+                        {user.email}
+                      </div>
+                    </div>
+                    <Link
+                      href="/profile"
+                      onClick={handleMenuClick}
+                      className="flex items-center gap-3 py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                    >
+                      <Settings className="w-5 h-5" />
+                      Profile
+                    </Link>
+                    <Link
+                      href="/orders"
+                      onClick={handleMenuClick}
+                      className="flex items-center gap-3 py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                    >
+                      <Package className="w-5 h-5" />
+                      Orders
+                    </Link>
+                    <Link
+                      href="/cart"
+                      onClick={handleMenuClick}
+                      className="flex items-center gap-3 py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset relative"
+                    >
+                      <ShoppingCart className="w-5 h-5" />
+                      Cart
+                      {cartCount > 0 && (
+                        <span className="ml-auto bg-amber-500 text-black text-xs font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center">
+                          {cartCount}
+                        </span>
+                      )}
+                    </Link>
+                    <button
+                      onClick={async () => {
+                        const supabase = createClient()
+                        await supabase.auth.signOut()
+                        handleMenuClick()
+                        router.push('/')
+                      }}
+                      className="flex items-center gap-3 w-full py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-red-500/10 hover:text-red-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    href="/auth/login"
+                    onClick={handleMenuClick}
+                    className="flex items-center justify-center w-full py-4 px-4 bg-amber-500 hover:bg-amber-600 text-black font-medium transition-colors rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  >
+                    Sign In
+                  </Link>
+                )}
                 <Link
                   href="/contact"
                   onClick={handleMenuClick}

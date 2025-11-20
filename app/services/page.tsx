@@ -121,7 +121,7 @@ export default function ServicesPage() {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-center text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light mb-16 md:mb-20"
           >
-            Comprehensive inspection, mapping, data intelligence, and safety standards services for <span className="text-amber-500/80 font-normal">defense, government, and commercial sectors</span> operating in marine environments.
+            Comprehensive inspection, mapping, data intelligence, and safety standards services for <span className="text-amber-500/80 font-normal">defense, government, and commercial sectors</span> operating in marine environments. <span className="text-amber-500/90 font-medium">Subscribe to annual service packages for predictable costs and priority scheduling.</span>
           </motion.p>
 
           {/* Capability Indicators - Technical Specs */}
@@ -175,7 +175,7 @@ export default function ServicesPage() {
               Operational<br />Capabilities
             </h2>
             <p className="text-base md:text-lg text-gray-500 font-light max-w-xl leading-relaxed">
-              End-to-end subsea services delivered with precision, reliability, and actionable intelligence.
+              End-to-end subsea services delivered with precision, reliability, and actionable intelligence. <span className="text-amber-500/80 font-medium">Many services offer annual subscription packages for cost-effective, scheduled operations.</span>
             </p>
           </motion.div>
 

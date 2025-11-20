@@ -89,7 +89,7 @@ export default function ProductsPage() {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-center text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light mb-16 md:mb-20"
           >
-            Software, hardware, and autonomous systems engineered for <span className="text-amber-500/80 font-normal">defense, government, and commercial operations</span> in the world's most extreme environments.
+            Software, hardware, and autonomous systems engineered for <span className="text-amber-500/80 font-normal">defense, government, and commercial operations</span> in the world's most extreme environments. <span className="text-amber-500/70 font-medium">Products are typically sold through authorized vendors, but this serves as a central information and purchasing resource.</span>
           </motion.p>
 
           {/* Technical Specifications Grid */}
@@ -317,7 +317,7 @@ export default function ProductsPage() {
                           variant="outline"
                             className="w-full border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 bg-black/20 backdrop-blur-sm"
                         >
-                          Request Demo
+                          Contact Sales
                         </Button>
                       </Link>
                     </div>
@@ -371,11 +371,11 @@ export default function ProductsPage() {
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-8 text-white/90 leading-tight">
-                Custom Enterprise<br />Solutions
+                Product Information<br />& Sales
             </h2>
               
               <p className="text-base md:text-lg text-gray-400 mb-12 max-w-xl mx-auto leading-relaxed font-light">
-              Our engineering team designs and deploys custom technology solutions for specialized requirements in defense, government, and industrial sectors.
+              Our products are available through authorized vendors and direct sales. Contact us to learn more about purchasing options, technical specifications, and deployment support for your operational requirements.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

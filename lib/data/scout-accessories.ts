@@ -294,3 +294,10 @@ export function getAllAccessories(): ScoutAccessory[] {
   return SCOUT_ACCESSORIES
 }
 
+
+
+
+
+
+
+
