@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { UnifiedNav } from "@/components/unified-nav";
@@ -24,12 +24,6 @@ export const metadata: Metadata = {
   description: "Advanced robotics and safety technology for defense, research, and commercial operations in the world's most demanding environments.",
   keywords: ["underwater robotics", "AUV", "ocean technology", "defense technology", "marine robotics", "subsea operations"],
   authors: [{ name: "Melon Robotics" }],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: "#0a0e1a",
   openGraph: {
     title: "Melon Robotics | Ocean Intelligence Technology",
     description: "Advanced robotics and safety technology for defense, research, and commercial operations",
@@ -43,6 +37,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://melonrobotics.com",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0a0e1a",
 };
 
 export default function RootLayout({

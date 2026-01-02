@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Loader2, ShoppingCart, Check } from 'lucide-react'
 import { useUser } from '@/hooks/use-user'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 interface AddToCartButtonProps {
@@ -40,10 +40,11 @@ export function AddToCartButton({
   const [success, setSuccess] = useState(false)
   const { user } = useUser()
   const router = useRouter()
+  const pathname = usePathname()
 
   const handleAddToCart = async () => {
     if (!user) {
-      router.push('/auth/login?redirect=' + encodeURIComponent(window.location.pathname))
+      router.push('/auth/login?redirect=' + encodeURIComponent(pathname))
       return
     }
 
@@ -87,7 +88,9 @@ export function AddToCartButton({
       onSuccess?.()
 
       // Dispatch event to update cart count
-      window.dispatchEvent(new Event('cartUpdated'))
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new Event('cartUpdated'))
+      }
 
       // Reset success state after 2 seconds
       setTimeout(() => setSuccess(false), 2000)
@@ -103,7 +106,7 @@ export function AddToCartButton({
 
   if (!user) {
     return (
-      <Link href={`/auth/login?redirect=${encodeURIComponent(window.location.pathname)}`}>
+      <Link href={`/auth/login?redirect=${encodeURIComponent(pathname)}`}>
         <Button className={className} variant={variant}>
           {children || 'Sign In to Add to Cart'}
         </Button>
