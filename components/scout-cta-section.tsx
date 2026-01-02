@@ -62,10 +62,10 @@ export function ScoutCTASection() {
             variants={itemVariants}
             className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300/90 max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 leading-relaxed"
           >
-            Explore pricing tiers with volume discounts, browse accessories, or contact our team for custom configurations.
+            Explore pricing tiers with volume discounts, browse accessories and support platforms, or contact our team for custom configurations.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
             <Link href="/products/scout/pricing">
               <Button
                 className="bg-white hover:bg-gray-100 text-black border border-white/20 shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full transition-all duration-300"
@@ -94,6 +94,38 @@ export function ScoutCTASection() {
                 Contact Sales
               </Button>
             </Link>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="border-t border-amber-500/20 pt-6 sm:pt-8">
+            <p className="text-xs sm:text-sm text-gray-400/80 mb-4 font-mono uppercase tracking-wider">
+              Support Platforms
+            </p>
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
+              <Link href="/products/scout/support-vessels">
+                <Button
+                  variant="outline"
+                  className="border-amber-500/30 text-amber-500/80 hover:bg-amber-500/10 hover:border-amber-500/50 hover:text-amber-500 text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 font-mono uppercase tracking-wider transition-all duration-300"
+                >
+                  Support Vessels
+                </Button>
+              </Link>
+              <Link href="/products/scout/support/buoy">
+                <Button
+                  variant="outline"
+                  className="border-amber-500/30 text-amber-500/80 hover:bg-amber-500/10 hover:border-amber-500/50 hover:text-amber-500 text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 font-mono uppercase tracking-wider transition-all duration-300"
+                >
+                  Support Buoys
+                </Button>
+              </Link>
+              <Link href="/products/scout/support/semisub">
+                <Button
+                  variant="outline"
+                  className="border-amber-500/30 text-amber-500/80 hover:bg-amber-500/10 hover:border-amber-500/50 hover:text-amber-500 text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 font-mono uppercase tracking-wider transition-all duration-300"
+                >
+                  Semi-Submersibles
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
       </div>

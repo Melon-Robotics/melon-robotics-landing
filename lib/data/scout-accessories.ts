@@ -13,6 +13,9 @@ export interface ScoutAccessory {
   specifications: string[]
   compatibleTiers: string[] // Which Scout tiers this is compatible with
   image?: string
+  isReplacement?: boolean // If true, this replaces default equipment included with tiers
+  isUpgrade?: boolean // If true, this is an upgrade (not just a replacement)
+  replacesDefault?: string // Description of what default equipment this replaces
 }
 
 export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
@@ -31,6 +34,8 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
       'Real-time processing',
     ],
     compatibleTiers: ['advanced', 'enterprise'],
+    isReplacement: true,
+    replacesDefault: 'Replacement for multi-beam sonar included with Advanced tier',
   },
   {
     id: 'sensor-sidescan-sonar',
@@ -45,6 +50,8 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
       'Swath width: 300m',
     ],
     compatibleTiers: ['standard', 'advanced', 'enterprise'],
+    isReplacement: true,
+    replacesDefault: 'Replacement for standard side-scan sonar included with Standard tier',
   },
   {
     id: 'sensor-laser-scanner',
@@ -59,6 +66,9 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
       'Field of view: 360° × 270°',
     ],
     compatibleTiers: ['advanced', 'enterprise'],
+    isReplacement: true,
+    isUpgrade: true,
+    replacesDefault: 'Upgrade: Replaces multi-beam sonar system with enhanced laser scanning capabilities',
   },
   {
     id: 'sensor-chemical-sampler',
@@ -73,6 +83,8 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
       'Biological filter system',
     ],
     compatibleTiers: ['advanced', 'enterprise'],
+    isReplacement: true,
+    replacesDefault: 'Replacement for chemical sensors included with Advanced tier',
   },
   {
     id: 'sensor-magnetometer',
@@ -271,6 +283,34 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
  */
 export function getAccessoriesByCategory(category: ScoutAccessory['category']): ScoutAccessory[] {
   return SCOUT_ACCESSORIES.filter((acc) => acc.category === category)
+}
+
+/**
+ * Get add-on accessories (not replacements)
+ */
+export function getAddOnAccessories(): ScoutAccessory[] {
+  return SCOUT_ACCESSORIES.filter((acc) => !acc.isReplacement)
+}
+
+/**
+ * Get replacement accessories (replace default equipment)
+ */
+export function getReplacementAccessories(): ScoutAccessory[] {
+  return SCOUT_ACCESSORIES.filter((acc) => acc.isReplacement === true)
+}
+
+/**
+ * Get upgrade accessories (upgrades, not just replacements)
+ */
+export function getUpgradeAccessories(): ScoutAccessory[] {
+  return SCOUT_ACCESSORIES.filter((acc) => acc.isReplacement === true && acc.isUpgrade === true)
+}
+
+/**
+ * Get standard replacement accessories (not upgrades)
+ */
+export function getStandardReplacementAccessories(): ScoutAccessory[] {
+  return SCOUT_ACCESSORIES.filter((acc) => acc.isReplacement === true && acc.isUpgrade !== true)
 }
 
 /**

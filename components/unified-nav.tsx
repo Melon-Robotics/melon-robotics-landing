@@ -12,6 +12,7 @@ import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 
 const mainNavLinks = [
+  { name: "ORBIT", href: "/orbit" },
   { name: "Products", href: "/products", hasDropdown: true },
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "About", href: "/about" },

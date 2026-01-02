@@ -7,11 +7,19 @@ import { Activity, BarChart3, Wifi, RefreshCw, TerminalSquare, Shield, Eye, Aler
 
 export function RealTimeOps() {
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.3 })
+  const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
+  const [hasBeenVisible, setHasBeenVisible] = useState(false)
   const [activeTab, setActiveTab] = useState('operations')
   const [mobileTabsOpen, setMobileTabsOpen] = useState(false)
   const [matrixElements, setMatrixElements]: any = useState([])
   const [glitchTextDelay, setGlitchTextDelay] = useState(3)
+
+  // Track visibility - once shown, stay visible
+  useEffect(() => {
+    if (isInView && !hasBeenVisible) {
+      setHasBeenVisible(true)
+    }
+  }, [isInView, hasBeenVisible])
 
   // Generate matrix elements only on client-side to avoid hydration errors
   // and set glitch text animation delay for consistency
@@ -111,7 +119,7 @@ export function RealTimeOps() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={hasBeenVisible || isInView ? "visible" : "hidden"}
           className="max-w-6xl mx-auto"
         >
           {/* Section Header - Improved for mobile */}

@@ -13,7 +13,7 @@ import { MelonScoutHero } from "@/components/melon-scout-hero"
 import { WhatIsMelonScout } from "@/components/what-is-melon-scout"
 import { FeverSwarmAdvantage } from "@/components/fever-swarm-advantage"
 import { BuiltForDefense } from "@/components/built-for-defense"
-import { RealTimeOps } from "@/components/real-time-ops"
+import { ScoutDashboardPreview } from "@/components/scout-dashboard-preview"
 import { MelonEdge } from "@/components/melon-edge"
 import { ScoutCTASection } from "@/components/scout-cta-section"
 import { CTASection } from "@/components/cta-section"
@@ -22,6 +22,7 @@ import { CTASection } from "@/components/cta-section"
 import { BlackBoxHero } from "@/components/blackbox-hero"
 import { BlackBoxDemo } from "@/components/blackbox-demo"
 import { BlackBoxExplainer } from "@/components/blackbox-explainer"
+import { BlackBoxPreview } from "@/components/blackbox-preview"
 import { PneumaForceHero } from "@/components/pneumaforce-hero"
 import { PneumaForceDemos } from "@/components/pneumaforce-demos"
 import { PneumaForceExplainer } from "@/components/pneumaforce-explainer"
@@ -47,7 +48,7 @@ export default function ProductPage({ params }: PageProps) {
           <WhatIsMelonScout />
           <FeverSwarmAdvantage />
           <BuiltForDefense />
-          <RealTimeOps />
+          <ScoutDashboardPreview />
           <MelonEdge />
           <ScoutCTASection />
         </main>
@@ -63,6 +64,7 @@ export default function ProductPage({ params }: PageProps) {
           <BlackBoxHero />
           <BlackBoxDemo />
           <BlackBoxExplainer />
+          <BlackBoxPreview />
           <CTASection />
         </main>
       </div>
