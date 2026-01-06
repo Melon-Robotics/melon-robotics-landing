@@ -12,10 +12,9 @@ import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 
 const mainNavLinks = [
-  { name: "ORBIT", href: "/orbit" },
-  { name: "Products", href: "/products", hasDropdown: true },
+  { name: "Systems", href: "/products", hasDropdown: true },
   { name: "Services", href: "/services", hasDropdown: true },
-  { name: "About", href: "/about" },
+  { name: "Company", href: "/about" },
 ]
 
 export function UnifiedNav() {
@@ -85,21 +84,23 @@ export function UnifiedNav() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
             {mainNavLinks.map((item) => (
-              <div key={item.name} className="relative" ref={item.name === 'Products' ? productsRef : item.name === 'Services' ? servicesRef : null}>
+              <div key={item.name} className="relative" ref={item.name === 'Systems' ? productsRef : item.name === 'Services' ? servicesRef : null}>
                 {item.hasDropdown ? (
                   <>
                     <button
-                      onClick={item.name === 'Products' ? toggleProducts : toggleServices}
+                      onClick={item.name === 'Systems' ? toggleProducts : item.name === 'Services' ? toggleServices : undefined}
                       className="text-sm font-medium text-amber-500/80 hover:text-amber-500 transition-colors duration-300 relative group flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded px-2 py-1"
-                      aria-expanded={item.name === 'Products' ? productsOpen : servicesOpen}
-                      aria-haspopup="true"
+                      aria-expanded={item.name === 'Systems' ? productsOpen : item.name === 'Services' ? servicesOpen : false}
+                      aria-haspopup={item.hasDropdown ? "true" : undefined}
                     >
                       {item.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${item.name === 'Products' && productsOpen ? 'rotate-180' : item.name === 'Services' && servicesOpen ? 'rotate-180' : ''}`} />
+                      {item.hasDropdown && (
+                        <ChevronDown className={`w-4 h-4 transition-transform ${item.name === 'Systems' && productsOpen ? 'rotate-180' : item.name === 'Services' && servicesOpen ? 'rotate-180' : ''}`} />
+                      )}
                       <span className="absolute left-0 bottom-0 h-px w-0 group-hover:w-full bg-amber-500 transition-all duration-300" />
                     </button>
                     <AnimatePresence>
-                      {(item.name === 'Products' ? productsOpen : servicesOpen) && (
+                      {(item.name === 'Systems' ? productsOpen : item.name === 'Services' ? servicesOpen : false) && (
                         <motion.div
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -109,25 +110,37 @@ export function UnifiedNav() {
                           role="menu"
                         >
                           <div className="p-2">
-                            {(item.name === 'Products' ? products : services).slice(0, 4).map((subItem) => (
+                            {/* Add Orbit as first item in Systems dropdown */}
+                            {item.name === 'Systems' && (
+                              <Link
+                                href="/orbit"
+                                className="block px-4 py-3 text-sm text-gray-300 hover:text-amber-500 hover:bg-amber-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset border-b border-amber-500/10 mb-2"
+                                role="menuitem"
+                                onClick={() => setProductsOpen(false)}
+                              >
+                                <div className="font-semibold text-amber-100 mb-1">Orbit Cloud</div>
+                                <div className="text-xs text-gray-400">Command, control, and intelligence platform</div>
+                              </Link>
+                            )}
+                            {(item.name === 'Systems' ? products : item.name === 'Services' ? services : []).slice(0, item.name === 'Systems' ? 3 : 4).map((subItem) => (
                               <Link
                                 key={subItem.id}
-                                href={`/${item.name === 'Products' ? 'products' : 'services'}/${subItem.id}`}
+                                href={`/${item.name === 'Systems' ? 'products' : 'services'}/${subItem.id}`}
                                 className="block px-4 py-3 text-sm text-gray-300 hover:text-amber-500 hover:bg-amber-500/10 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
                                 role="menuitem"
-                                onClick={() => item.name === 'Products' ? setProductsOpen(false) : setServicesOpen(false)}
+                                onClick={() => item.name === 'Systems' ? setProductsOpen(false) : item.name === 'Services' ? setServicesOpen(false) : undefined}
                               >
                                 <div className="font-semibold text-amber-100 mb-1">{subItem.name}</div>
                                 <div className="text-xs text-gray-400">{subItem.tagline}</div>
                               </Link>
                             ))}
                             <Link
-                              href={`/${item.name === 'Products' ? 'products' : 'services'}`}
+                              href={`/${item.name === 'Systems' ? 'products' : 'services'}`}
                               className="block px-4 py-3 mt-2 text-sm font-medium text-amber-500 hover:text-amber-400 border-t border-amber-500/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset rounded"
                               role="menuitem"
-                              onClick={() => item.name === 'Products' ? setProductsOpen(false) : setServicesOpen(false)}
+                              onClick={() => item.name === 'Systems' ? setProductsOpen(false) : item.name === 'Services' ? setServicesOpen(false) : undefined}
                             >
-                              View All {item.name} →
+                              View All {item.name === 'Systems' ? 'Systems' : 'Services'} →
                             </Link>
                           </div>
                         </motion.div>
@@ -148,7 +161,7 @@ export function UnifiedNav() {
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-black text-sm font-medium transition-all shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 border border-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
-              aria-label="Contact us"
+              aria-label="Contact systems team"
             >
               Contact
             </Link>
@@ -297,10 +310,20 @@ export function UnifiedNav() {
                         {item.name}
                       </div>
                       <div className="space-y-1">
-                        {(item.name === 'Products' ? products : services).map((subItem) => (
+                        {/* Add Orbit as first item in Systems mobile menu */}
+                        {item.name === 'Systems' && (
+                          <Link
+                            href="/orbit"
+                            onClick={handleMenuClick}
+                            className="block py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset border-b border-amber-500/10 mb-2"
+                          >
+                            Orbit Cloud
+                          </Link>
+                        )}
+                        {(item.name === 'Systems' ? products : item.name === 'Services' ? services : []).map((subItem) => (
                           <Link
                             key={subItem.id}
-                            href={`/${item.name === 'Products' ? 'products' : 'services'}/${subItem.id}`}
+                            href={`/${item.name === 'Systems' ? 'products' : 'services'}/${subItem.id}`}
                             onClick={handleMenuClick}
                             className="block py-3 px-4 rounded-lg text-base text-gray-300 hover:bg-amber-500/10 hover:text-amber-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
                           >
@@ -308,11 +331,11 @@ export function UnifiedNav() {
                           </Link>
                         ))}
                         <Link
-                          href={`/${item.name === 'Products' ? 'products' : 'services'}`}
+                          href={`/${item.name === 'Systems' ? 'products' : 'services'}`}
                           onClick={handleMenuClick}
                           className="block py-3 px-4 rounded-lg text-base font-medium text-amber-500 hover:bg-amber-500/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-inset"
                         >
-                          View All {item.name} →
+                          View All {item.name === 'Systems' ? 'Systems' : 'Services'} →
                         </Link>
                       </div>
                     </div>

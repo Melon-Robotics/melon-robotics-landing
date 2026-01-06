@@ -101,7 +101,7 @@ export function ScoutCTASection() {
               Support Platforms
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
-              <Link href="/products/scout/support-vessels">
+              <Link href="/products/scout/support#vessels">
                 <Button
                   variant="outline"
                   className="border-amber-500/30 text-amber-500/80 hover:bg-amber-500/10 hover:border-amber-500/50 hover:text-amber-500 text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 font-mono uppercase tracking-wider transition-all duration-300"

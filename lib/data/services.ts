@@ -31,6 +31,16 @@ export interface Service {
   deliverables: string[]
   rovServices?: ROVService[]
   subscriptionTiers?: SubscriptionTier[]
+  // Services page specific fields
+  valueProposition: string // One-sentence value prop
+  supportingParagraph: string // 2-3 line supporting text
+  keySpecs: Array<{ label: string; value: string }> // 3-4 key specifications for services page
+  servicesPageCta: {
+    primary: string
+    primaryHref: string
+    secondary?: string
+    secondaryHref?: string
+  }
 }
 
 export const services: Service[] = [
@@ -40,6 +50,20 @@ export const services: Service[] = [
     tagline: 'Precision Subsea Inspection and Data Collection',
     description: 'Professional-grade remotely operated vehicle inspection services for infrastructure assessment, maintenance, and exploration missions. Real-time HD video, sonar mapping, and sensor data collection.',
     category: 'inspection',
+    valueProposition: 'Professional ROV inspection services using Scout technology for infrastructure assessment, maintenance, and emergency response operations.',
+    supportingParagraph: 'Deploy Scout AUV systems for subsea inspection missions requiring HD video documentation, structural assessment, and environmental monitoring. Services include hull inspections, dock surveys, pipeline assessments, and emergency recovery operations. Available as one-time engagements or annual subscription tiers.',
+    keySpecs: [
+      { label: 'Primary Use Case', value: 'Infrastructure inspection and maintenance assessment' },
+      { label: 'Equipment', value: 'Scout AUV with HD cameras, sonar, sensors' },
+      { label: 'Deliverables', value: 'HD video, annotated reports, structural condition ratings' },
+      { label: 'Target Operator', value: 'Marine vessel operators, port authorities, engineering firms' }
+    ],
+    servicesPageCta: {
+      primary: 'View Service Details',
+      primaryHref: '/services/rov-inspection',
+      secondary: 'View Pricing',
+      secondaryHref: '/services/rov-inspection'
+    },
     capabilities: [
       {
         title: 'HD Video Documentation',
@@ -305,6 +329,20 @@ export const services: Service[] = [
     tagline: 'Millimeter-Accurate Underwater 3D Mapping',
     description: 'Professional photogrammetric survey services producing centimeter-accurate 3D models of underwater structures, terrain, and objects. Advanced processing and analysis workflows.',
     category: 'inspection',
+    valueProposition: 'Centimeter-accurate 3D photogrammetric modeling of underwater structures and terrain for engineering analysis and documentation.',
+    supportingParagraph: 'High-resolution 3D reconstruction from thousands of precisely positioned images. Produces photorealistic models with measurement capabilities, volume analysis, and change detection over time. Export formats compatible with CAD and engineering software.',
+    keySpecs: [
+      { label: 'Primary Use Case', value: '3D documentation and measurement of underwater structures' },
+      { label: 'Accuracy', value: 'Centimeter-level precision for dimensional analysis' },
+      { label: 'Deliverables', value: '3D models, point clouds, orthomosaics, measurement reports' },
+      { label: 'Target Operator', value: 'Marine engineering, archaeology, construction, insurance survey' }
+    ],
+    servicesPageCta: {
+      primary: 'View Service Details',
+      primaryHref: '/services/photogrammetry',
+      secondary: 'Request Quote',
+      secondaryHref: '/contact'
+    },
     capabilities: [
       {
         title: 'Multi-View Reconstruction',
@@ -358,6 +396,20 @@ export const services: Service[] = [
     tagline: 'Comprehensive Maritime Environmental Intelligence',
     description: 'Real-time and historical oceanographic data services including currents, temperature, salinity, waves, and water quality. API access and custom analytics.',
     category: 'data',
+    valueProposition: 'Real-time and historical oceanographic data services with API access for operational planning and environmental intelligence.',
+    supportingParagraph: 'Environmental data feeds from sensor networks, buoys, and AUV deployments. Includes real-time monitoring, historical archives, predictive modeling, and RESTful API integration. Supports offshore operations, research, and environmental compliance requirements.',
+    keySpecs: [
+      { label: 'Primary Use Case', value: 'Environmental intelligence for operational planning and research' },
+      { label: 'Data Sources', value: 'Real-time sensors, historical archives, predictive models' },
+      { label: 'Access Method', value: 'API integration, dashboards, custom analytics' },
+      { label: 'Target Operator', value: 'Maritime operations, research institutions, government agencies' }
+    ],
+    servicesPageCta: {
+      primary: 'View Service Details',
+      primaryHref: '/services/ocean-data',
+      secondary: 'API Documentation',
+      secondaryHref: '/services/ocean-data'
+    },
     capabilities: [
       {
         title: 'Real-Time Monitoring',
@@ -411,6 +463,20 @@ export const services: Service[] = [
     tagline: 'Safety Protocols and Technical Documentation',
     description: 'Comprehensive safety standards, protocols, and technical documentation for human-ocean interface operations. Research-backed best practices for commercial diving and subsea work.',
     category: 'safety',
+    valueProposition: 'Safety standards, protocols, and technical documentation for commercial diving and subsea operations with regulatory compliance guidance.',
+    supportingParagraph: 'Research-backed safety procedures and technical documentation for human-ocean interface operations. Includes safety protocols, operating procedures, training materials, and compliance consulting for commercial diving, ROV operations, and subsea construction.',
+    keySpecs: [
+      { label: 'Primary Use Case', value: 'Safety program development and regulatory compliance' },
+      { label: 'Deliverables', value: 'Safety manuals, operating procedures, training materials, compliance reports' },
+      { label: 'Scope', value: 'Commercial diving, ROV operations, subsea construction' },
+      { label: 'Target Operator', value: 'Commercial diving contractors, government agencies, training organizations' }
+    ],
+    servicesPageCta: {
+      primary: 'View Service Details',
+      primaryHref: '/services/safety-standards',
+      secondary: 'Request Consultation',
+      secondaryHref: '/contact'
+    },
     capabilities: [
       {
         title: 'Safety Protocols',

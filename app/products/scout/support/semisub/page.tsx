@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Radio, Satellite, Zap, Eye } from 'lucide-react'
 import Link from 'next/link'
+import { SupportPlatformVisualization } from '@/components/support-platform-visualization'
 
 export default function SupportSemisubPage() {
   return (
@@ -30,6 +31,70 @@ export default function SupportSemisubPage() {
           <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-amber-500/20" />
         </div>
 
+        {/* Technical Status Indicators */}
+        <div className="absolute top-4 left-4 text-[10px] sm:text-xs font-mono text-amber-500/80 z-10 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1"
+          >
+            <span className="hidden xs:inline">MR-SUP-SEMI | </span>REF: 001-SEMI
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-1 text-[8px] text-gray-600 font-mono"
+          >
+            REV: A.1 | CLASS: UNCLASSIFIED
+          </motion.div>
+        </div>
+
+        {/* Status Indicators - Top Right */}
+        <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80 z-10 pointer-events-none hidden xs:block">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1"
+          >
+            STATUS: <span className="text-green-400">COVERT</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-1 text-[8px] text-gray-600 font-mono text-right"
+          >
+            PROFILE: <span className="text-green-400">LOW</span> | DOCK: ACTIVE
+          </motion.div>
+        </div>
+
+        {/* Bottom Left Indicators */}
+        <div className="absolute bottom-4 left-4 flex flex-col gap-2 text-[10px] sm:text-xs font-mono z-10 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center"
+          >
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 mr-1.5 animate-pulse" />
+            <span className="text-green-400">ONLINE</span>
+            <span className="text-gray-600 ml-2 hidden sm:inline">| STEALTH: ACTIVE</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex items-center hidden xs:flex"
+          >
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 mr-1.5 animate-pulse" />
+            <span className="text-amber-500">DOCKING</span>
+            <span className="text-gray-600 ml-2">| AUTO: ENABLED</span>
+          </motion.div>
+        </div>
+
         <div className="container-responsive max-w-7xl relative z-10">
           {/* Back Button */}
           <motion.div
@@ -38,44 +103,102 @@ export default function SupportSemisubPage() {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Link href="/products/scout">
+            <Link href="/products/scout/support">
               <Button
                 variant="outline"
                 className="border-amber-500/30 text-amber-500/80 hover:text-amber-500 hover:border-amber-500/50 font-mono text-xs tracking-wider uppercase"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Scout
+                Back to Support Platforms
               </Button>
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">
-                SUPPORT PLATFORM
-              </div>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-12">
+            {/* Platform Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="order-2 lg:order-1"
+            >
+              <SupportPlatformVisualization platformType="semisub" />
+            </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-white/90 tracking-tight">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="max-w-4xl order-1 lg:order-2"
+            >
+            {/* Technical Status Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex items-center justify-center gap-3 mb-8"
+            >
+              <div className="flex items-center gap-2 font-mono text-[10px] text-amber-500/80 tracking-[0.25em] uppercase">
+                <div className="relative">
+                  <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                  <div className="absolute inset-0 w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping opacity-75" />
+                </div>
+                <span>SUPPORT PLATFORM</span>
+              </div>
+              <div className="h-px w-12 bg-amber-500/20" />
+              <div className="font-mono text-[10px] text-gray-600">
+                MODULE: MR-SUP-SEMI | REV: A.1
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex items-center justify-center gap-4 mb-8"
+            >
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase"
+              >
+                SUPPORT PLATFORM
+              </motion.div>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-white/90 tracking-tight"
+            >
               Scout Support Semi-Submersible
-            </h1>
-            <div className="h-px w-16 bg-gradient-to-r from-amber-500/40 to-transparent mb-6" />
-            <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed font-light max-w-3xl">
+            </motion.h1>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="h-px w-16 bg-gradient-to-r from-amber-500/40 to-transparent mb-6"
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed font-light max-w-3xl"
+            >
               Low-profile, semi-submersible support platforms for covert, long-duration Scout operations with autonomous docking and energy replenishment.
-            </p>
+            </motion.p>
           </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Quick Navigation */}
-      <section className="relative py-8 px-4 border-b border-amber-500/10 bg-[#0f1625]/50">
+      <section className="relative py-4 sm:py-6 md:py-8 px-4 border-b border-amber-500/10 bg-[#0f1625]/50">
         <div className="container-responsive max-w-7xl relative z-10">
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="#overview" className="text-xs font-mono text-amber-500/70 hover:text-amber-500 px-3 py-1.5 border border-amber-500/20 hover:border-amber-500/40 transition-colors uppercase tracking-wider">
@@ -634,7 +757,7 @@ export default function SupportSemisubPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 max-w-4xl">
-            <Link href="/products/scout/support-vessels">
+            <Link href="/products/scout/support#vessels">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -665,6 +788,16 @@ export default function SupportSemisubPage() {
                   Persistent surface nodes for extended range and communication
                 </p>
               </motion.div>
+            </Link>
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/products/scout/support">
+              <Button
+                variant="outline"
+                className="border-amber-500/30 text-amber-500/80 hover:text-amber-500 hover:border-amber-500/50 text-xs sm:text-sm font-mono tracking-wider uppercase"
+              >
+                View All Support Platforms
+              </Button>
             </Link>
           </div>
         </div>

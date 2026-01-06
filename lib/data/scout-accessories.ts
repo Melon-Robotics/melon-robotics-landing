@@ -144,20 +144,6 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
     ],
     compatibleTiers: ['standard', 'advanced', 'enterprise'],
   },
-  {
-    id: 'comm-rf-buoy',
-    name: 'RF Surface Buoy',
-    category: 'communication',
-    price: 3000000, // $30,000
-    description: 'Surface communication buoy that extends Scout communication range via RF and satellite links.',
-    specifications: [
-      'WiFi and cellular connectivity',
-      'Satellite backup',
-      'GPS tracking',
-      'Solar powered',
-    ],
-    compatibleTiers: ['advanced', 'enterprise'],
-  },
 
   // Power
   {
@@ -259,20 +245,6 @@ export const SCOUT_ACCESSORIES: ScoutAccessory[] = [
       'Works in sea state 4',
       'Handles up to 200 kg',
       'GPS positioning',
-    ],
-    compatibleTiers: ['standard', 'advanced', 'enterprise'],
-  },
-  {
-    id: 'peripheral-mission-control',
-    name: 'Mission Control Software Suite',
-    category: 'peripheral',
-    price: 2500000, // $25,000
-    description: 'Advanced mission planning and control software with swarm coordination capabilities.',
-    specifications: [
-      'Mission planning tools',
-      'Real-time monitoring',
-      'Swarm coordination',
-      'Data analysis suite',
     ],
     compatibleTiers: ['standard', 'advanced', 'enterprise'],
   },

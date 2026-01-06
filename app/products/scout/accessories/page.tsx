@@ -77,54 +77,194 @@ export default function ScoutAccessoriesPage() {
           <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-amber-500/20" />
         </div>
 
+        {/* Technical Status Indicators */}
+        <div className="absolute top-4 left-4 text-[10px] sm:text-xs font-mono text-amber-500/80 z-10 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1"
+          >
+            <span className="hidden xs:inline">MR-SCOUT-ACC | </span>REF: 001-ACC
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-1 text-[8px] text-gray-600 font-mono"
+          >
+            REV: A.1 | CLASS: UNCLASSIFIED
+          </motion.div>
+        </div>
+
+        {/* Status Indicators - Top Right */}
+        <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80 z-10 pointer-events-none hidden xs:block">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1"
+          >
+            STATUS: <span className="text-green-400">INVENTORY</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-1 text-[8px] text-gray-600 font-mono text-right"
+          >
+            MODULES: <span className="text-green-400">AVAILABLE</span>
+          </motion.div>
+        </div>
+
+        {/* Bottom Left Indicators */}
+        <div className="absolute bottom-4 left-4 flex flex-col gap-2 text-[10px] sm:text-xs font-mono z-10 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center"
+          >
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 mr-1.5 animate-pulse" />
+            <span className="text-green-400">ONLINE</span>
+            <span className="text-gray-600 ml-2 hidden sm:inline">| STOCK: ACTIVE</span>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex items-center hidden xs:flex"
+          >
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 mr-1.5 animate-pulse" />
+            <span className="text-amber-500">CATALOG</span>
+            <span className="text-gray-600 ml-2">| TIERS: ALL</span>
+          </motion.div>
+        </div>
+
         <div className="container-responsive max-w-7xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-16"
           >
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
-              <div className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase">
-                ACCESSORIES & PERIPHERALS
+            {/* Technical Status Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex items-center justify-center gap-3 mb-8"
+            >
+              <div className="flex items-center gap-2 font-mono text-[10px] text-amber-500/80 tracking-[0.25em] uppercase">
+                <div className="relative">
+                  <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                  <div className="absolute inset-0 w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping opacity-75" />
+                </div>
+                <span>ACCESSORY CATALOG</span>
               </div>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+              <div className="h-px w-12 bg-amber-500/20" />
+              <div className="font-mono text-[10px] text-gray-600">
+                MODULE: MR-ACC-CAT | REV: A.1
+              </div>
+            </motion.div>
+
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="font-mono text-xs text-amber-500/60 tracking-[0.3em] uppercase"
+              >
+                ACCESSORIES & PERIPHERALS
+              </motion.div>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent"
+              />
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 text-white/90 tracking-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 text-white/90 tracking-tight"
+            >
               Scout<br />Accessories
-            </h1>
-            <div className="h-px w-24 bg-amber-500/30 mx-auto mb-6" />
-            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
+            </motion.h1>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="h-px w-24 bg-amber-500/30 mx-auto mb-6"
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
+            >
               Modular sensors, peripherals, and attachments to customize your Scout for mission-specific requirements.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 px-4 border-b border-amber-500/10">
-        <div className="container-responsive max-w-7xl">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            {categories.map((category) => {
+      <section className="relative py-12 px-4 border-b border-amber-500/10">
+        {/* Technical Grid Background */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <div className="container-responsive max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap items-center justify-center gap-4"
+          >
+            {categories.map((category, index) => {
               const Icon = category === 'all' ? Package : CATEGORY_ICONS[category]
               return (
-                <Button
+                <motion.div
                   key={category}
-                  variant="outline"
-                  onClick={() => setSelectedCategory(category)}
-                  className={`${
-                    selectedCategory === category
-                      ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
-                      : 'border-gray-700/50 text-gray-400 hover:text-white'
-                  } font-mono text-xs tracking-wider uppercase`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Icon className="w-4 h-4 mr-2" />
-                  {category === 'all' ? 'All' : CATEGORY_LABELS[category]}
-                </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => setSelectedCategory(category)}
+                    className={`${
+                      selectedCategory === category
+                        ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
+                        : 'border-gray-700/50 text-gray-400 hover:text-white hover:border-amber-500/30'
+                    } font-mono text-xs tracking-wider uppercase transition-all duration-300`}
+                  >
+                    <Icon className="w-4 h-4 mr-2" />
+                    {category === 'all' ? 'All' : CATEGORY_LABELS[category]}
+                  </Button>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 

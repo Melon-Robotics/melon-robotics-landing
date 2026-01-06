@@ -9,9 +9,9 @@ import { Input } from "@/components/ui/input"
 
 const footerLinks = {
   quick: [
-    { name: "Products", href: "/products" },
+    { name: "Systems", href: "/products" },
     { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
+    { name: "Company", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],
   legal: [

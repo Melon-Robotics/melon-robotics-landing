@@ -17,6 +17,7 @@ export interface Product {
   tagline: string
   description: string
   heroImage: string
+  heroImageAlt?: string
   category: 'software' | 'hardware' | 'robotics'
   features: ProductFeature[]
   specifications: ProductSpec[]
@@ -29,6 +30,16 @@ export interface Product {
     primary: string
     secondary: string
   }
+  // Products page specific fields
+  valueProposition: string // One-sentence value prop
+  supportingParagraph: string // 2-3 line supporting text
+  keySpecs: Array<{ label: string; value: string }> // 3-4 key specifications for products page
+  productsPageCta: {
+    primary: string
+    primaryHref: string
+    secondary?: string
+    secondaryHref?: string
+  }
 }
 
 export const products: Product[] = [
@@ -38,7 +49,22 @@ export const products: Product[] = [
     tagline: 'Intelligent Communication Platform for the Ocean',
     description: 'Advanced speech-to-text software for maritime and subsea operations. Real-time transcription, intelligent flagging, and offline-first architecture.',
     heroImage: '/linear.webp',
+    heroImageAlt: 'BlackBox communication platform interface showing real-time transcription and maritime communication protocols',
     category: 'software',
+    valueProposition: 'Real-time speech-to-text transcription for maritime and subsea communications, operating entirely offline.',
+    supportingParagraph: 'Designed for operations where network connectivity is unreliable or security-sensitive. Processes VHF, UHF, HF, and satellite communications with domain-specific accuracy. All data remains on-device with zero cloud dependency.',
+    keySpecs: [
+      { label: 'Operating Environment', value: 'Maritime, subsea, aviation' },
+      { label: 'Primary Use Case', value: 'Critical communication transcription and archival' },
+      { label: 'Differentiator', value: 'Offline-first, zero-latency local processing' },
+      { label: 'Target Operator', value: 'Maritime operations, defense, search and rescue' }
+    ],
+    productsPageCta: {
+      primary: 'View System Overview',
+      primaryHref: '/products/blackbox',
+      secondary: 'View Documentation',
+      secondaryHref: '/products/blackbox'
+    },
     features: [
       {
         icon: 'Cpu',
@@ -90,7 +116,22 @@ export const products: Product[] = [
     tagline: 'Revolutionary Upper-Body Exoskeleton for Commercial Diving',
     description: 'Advanced pneumatic exoskeleton augmenting diver strength up to 100 lbs while maintaining precise control. Engineered for extreme depths and demanding commercial operations.',
     heroImage: '/exoskeleton.png',
+    heroImageAlt: 'PneumaForce exoskeleton system showing pneumatic actuators and marine-grade construction for commercial diving operations',
     category: 'hardware',
+    valueProposition: 'Pneumatic exoskeleton system augmenting diver strength by 100 lbs while maintaining precise control at depths up to 1,000 feet.',
+    supportingParagraph: 'Engineered for commercial diving operations requiring extended bottom time and heavy lifting capability. AirMatrix buoyancy control reduces diver fatigue and extends operational duration. Marine-grade construction withstands corrosive saltwater environments.',
+    keySpecs: [
+      { label: 'Operating Environment', value: 'Commercial diving, depths up to 1,000 ft (305 m)' },
+      { label: 'Primary Use Case', value: 'Heavy lifting and extended bottom time operations' },
+      { label: 'Differentiator', value: 'Pneumatic power assist with predictive AI movement amplification' },
+      { label: 'Target Operator', value: 'Commercial diving contractors, offshore construction, salvage operations' }
+    ],
+    productsPageCta: {
+      primary: 'View Specifications',
+      primaryHref: '/products/pneumaforce',
+      secondary: 'Request Demo',
+      secondaryHref: '/contact'
+    },
     features: [
       {
         icon: 'Waves',
@@ -147,7 +188,22 @@ export const products: Product[] = [
     tagline: 'Autonomous Underwater Vehicle with Swarm Intelligence',
     description: 'Modular AUV system designed for precision exploration, surveillance, and data collection. Features advanced AI, multi-unit coordination, and extreme depth capability.',
     heroImage: '/placeholder.svg?height=600&width=600',
+    heroImageAlt: 'Melon Scout AUV system showing modular design with sensor payloads and swarm coordination capabilities',
     category: 'robotics',
+    valueProposition: 'Modular autonomous underwater vehicle system with swarm coordination for persistent subsea operations at depths up to 1,000 meters.',
+    supportingParagraph: 'Designed for defense, research, and infrastructure inspection missions requiring autonomous data collection and surveillance. Swarm intelligence enables coordinated multi-unit operations with shared situational awareness. Configurable payload modules support sonar mapping, environmental sensing, and sample collection.',
+    keySpecs: [
+      { label: 'Operating Environment', value: 'Subsea operations, depths up to 1,000 m' },
+      { label: 'Primary Use Case', value: 'Autonomous surveillance, exploration, and data collection' },
+      { label: 'Differentiator', value: 'Modular architecture with swarm coordination and edge AI processing' },
+      { label: 'Target Operator', value: 'Defense contractors, research institutions, infrastructure operators' }
+    ],
+    productsPageCta: {
+      primary: 'Explore Architecture',
+      primaryHref: '/products/scout',
+      secondary: 'Request Demo',
+      secondaryHref: '/contact'
+    },
     features: [
       {
         icon: 'Cpu',
