@@ -1,6 +1,6 @@
 # Melon Robotics Landing Page
 
-[![Melon-Wiki](https://github.com/Melon-Robotics/melon-wiki/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Melon-Robotics/melon-wiki/actions/workflows/pages/Melon-Wiki)
+[![pages-build-deployment](https://github.com/Melon-Robotics/melon-wiki/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Melon-Robotics/melon-wiki/actions/workflows/pages/pages-build-deployment)
 
 Welcome to the official landing page repository for **Melon Robotics**, a next-generation ocean intelligence company pioneering autonomous marine systems for defense, environmental monitoring, resource exploration, and more.
 
