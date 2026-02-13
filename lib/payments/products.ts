@@ -6,6 +6,8 @@
  */
 
 import type { PaymentItem } from './types'
+import { products } from '@/lib/data/products'
+import { services } from '@/lib/data/services'
 
 export interface ProductPaymentConfig {
   productId: string
@@ -177,7 +179,72 @@ export function getROVSubscriptionTier(tierName: string) {
 }
 
 /**
- * Convert product/service to payment items
+ * Convert relative image path to absolute URL for Stripe
+ * Stripe requires absolute URLs for product images
+ */
+function getAbsoluteImageUrl(imagePath: string): string {
+  if (!imagePath) return ''
+  
+  // If already an absolute URL, return as is
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath
+  }
+  
+  // Convert relative path to absolute URL
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+  // Remove leading slash if present to avoid double slashes
+  const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`
+  return `${baseUrl}${cleanPath}`
+}
+
+/**
+ * Get product details with image and enhanced description
+ */
+export function getProductDetailsForCheckout(productId: string): {
+  image?: string
+  enhancedDescription?: string
+} {
+  const product = products.find(p => p.id === productId)
+  if (!product) {
+    return {}
+  }
+  
+  const image = product.heroImage ? getAbsoluteImageUrl(product.heroImage) : undefined
+  
+  // Create enhanced description combining tagline and description
+  const enhancedDescription = product.tagline 
+    ? `${product.tagline}. ${product.description}`
+    : product.description
+  
+  return {
+    image,
+    enhancedDescription,
+  }
+}
+
+/**
+ * Get service details with enhanced description
+ */
+export function getServiceDetailsForCheckout(serviceId: string): {
+  enhancedDescription?: string
+} {
+  const service = services.find(s => s.id === serviceId)
+  if (!service) {
+    return {}
+  }
+  
+  // Create enhanced description combining tagline and description
+  const enhancedDescription = service.tagline 
+    ? `${service.tagline}. ${service.description}`
+    : service.description
+  
+  return {
+    enhancedDescription,
+  }
+}
+
+/**
+ * Convert product/service to payment items with enhanced details
  */
 export function createPaymentItems(
   items: Array<{
@@ -187,16 +254,40 @@ export function createPaymentItems(
     quantity?: number
     description?: string
     metadata?: Record<string, string>
+    images?: string[]
   }>
 ): PaymentItem[] {
-  return items.map((item) => ({
-    id: item.id,
-    name: item.name,
-    amount: item.amount,
-    quantity: item.quantity || 1,
-    description: item.description,
-    metadata: item.metadata,
-  }))
+  return items.map((item) => {
+    let enhancedDetails: { image?: string; enhancedDescription?: string } = {}
+    
+    // Try to enhance with product details if it's a product
+    if (item.metadata?.type === 'product') {
+      enhancedDetails = getProductDetailsForCheckout(item.metadata.productId || item.id)
+    }
+    // Try to enhance with service details if it's a service or subscription
+    else if (item.metadata?.type === 'service' || item.metadata?.type === 'subscription') {
+      const serviceId = item.metadata.serviceId
+      if (serviceId) {
+        enhancedDetails = getServiceDetailsForCheckout(serviceId)
+        // For subscriptions, combine service description with subscription tier info
+        if (item.metadata.type === 'subscription' && enhancedDetails.enhancedDescription) {
+          enhancedDetails.enhancedDescription = `${item.description || item.name}. ${enhancedDetails.enhancedDescription}`
+        }
+      }
+    }
+    
+    return {
+      id: item.id,
+      name: item.name,
+      amount: item.amount,
+      quantity: item.quantity || 1,
+      // Use enhanced description if available, otherwise use provided description
+      description: enhancedDetails.enhancedDescription || item.description,
+      metadata: item.metadata,
+      // Use provided images or product image if available
+      images: item.images || (enhancedDetails.image ? [enhancedDetails.image] : undefined),
+    }
+  })
 }
 
 

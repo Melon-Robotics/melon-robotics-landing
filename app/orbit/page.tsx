@@ -513,7 +513,7 @@ export default function OrbitPage() {
                 <Link href="/contact">
                   <Button
                     variant="outline"
-                    className="w-full sm:w-auto border border-gray-700/40 text-gray-300 hover:text-white hover:border-gray-500 px-6 md:px-8 py-4 md:py-5 text-base font-normal tracking-wide transition-all duration-200 min-h-[52px]"
+                    className="w-full sm:w-auto border border-gray-700/40 text-white/80 hover:text-white hover:border-gray-500 px-6 md:px-8 py-4 md:py-5 text-base font-normal tracking-wide transition-all duration-200 min-h-[52px]"
                   >
                     Request ORBIT Access
                   </Button>

@@ -733,7 +733,7 @@ export function PhotogrammetryDemos() {
                       className={`w-full ${
                         tier.recommended
                           ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
-                          : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
+                          : 'border border-gray-700/50 text-white/60 hover:text-white hover:border-gray-600 bg-black/20'
                       } py-6 md:py-7 text-xs md:text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
                       variant="outline"
                     >

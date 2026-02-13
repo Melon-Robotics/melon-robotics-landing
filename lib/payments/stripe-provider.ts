@@ -38,14 +38,21 @@ export class StripePaymentProvider implements PaymentProcessor {
     const lineItems = params.items.map((item) => {
       const interval = item.metadata?.interval as 'month' | 'year' | undefined
       
+      const productData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData.ProductData = {
+        name: item.name,
+        description: item.description,
+        metadata: item.metadata,
+      }
+      
+      // Add images if provided (Stripe requires absolute URLs)
+      if (item.images && item.images.length > 0) {
+        productData.images = item.images
+      }
+      
       return {
         price_data: {
           currency: 'usd',
-          product_data: {
-            name: item.name,
-            description: item.description,
-            metadata: item.metadata,
-          },
+          product_data: productData,
           unit_amount: item.amount,
           recurring: params.mode === 'subscription' ? {
             interval: interval || 'year', // Use metadata interval or default to annual

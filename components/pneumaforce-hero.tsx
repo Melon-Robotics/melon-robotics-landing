@@ -176,7 +176,7 @@ export function PneumaForceHero() {
                 <Button 
                   variant="outline"
                   size="lg"
-                  className="border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white px-8 py-6 text-base font-medium rounded-full transition-all duration-300"
+                  className="border-gray-700 text-white/80 hover:bg-gray-900 hover:text-white px-8 py-6 text-base font-medium rounded-full transition-all duration-300"
                 >
                   Request Demo
           </Button>

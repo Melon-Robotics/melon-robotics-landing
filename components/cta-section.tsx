@@ -79,7 +79,7 @@ export function CTASection() {
             <Link href="/products">
               <Button
                 variant="outline"
-                className="border-gray-700 text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-600 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full transition-all duration-300"
+                className="border-gray-700 text-white/80 hover:bg-gray-900 hover:text-white hover:border-gray-600 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-full transition-all duration-300"
                 size="lg"
               >
                 View All Products

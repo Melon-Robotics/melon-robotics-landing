@@ -647,7 +647,7 @@ export default function ServicePage({ params }: PageProps) {
                     className={`w-full ${
                       tier.name === 'Gold'
                         ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50'
-                        : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
+                        : 'border border-gray-700/50 text-white/60 hover:text-white hover:border-gray-600 bg-black/20'
                     } py-7 text-sm font-mono tracking-wider uppercase transition-all duration-300 backdrop-blur-sm`}
                     variant="outline"
                     isRecommended={tier.name === 'Gold'}
@@ -710,7 +710,7 @@ export default function ServicePage({ params }: PageProps) {
                 <Link href="/services" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
-                    className="w-full sm:w-auto border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 px-12 py-8 text-sm font-mono tracking-wider uppercase transition-all duration-300 bg-black/20 backdrop-blur-sm"
+                    className="w-full sm:w-auto border border-gray-700/50 text-white/60 hover:text-white hover:border-gray-600 px-12 py-8 text-sm font-mono tracking-wider uppercase transition-all duration-300 bg-black/20 backdrop-blur-sm"
                 >
                   View All Services
                 </Button>

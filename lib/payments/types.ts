@@ -30,6 +30,7 @@ export interface PaymentItem {
   amount: number // in cents
   quantity: number
   metadata?: Record<string, string>
+  images?: string[] // Array of image URLs for Stripe checkout display
 }
 
 export interface Customer {

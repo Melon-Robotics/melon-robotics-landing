@@ -98,7 +98,7 @@ export default function ScoutPricingPage() {
                   className={`w-full ${
                     selectedTier === tierOption.id
                       ? 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30'
-                      : 'border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 bg-black/20'
+                      : 'border border-gray-700/50 text-white/60 hover:text-white hover:border-gray-600 bg-black/20'
                   } py-6 text-sm font-mono tracking-wider uppercase transition-all duration-300`}
                   variant="outline"
                   onClick={(e) => {
@@ -262,7 +262,7 @@ export default function ScoutPricingPage() {
                 <Link href="/products/scout/accessories" className="flex-1">
                   <Button
                     variant="outline"
-                    className="w-full border border-gray-700/50 text-gray-400 hover:text-white hover:border-gray-600 py-6 text-sm font-mono tracking-wider uppercase"
+                    className="w-full border border-gray-700/50 text-white/60 hover:text-white hover:border-gray-600 py-6 text-sm font-mono tracking-wider uppercase"
                   >
                     View Accessories
                   </Button>

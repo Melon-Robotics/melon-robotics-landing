@@ -517,10 +517,10 @@ export function BlackBoxControlCenter() {
                             <button className="w-full py-2 px-3 border border-amber-500/30 bg-amber-500/10 text-amber-500 font-mono text-xs hover:bg-amber-500/20 transition-all">
                               START TRAINING
                             </button>
-                            <button className="w-full py-2 px-3 border border-gray-700/30 bg-gray-900/30 text-gray-400 font-mono text-xs hover:bg-gray-900/50 transition-all">
+                            <button className="w-full py-2 px-3 border border-gray-700/30 bg-gray-900/30 text-white/60 font-mono text-xs hover:bg-gray-900/50 hover:text-white/80 transition-all">
                               EXPORT MODEL
                             </button>
-                            <button className="w-full py-2 px-3 border border-gray-700/30 bg-gray-900/30 text-gray-400 font-mono text-xs hover:bg-gray-900/50 transition-all">
+                            <button className="w-full py-2 px-3 border border-gray-700/30 bg-gray-900/30 text-white/60 font-mono text-xs hover:bg-gray-900/50 hover:text-white/80 transition-all">
                               VIEW DATASET
                             </button>
                           </div>

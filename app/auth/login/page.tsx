@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Loader2, Lock, Mail } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -42,85 +43,179 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0e1a] text-white flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
-        <div className="border border-gray-800/50 bg-gradient-to-b from-[#0a0e1a] to-[#0f1625] p-8 md:p-10">
-          <div className="mb-8 text-center">
-            <h1 className="text-3xl font-light mb-2 text-white/90">Sign In</h1>
-            <div className="h-px w-16 bg-amber-500/30 mx-auto mb-4" />
-            <p className="text-gray-400 text-sm">
-              Sign in to your account to continue
-            </p>
-          </div>
+    <div className="min-h-screen bg-[#0a0e1a] text-white flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Technical Grid Background */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
-              <div className="p-4 bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
-                {error}
-              </div>
-            )}
+      {/* Depth Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0f1625] to-[#0a0e1a]" />
 
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-400">
-                Email
-              </Label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="pl-10 bg-black/40 border-gray-700/50 text-white"
-                  placeholder="your@email.com"
-                />
-              </div>
-            </div>
+      {/* Glowing Orbs */}
+      <div className="absolute top-1/4 -left-32 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
 
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-gray-400">
-                Password
-              </Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="pl-10 bg-black/40 border-gray-700/50 text-white"
-                  placeholder="••••••••"
-                />
-              </div>
-            </div>
+      {/* Corner Markers */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/20" />
+        <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-amber-500/20" />
+        <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-amber-500/20" />
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-amber-500/20" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+      </div>
 
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Signing in...
-                </>
-              ) : (
-                'Sign In'
-              )}
-            </Button>
-          </form>
-
-          <div className="mt-6 text-center text-sm text-gray-500">
-            Don't have an account?{' '}
-            <Link href="/auth/register" className="text-amber-500/80 hover:text-amber-500">
-              Sign up
-            </Link>
-          </div>
+      {/* System Reference */}
+      <div className="absolute top-4 left-4 text-[10px] font-mono text-amber-500/60 z-20">
+        <div className="inline-block border border-amber-500/20 bg-black/60 backdrop-blur-sm px-2 py-1">
+          MR-AUTH | SIGN-IN
         </div>
       </div>
+
+      {/* Status Indicator */}
+      <div className="absolute top-4 right-4 text-[10px] font-mono text-amber-500/60 z-20 hidden sm:block">
+        <div className="inline-block border border-amber-500/20 bg-black/60 backdrop-blur-sm px-2 py-1">
+          SECURE: <span className="text-green-400">ENCRYPTED</span>
+        </div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-md relative z-10"
+      >
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center mb-8"
+        >
+          <Link href="/" className="inline-block">
+            <div className="border border-amber-500/30 bg-black/50 px-3 py-2 text-sm font-mono text-amber-500 hover:border-amber-500/50 transition-colors">
+              MELON ROBOTICS
+            </div>
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative"
+        >
+          {/* Card with corner decorations */}
+          <div className="relative border border-amber-500/20 bg-gradient-to-b from-[#0a0e1a]/90 to-[#0f1625]/90 backdrop-blur-xl p-8 md:p-10">
+            {/* Scan line animation */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent"
+                animate={{ top: ['0%', '100%', '0%'] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              />
+            </div>
+
+            {/* Card corner markers */}
+            <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-amber-500/40" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-amber-500/40" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-amber-500/40" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-amber-500/40" />
+
+            <div className="relative z-10">
+              <div className="mb-8 text-center">
+                <div className="inline-block border border-amber-500/20 bg-black/30 px-3 py-1 mb-4">
+                  <div className="text-[10px] font-mono text-amber-500/70 tracking-widest uppercase">
+                    AUTHENTICATION
+                  </div>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-light mb-3 text-white/90 tracking-tight">Sign In</h1>
+                <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mx-auto mb-4" />
+                <p className="text-gray-400 text-sm font-light">
+                  Access your Melon Robotics account
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+                  >
+                    {error}
+                  </motion.div>
+                )}
+
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-xs font-mono text-amber-500/60 uppercase tracking-wider">
+                    Email
+                  </Label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-500/40" />
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="pl-10 bg-black/40 border-gray-700/50 text-white focus:border-amber-500/50 focus:ring-amber-500/20 transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-xs font-mono text-amber-500/60 uppercase tracking-wider">
+                    Password
+                  </Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-500/40" />
+                    <Input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      className="pl-10 bg-black/40 border-gray-700/50 text-white focus:border-amber-500/50 focus:ring-amber-500/20 transition-colors"
+                      placeholder="••••••••"
+                    />
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-amber-500/12 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 py-6 text-base font-normal tracking-wide transition-all duration-200 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Authenticating...
+                    </>
+                  ) : (
+                    'Sign In'
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-6 pt-6 border-t border-gray-800/50 text-center text-sm text-gray-500">
+                Don&apos;t have an account?{' '}
+                <Link href="/auth/register" className="text-amber-500/80 hover:text-amber-500 transition-colors">
+                  Create Account
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
-

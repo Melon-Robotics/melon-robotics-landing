@@ -255,7 +255,7 @@ export default function ScoutAccessoriesPage() {
                     className={`${
                       selectedCategory === category
                         ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
-                        : 'border-gray-700/50 text-gray-400 hover:text-white hover:border-amber-500/30'
+                        : 'border-gray-700/50 text-white/60 hover:text-white hover:border-amber-500/30'
                     } font-mono text-xs tracking-wider uppercase transition-all duration-300`}
                   >
                     <Icon className="w-4 h-4 mr-2" />

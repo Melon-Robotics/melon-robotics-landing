@@ -52,7 +52,7 @@ function PaymentSuccessContent() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" className="border-gray-700/50 text-gray-400 hover:text-white">
+              <Button variant="outline" className="border-gray-700/50 text-white/70 hover:text-white">
                 Contact Support
               </Button>
             </Link>
@@ -91,7 +91,7 @@ function PaymentSuccessContent() {
             </Button>
           </Link>
           <Link href="/products">
-            <Button variant="outline" className="border-gray-700/50 text-gray-400 hover:text-white">
+            <Button variant="outline" className="border-gray-700/50 text-white/70 hover:text-white">
               View Products
             </Button>
           </Link>

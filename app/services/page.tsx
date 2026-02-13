@@ -30,7 +30,7 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white">
-      {/* Hero Section - Technical Services Catalog */}
+      {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 md:pt-0">
         {/* Technical Grid Background */}
         <div className="absolute inset-0 opacity-[0.02] z-0">
@@ -42,74 +42,57 @@ export default function ServicesPage() {
             backgroundSize: '40px 40px'
           }} />
         </div>
-        
+
         {/* Depth Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0f1625] to-[#1a2332]" />
-        
-        {/* DARPA/NASA Terminal-inspired HUD Overlay */}
+
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/3 -left-48 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+
+        {/* HUD Overlay */}
         <div className="absolute inset-0 z-10 pointer-events-none">
-          {/* Technical corner markers */}
-          <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-amber-500/20" />
-          <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-amber-500/20" />
-          <div className="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-amber-500/20" />
-          <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-amber-500/20" />
-          
-          {/* Top frame */}
+          <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-amber-500/20" />
+          <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-amber-500/20" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-amber-500/20" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-amber-500/20" />
+
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-          <div className="absolute top-0 left-0 h-16 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
-          <div className="absolute top-0 right-0 h-16 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
-          
-          {/* Bottom frame */}
-          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 h-16 w-px bg-gradient-to-t from-amber-500/30 to-transparent" />
-          <div className="absolute bottom-0 right-0 h-16 w-px bg-gradient-to-t from-amber-500/30 to-transparent" />
-          
+          <div className="absolute top-0 left-0 h-20 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
+          <div className="absolute top-0 right-0 h-20 w-px bg-gradient-to-b from-amber-500/30 to-transparent" />
+
           {/* System Reference - Top Left */}
           <div className="absolute top-4 left-4 text-[10px] sm:text-xs font-mono text-amber-500/80">
-            <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
-              <span className="hidden xs:inline">MR-SERVICES-CATALOG | </span>REF: 001-S
-            </div>
-            <div className="mt-1 text-[8px] text-gray-600 font-mono">
-              REV: A.1 | CLASS: UNCLASSIFIED
+            <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1">
+              <span className="hidden xs:inline">MR-SERVICES | </span>REF: 002-S
             </div>
           </div>
-          
-          {/* Services Status - Top Right */}
-          <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80 hidden xs:block">
-            <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
-              SERVICES: <span className="text-green-400">ACTIVE</span>
-            </div>
-            <div className="mt-1 text-[8px] text-gray-600 font-mono text-right">
-              AVAILABLE: <span className="text-green-400">{services.length} OPERATIONAL</span>
+
+          {/* Status - Top Right */}
+          <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80 hidden sm:block">
+            <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-2 py-1">
+              STATUS: <span className="text-green-400">OPERATIONAL</span>
             </div>
           </div>
-          
-          {/* System Health - Bottom Left */}
-          <div className="absolute bottom-4 left-4 flex flex-col gap-2 text-[10px] sm:text-xs font-mono">
+
+          {/* Bottom Left */}
+          <div className="absolute bottom-4 left-4 text-[10px] sm:text-xs font-mono">
             <div className="flex items-center">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 mr-1.5 animate-pulse" />
-              <span className="text-green-400">SERVICES</span>
-              <span className="text-gray-600 ml-2 hidden sm:inline">| STATUS: OPERATIONAL</span>
-            </div>
-            <div className="flex items-center hidden xs:flex">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500 mr-1.5 animate-pulse" />
-              <span className="text-amber-500">CAPABILITIES</span>
-              <span className="text-gray-600 ml-2">| ALL: ONLINE</span>
-            </div>
-          </div>
-          
-          {/* Services Data - Bottom Right */}
-          <div className="absolute bottom-4 right-4 text-[10px] sm:text-xs font-mono text-amber-500/80">
-            <div className="inline-block border border-amber-500/30 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1">
-              <span className="hidden xs:inline">SERVICES: {services.length} | </span>
-              <span>STATUS: <span className="text-green-400">ONLINE</span></span>
-            </div>
-            <div className="mt-1 text-[8px] text-gray-600 font-mono text-right">
-              CATEGORIES: INSPECTION | DATA | SAFETY
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5 animate-pulse" />
+              <span className="text-green-400">{services.length} SERVICES ACTIVE</span>
             </div>
           </div>
         </div>
-        
+
+        {/* Animated Scan Line */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
+          <motion.div
+            className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/15 to-transparent"
+            animate={{ top: ['0%', '100%', '0%'] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+          />
+        </div>
+
         {/* Content */}
         <div className="container-responsive relative z-10 max-w-7xl px-4">
           <motion.div
@@ -118,12 +101,12 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-5xl mx-auto"
           >
-            {/* System Status Indicator */}
+            {/* Status Indicator */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : -10 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-8 md:mb-12"
+              className="mb-6 md:mb-8"
             >
               <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-[10px] md:text-xs text-amber-500/80 tracking-[0.2em] uppercase">
                 <div className="flex items-center gap-2">
@@ -131,11 +114,11 @@ export default function ServicesPage() {
                     <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
                     <div className="absolute inset-0 w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping opacity-75" />
                   </div>
-                  <span>SERVICES CATALOG OPERATIONAL</span>
+                  <span>SERVICES ONLINE</span>
                 </div>
                 <div className="h-px w-8 md:w-12 bg-amber-500/20" />
                 <div className="text-gray-600">
-                  REF: MR-SVC-2024-001
+                  FIELD OPERATIONS & SUBSEA SERVICES
                 </div>
               </div>
             </motion.div>
@@ -147,10 +130,10 @@ export default function ServicesPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-[-0.02em] leading-[0.95] mb-6 sm:mb-8"
             >
-              <span className="block text-white">Services</span>
-              <span className="block text-amber-500">Catalog</span>
+              <span className="block text-white">OUR</span>
+              <span className="block text-amber-500">SERVICES</span>
             </motion.h1>
-            
+
             {/* Technical Divider */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -158,49 +141,16 @@ export default function ServicesPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mx-auto mb-6 sm:mb-8"
             />
-            
-            {/* Supporting Subhead */}
+
+            {/* Capability Line */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 10 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl md:text-2xl lg:text-3xl font-light text-gray-300 max-w-4xl mx-auto leading-[1.4] mb-6 sm:mb-8"
+              className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12 md:mb-16 font-mono tracking-wide"
             >
-              Operational services supporting maritime and subsea missions
+              ROV inspection. 3D photogrammetry. Ocean data. Safety standards.
             </motion.p>
-            
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 10 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto mb-12 md:mb-16 leading-[1.6] font-light"
-            >
-              Professional services leveraging Melon technology platforms. Each service addresses specific operational requirements with documented capabilities and deployment options.
-            </motion.p>
-
-            {/* Technical Specs Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 10 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-4 md:gap-6 font-mono text-[9px] sm:text-[10px] text-gray-600 mb-8 md:mb-12"
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-gray-700">SERVICES:</span>
-                <span className="text-amber-500/80">{services.length} OPERATIONAL</span>
-              </div>
-              <div className="w-px h-3 bg-gray-800 hidden sm:block" />
-              <div className="flex items-center gap-2">
-                <span className="text-gray-700">CATEGORIES:</span>
-                <span className="text-amber-500/80">INSPECTION | DATA | SAFETY</span>
-              </div>
-              <div className="w-px h-3 bg-gray-800 hidden sm:block" />
-              <div className="flex items-center gap-2">
-                <span className="text-gray-700">STATUS:</span>
-                <span className="text-green-400/80">ALL OPERATIONAL</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
@@ -323,7 +273,7 @@ export default function ServicesPage() {
                                   <Link href={service.servicesPageCta.secondaryHref}>
                                     <Button
                                       variant="outline"
-                                      className="w-full sm:w-auto border border-gray-700/40 text-gray-300 hover:text-white hover:border-gray-500 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200"
+                                      className="w-full sm:w-auto border border-gray-700/40 text-white/80 hover:text-white hover:border-gray-500 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200"
                                     >
                                       {service.servicesPageCta.secondary}
                                     </Button>
@@ -353,33 +303,38 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Integration CTA - Technical */}
-      <section className="py-16 sm:py-24 md:py-32 px-4 border-t border-amber-500/10 bg-gradient-to-b from-[#0a0e1a] to-black">
+      {/* CTA */}
+      <section className="relative py-16 sm:py-24 md:py-32 px-4 border-t border-amber-500/10 bg-gradient-to-b from-[#0a0e1a] to-black overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-amber-500/[0.02] rounded-full blur-3xl" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="container-responsive max-w-4xl text-center"
+          className="container-responsive max-w-4xl text-center relative z-10"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight mb-4 sm:mb-6 text-white">
-            Integrated Operations
+          <div className="font-mono text-[10px] md:text-xs text-amber-500/60 tracking-[0.2em] uppercase mb-6">
+            READY TO DEPLOY
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-tight mb-4 sm:mb-6 text-white">
+            Request an Operations Brief
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light mb-8 sm:mb-10">
-            Services integrate with product platforms. ROV Inspection services deploy Scout systems. Ocean Data services provide environmental intelligence for autonomous missions.
+          <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent mx-auto mb-6" />
+          <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto mb-8 sm:mb-10 font-mono tracking-wide">
+            Mission requirements. Deployment timelines. Capabilities.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link href="/products">
-              <Button className="w-full sm:w-auto bg-amber-500/12 hover:bg-amber-500/20 active:bg-amber-500/25 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 active:border-amber-500/60 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] backdrop-blur-sm">
-                View Products
+            <Link href="/contact">
+              <Button className="w-full sm:w-auto bg-amber-500/12 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 hover:border-amber-500/50 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] backdrop-blur-sm">
+                Contact Operations
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/products">
               <Button
                 variant="outline"
-                className="w-full sm:w-auto border border-gray-700/40 text-gray-300 hover:text-white hover:border-gray-500 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200"
+                className="w-full sm:w-auto border border-gray-700/40 text-white/80 hover:text-white hover:border-gray-500 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-normal tracking-wide transition-all duration-200"
               >
-                Contact Sales
+                View Technology
               </Button>
             </Link>
           </div>

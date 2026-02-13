@@ -174,6 +174,7 @@ export async function POST(request: NextRequest) {
           metadata: {
             ...config.metadata,
             type: 'product',
+            productId: config.productId, // Ensure productId is in metadata for image lookup
           },
         }]
         mode = config.type === 'subscription' ? 'subscription' : 'payment'
@@ -208,6 +209,7 @@ export async function POST(request: NextRequest) {
         metadata: {
           ...config.metadata,
           type: 'service',
+          serviceId: config.serviceId, // Ensure serviceId is in metadata for description lookup
         },
       }]
       mode = config.type === 'subscription' ? 'subscription' : 'payment'
@@ -270,6 +272,8 @@ export async function POST(request: NextRequest) {
           ...tierConfig.metadata,
           type: 'subscription',
           interval: tierConfig.interval || 'year',
+          // Include serviceId for enhanced description lookup
+          serviceId: tierConfig.metadata?.serviceId || id,
         },
       }]
       mode = 'subscription'
